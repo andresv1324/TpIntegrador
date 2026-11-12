@@ -93,7 +93,7 @@ def main():
 
         if st.session_state.cruce =="Usarla para ir por dentro del Rio" or st.session_state.cruce == "Ir por dentro del bosque":
             st.write("Encuentras una Ardilla mascota en el camino.")
-            st.session.state.mascota = "Ardilla"
+            st.session_state.mascota = "Ardilla"
 
         elif st.session_state.cruce == "Ignorarla y bordear el rio" or st.session_state.cruce == "Volar Sobre el bosque":
             st.write("Encontraste un Gato Tricolor mascota en el camino")
