@@ -49,7 +49,7 @@ def main():
         if st.session_state.personaje == "🧚 Hada":
             destino = st.radio(
                 "¿A dónde quieres ir?",
-                ["Río Bravo", "Bosque Brumoso"]
+                ["Rio Bravo", "Bosque Brumoso"]
             )
 
         elif st.session_state.personaje == "🧭 Explorador":
@@ -60,14 +60,14 @@ def main():
 
         if st.button("Continuar"):
 
-            st.session_state.cruce = destino
+            st.session_state.destino = destino
             st.session_state.etapa = 3
             st.rerun()
 
     # ETAPA 3: Pasar el camino
     elif st.session_state.etapa == 3:
 
-        st.subheader("")
+        st.subheader(f"El camino del {st.session_state.destino}")
 
         if st.session_state.destino == "Rio Bravo":
             cruce = st.radio(
