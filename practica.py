@@ -95,7 +95,7 @@ def main():
             st.write("Encuentras una Ardilla mascota en el camino.")
             st.session.state.mascota = "Ardilla"
 
-        elif st.select_slider.cruce == "Ignorarla y bordear el rio" or st.session_state.cruce == "Volar Sobre el bosque":
+        elif st.session_state.cruce == "Ignorarla y bordear el rio" or st.session_state.cruce == "Volar Sobre el bosque":
             st.write("Encontraste un Gato Tricolor mascota en el camino")
             st.session_state.mascota = "Gato Tricolor"
 
