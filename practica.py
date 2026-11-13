@@ -169,6 +169,24 @@ def main():
                 ]
             )
 
+        elif st.session_state.salaInicial == "Pasillo Izquierdo":
+            st.write(f"Usas a tu {st.session_state.mascota}, que genera una fuerte luz que seca a los espiritus")
+            st.write("Cortarse un mechon del cabello - Este genera un onda de luz")
+            opcionBatalla = st.radio(
+                "Como vas a superar la sala",
+                ["Habilad de tu mascota","Cortar el cabello"]
+            )
+
+        elif st.session_state.salaInicial == "Pasillo Derecho":
+            st.write(f"Usar a tu {st.session_state.mascota}, junto tu polvo de hadas")
+            st.write("tun tun tun")
+            opcionBatalla = st.radio(
+                "Como vas a superar la sala",
+                [
+                    f"Usar a tu {st.session_state.mascota} junto a tu polvo de hada",
+                "tun tun tun"
+                ]
+            )
 
         if st.button("Continuar"):
             st.session_state.opcionBatalla = opcionBatalla
