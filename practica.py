@@ -33,6 +33,9 @@ def main():
     if "opcionBatalla" not in st.session_state:
         st.session_state.opcionBatalla = None
 
+
+
+
     # ETAPA 1: Selección del personaje
     if st.session_state.etapa == 1:
         st.subheader("Selecciona tu personaje")
@@ -86,6 +89,20 @@ def main():
                 "Ves un bosque el que deberas pasar",
                 ["Volar Sobre el bosque","Ir por dentro del bosque"]
             )
+
+        elif st.session_state.destino == "Tunel Con Trampas":
+            cruce = st.radio(
+                "Como superar el tunel",
+                ["Trepar tunel","Cruzar el tunel"]
+            )
+
+        elif st.session_state.destino == "Montaña Con Laberintos":
+            cruce = st.radio(
+                "Como superar la montaña",
+                ["Trepar montaña","Pasar por medio de la momtaña"]
+            )
+
+#        elif st.session_state.destino == "Montaña Con Laberintos":
 
         if st.button("Continuar"):
             st.session_state.cruce = cruce
