@@ -30,6 +30,9 @@ def main():
     if "salaInicial" not in st.session_state:
         st.session_state.salaInicial = None
 
+    if "opcionBatalla" not in st.session_state:
+        st.session_state.opcionBatalla = None
+
     # ETAPA 1: Selección del personaje
     if st.session_state.etapa == 1:
         st.subheader("Selecciona tu personaje")
@@ -112,8 +115,8 @@ def main():
         st.session_state.etapa= 5
         st.rerun()
 
+    #ETAPA 5
     elif st.session_state.etapa == 5:
-
         st.subheader(f"El camino del {st.session_state.personaje}")
 
         if st.session_state.mascota == "Ardilla":
@@ -137,6 +140,44 @@ def main():
             st.session_state.salaInicial = salaInicial
             st.session_state.etapa = 6
             st.rerun()
+
+
+    #ETAPA 6
+    elif st.session_state.etapa == 6:
+        st.subheader(f"El camino del {st.session_state.personaje}")
+
+        if st.session_state.salaInicial == "Fantasmas":
+            st.write("Podes luchar Usando Polvo de Hadas que genera explosiones que te ayudan a esconderte en la habitacion")
+            st.write(f"Puedes usar a tu mascota: {st.session_state.mascota}, que puede hacerte invisible para pasar la sala")
+
+            opcionBatalla = st.radio(
+                "Como vas a superar la sala?",
+                [
+                    "Polvo De Hadas",
+                    f"Habilidad de la {st.session_state.mascota}"
+                ]
+            )
+
+        elif st.session_state.salaInicial == "Campo de Flores":
+            st.write("Podes luchar Usando Polvo de Hadas que anula el veneno de las flores")
+            st.write(f"Puedes usar a tu mascota: {st.session_state.mascota}, que genera una burbuja protectora que repele los gases")
+            opcionBatalla = st.radio(
+                "Como vas a superar la sala?",
+                [
+                    "Polvo De Hadas",
+                    f"Habilidad de la {st.session_state.mascota}"
+                ]
+            )
+
+
+        if st.button("Continuar"):
+            st.session_state.opcionBatalla = opcionBatalla
+            st.session_state.etapa = 7
+            st.rerun()
+
+
+
+
 
 
 
