@@ -127,9 +127,9 @@ def main():
         elif st.session_state.mascota == "Gato Tricolor":
             st.write("Al entras en la mazmorra vez un Tunel oscuro donde se escuchan voces a lo lejos")
             st.write("Al fondo encuentras 2 salas que tendra que superar para poder continuar")
+
             salaInicial = st.radio(
-                "Tienes Dos Pasillos",
-                "Un Pasillo Izquierdo - donde se escucha el fluir del agua y pasillo Derecho - Donde se ve una caida a un cuerto oscuro con mucho ruido"
+                "Un Pasillo Izquierdo - donde se escucha el fluir del agua y pasillo Derecho - Donde se ve una caida a un cuerto oscuro con mucho ruido",
                 ["Pasillo Izquierdo","Pasillo Derecho"]
             )
 
