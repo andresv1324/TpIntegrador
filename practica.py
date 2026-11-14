@@ -83,9 +83,7 @@ def main():
 
         with col1:
             if st.button(
-                "🧚 HADA  \n"
-                "✦  MAGIA Y HECHIZOS  \n"
-                "Personaje mágico con poderes especiales.",
+                "",
                 key="elegir_hada",
                 use_container_width=True
             ):
@@ -95,9 +93,7 @@ def main():
 
         with col2:
             if st.button(
-                "🧭 EXPLORADOR  \n"
-                "✦ VALOR Y EXPLORACIÓN  \n"
-                "Aventurero experto en descubrir caminos.",
+                "",
                 key="elegir_explorador",
                 use_container_width=True
             ):
