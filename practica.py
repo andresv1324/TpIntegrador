@@ -99,10 +99,8 @@ def main():
         elif st.session_state.destino == "Montaña Con Laberintos":
             cruce = st.radio(
                 "Como superar la montaña",
-                ["Trepar montaña","Pasar por medio de la momtaña"]
+                ["Trepar montaña","Pasar por medio de la montaña"]
             )
-
-#        elif st.session_state.destino == "Montaña Con Laberintos":
 
         if st.button("Continuar"):
             st.session_state.cruce = cruce
@@ -114,11 +112,11 @@ def main():
 
         st.subheader(f"El camino del {st.session_state.personaje}")
 
-        if st.session_state.cruce =="Usarla para ir por dentro del Rio" or st.session_state.cruce == "Ir por dentro del bosque":
+        if st.session_state.cruce =="Usarla para ir por dentro del Rio" or st.session_state.cruce == "Ir por dentro del bosque" or st.session_state.cruce == "Trepar tunel" or st.session_state.cruce == "Pasar por medio de la montaña":
             st.write("Encuentras una Ardilla mascota en el camino.")
             st.session_state.mascota = "Ardilla"
 
-        elif st.session_state.cruce == "Ignorarla y bordear el rio" or st.session_state.cruce == "Volar Sobre el bosque":
+        elif st.session_state.cruce == "Ignorarla y bordear el rio" or st.session_state.cruce == "Volar Sobre el bosque" or st.session_state.cruce == "Cruzar el tunel" or st.session_state.cruce == "Trepar montaña":
             st.write("Encontraste un Gato Tricolor mascota en el camino")
             st.session_state.mascota = "Gato Tricolor"
 
@@ -136,7 +134,7 @@ def main():
     elif st.session_state.etapa == 5:
         st.subheader(f"El camino del {st.session_state.personaje}")
 
-        if st.session_state.mascota == "Ardilla":
+        if st.session_state.mascota == "Ardilla" and st.session_state.personaje == "🧚 Hada":
             st.write("Al entras en la mazmorra vez un Tunel con una luz en el camino")
             st.write("Al fondo encuentras 2 salas que tendra que superar para poder continuar")
             salaInicial = st.radio(
@@ -144,12 +142,29 @@ def main():
                 ["Fantasmas","Campo de Flores"]
             )
 
-        elif st.session_state.mascota == "Gato Tricolor":
+        elif st.session_state.mascota == "Gato Tricolor" and st.session_state.personaje == "🧚 Hada":
             st.write("Al entras en la mazmorra vez un Tunel oscuro donde se escuchan voces a lo lejos")
             st.write("Al fondo encuentras 2 salas que tendra que superar para poder continuar")
 
             salaInicial = st.radio(
                 "Un Pasillo Izquierdo - donde se escucha el fluir del agua y pasillo Derecho - Donde se ve una caida a un cuerto oscuro con mucho ruido",
+                ["Pasillo Izquierdo","Pasillo Derecho"]
+            )
+
+        elif st.session_state.mascota == "Ardilla" and st.session_state.personaje == "🧭 Explorador":
+            st.write("Al entar en la mazmorra sentis un aroma agradable")
+            st.write("Vez 2 caminos ")
+            salaInicial = st.radio(
+                "¿Pasillo izquierdo - Vez una corriente de aire y pasillo Derecho - vez un pasillo oscuro",
+                ["Pasillo Izquierdo","Pasillo Dereho"]
+            )
+
+        elif st.session_state.mascota == "Gato Tricolor" and st.session_state.personaje == "🧭 Explorador":
+            st.write("Al entrar en la mazmorra sentis un fuerte aroma desagradable")
+            st.write("Vez dos caminos ")
+
+            salaInicial = st.radio(
+                "Pasillo Izquierdo vez al fondo una reja metalica y Pasillo Derecho Una galeria con lodo en el piso ",
                 ["Pasillo Izquierdo","Pasillo Derecho"]
             )
 
