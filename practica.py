@@ -1,10 +1,25 @@
 import streamlit as st
+from pathlib import Path
+
 import pandas as pd
 import numpy as np
 
+def cargar_estilos():
+
+    ruta_css = Path(__file__).parent / "css" / "estilos.css"
+
+    with open(ruta_css, "r", encoding="utf-8") as archivo:
+        css = archivo.read()
+
+    st.markdown(
+        f"<style>{css}</style>",
+        unsafe_allow_html=True
+    )
 
 
 def main():
+
+    cargar_estilos()
 
     st.title("Aventura Interactiva")
 
@@ -38,17 +53,34 @@ def main():
 
     # ETAPA 1: Selección del personaje
     if st.session_state.etapa == 1:
+
         st.subheader("Selecciona tu personaje")
 
-        personaje = st.radio(
-            "¿Con quién quieres comenzar?",
-            ["🧚 Hada", "🧭 Explorador"]
-        )
+        col1, col2 = st.columns(2)
 
-        if st.button("Elegir personaje"):
-            st.session_state.personaje = personaje
-            st.session_state.etapa = 2
-            st.rerun()
+        with col1:
+            if st.button(
+                "🧚 HADA  \n"
+                "✦  MAGIA Y HECHIZOS  \n"
+                "Personaje mágico con poderes especiales.",
+                key="elegir_hada",
+                use_container_width=True
+            ):
+                st.session_state.personaje = "🧚 Hada"
+                st.session_state.etapa = 2
+                st.rerun()
+
+        with col2:
+            if st.button(
+                "🧭 EXPLORADOR  \n"
+                "✦ VALOR Y EXPLORACIÓN  \n"
+                "Aventurero experto en descubrir caminos.",
+                key="elegir_explorador",
+                use_container_width=True
+            ):
+                st.session_state.personaje = "🧭 Explorador"
+                st.session_state.etapa = 2
+                st.rerun()
 
     # ETAPA 2: Selección del camino
     elif st.session_state.etapa == 2:
@@ -221,7 +253,6 @@ def main():
             )
 
         elif st.session_state.salaInicial == "Corriente de aire" and st.session_state.personaje == "🧭 Explorador":
-            st.subheader(f"El camino del {st.session_state.personaje}")
 
             st.write(f"Puedes usar habilidad de {st.session_state.mascota}")
             st.write(f"Tomar a tu compañero y huyes con el en brazos")
@@ -235,7 +266,6 @@ def main():
             )
 
         elif st.session_state.salaInicial == "Pasillo oscuro" and st.session_state.personaje == "🧭 Explorador":
-            st.subheader(f"El camino del {st.session_state.personaje}")
 
             st.write("Tu compañero extiende las patas hacia ti")
             st.write("Crack Crack")
@@ -249,7 +279,6 @@ def main():
             )
 
         elif st.session_state.salaInicial == "Pasillo reja" and st.session_state.personaje == "🧭 Explorador":
-            st.subheader(f"El camino del {st.session_state.personaje}")
 
             st.write("Intentar forzar cerrrojo con la ganzua")
             st.write("Explotar bisagras con un trozo de pedernal")
@@ -260,7 +289,6 @@ def main():
             )
 
         elif st.session_state.salaInicial == "Pasillo a la galeria" and st.session_state.personaje == "🧭 Explorador":
-            st.subheader(f"El camino del {st.session_state.personaje}")
 
             st.write("Salto acrobatico")
             st.write("Cubrirte con la capa y pasar la sala")

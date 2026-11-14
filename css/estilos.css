@@ -1,0 +1,65 @@
+
+/* =========================
+    TARJETAS DE PERSONAJES
+========================= */
+
+/* Estilos compartidos */
+.st-key-elegir_hada button,
+.st-key-elegir_explorador button {
+    width: 100%;
+    min-height: 300px;
+
+    white-space: pre-wrap;
+    text-align: center;
+
+    border-radius: 12px;
+    border: 2px solid;
+    padding: 24px;
+
+    color: #F1F5F9;
+
+    transition: border-color 0.2s ease;
+}
+
+/* Texto de las tarjetas */
+.st-key-elegir_hada button p,
+.st-key-elegir_explorador button p {
+    white-space: pre-wrap;
+    text-align: center;
+    line-height: 2;
+    color: #F1F5F9;
+}
+
+/* Tarjeta Hada */
+.st-key-elegir_hada button {
+    background-color: #29213F;
+    border-color: #B99CF4;
+}
+
+/* Tarjeta Explorador */
+.st-key-elegir_explorador button {
+    background-color: #183B3C;
+    border-color: #65C9BA;
+}
+
+/* Hover Hada */
+.st-key-elegir_hada button:hover {
+    background-color: #3B2D59;
+    border-color: #D9C4FF;
+    color: #FFFFFF;
+}
+
+/* Hover Explorador */
+.st-key-elegir_explorador button:hover {
+    background-color: #245653;
+    border-color: #8CE7D6;
+    color: #FFFFFF;
+}
+
+/* Accesibilidad con teclado */
+.st-key-elegir_hada button:focus-visible,
+.st-key-elegir_explorador button:focus-visible {
+    outline: 3px solid #FFFFFF;
+    outline-offset: 3px;
+}
+
