@@ -11,7 +11,7 @@ import numpy as np
 @st.cache_data
 def cargar_gif(nombre):
     ruta_proyecto = Path(__file__).parent
-    ruta_gif = ruta_proyecto / "img" / "gif" / nombre
+    ruta_gif = ruta_proyecto / "assets" / "gif" / nombre
 
     with open(ruta_gif, "rb") as archivo:
         gif = base64.b64encode(archivo.read()).decode("utf-8")
