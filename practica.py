@@ -1,16 +1,37 @@
 import streamlit as st
+from PIL import Image
 from pathlib import Path
+
+from pathlib import Path
+import base64
 
 import pandas as pd
 import numpy as np
 
-def cargar_estilos():
+@st.cache_data
+def cargar_gif(nombre):
+    ruta_proyecto = Path(__file__).parent
+    ruta_gif = ruta_proyecto / "img" / "gif" / nombre
 
-    ruta_css = Path(__file__).parent / "css" / "estilos.css"
+    with open(ruta_gif, "rb") as archivo:
+        gif = base64.b64encode(archivo.read()).decode("utf-8")
+
+    return f"data:image/gif;base64,{gif}"
+
+def cargar_estilos():
+    ruta_proyecto = Path(__file__).parent
+    ruta_css = ruta_proyecto / "css" / "estilos.css"
 
     with open(ruta_css, "r", encoding="utf-8") as archivo:
         css = archivo.read()
 
+    # Cargar GIF
+    gif_hada = cargar_gif("hadaSaludando.gif")
+
+    # Reemplazar marcadores del CSS
+    css = css.replace("__HADA_GIF__", gif_hada)
+
+    # Aplicar estilos
     st.markdown(
         f"<style>{css}</style>",
         unsafe_allow_html=True
@@ -20,6 +41,8 @@ def cargar_estilos():
 def main():
 
     cargar_estilos()
+
+    
 
     st.title("Aventura Interactiva")
 

@@ -31,9 +31,23 @@
 }
 
 /* Tarjeta Hada */
+/* TARJETA HADA */
+
 .st-key-elegir_hada button {
-    background-color: #29213F;
+
+    background-image:
+        linear-gradient(
+            rgba(20, 15, 35, 0.45),
+            rgba(20, 15, 35, 0.65)
+        ),
+        url("__HADA_GIF__");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
     border-color: #B99CF4;
+    color: #F1F5F9;
 }
 
 /* Tarjeta Explorador */
