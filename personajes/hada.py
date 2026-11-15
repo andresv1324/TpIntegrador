@@ -201,7 +201,7 @@ def etapa_6_hada():
         st.write("Entras a una habitación llena de humedad.")
         st.write("Es un espacio donde cae agua por doquier y su piso está inundado de barro, sientes como tus alas empiezan a pesar por el agua que cae y no te permite seguir volando, inevitablemente debes caminar, el barro te llegaba hasta por debajo de la rodilla, pero de repente sientes que este te tira un poco, frente a ti se eleva una montaña de barro, es un espiritu que usa el barro como cuerpo")
         opcion = st.radio(
-            "¿Que haces?",
+            "¿que haces?",
             ["Tintineo De Campana", "Cortar Mechon Del Cabello"]
         ) 
 
@@ -209,7 +209,7 @@ def etapa_6_hada():
         st.write("este pasillo está oscuro, haces 5 pasos y el piso se pierde")
         st.write("caes por un túnel y al caer te encuentras con una habitación completamente a oscuras donde hay mucho ruido, sabes que si sigues 5 minutos así no resistiras")
         opcion = st.radio(
-            "Que haces?",
+            "que haces?",
             ["Tinteno De Campana", "Correr"]
         ) 
     else:
