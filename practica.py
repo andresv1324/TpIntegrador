@@ -2,7 +2,6 @@ import streamlit as st
 from PIL import Image
 from pathlib import Path
 
-from pathlib import Path
 import base64
 
 import pandas as pd
@@ -37,21 +36,23 @@ def cargar_estilos():
         unsafe_allow_html=True
     )
 
+def infHad():
+    st.text("eres un hada que fue exiliada de su lugar, de su casa, de su familia, luchaste por quedarte y te defendiste, pero la reina no te creyó a pesar de que todo haya sido una confusión y el culpable sea otro, tu exiliacion solo puede ser redimida enfrentando esta aventura, si logras superar, serás inocente y podrás volver a tu aldea, sino tu peor destino será no salir de la mazmorra…. te deseamos suerte. ")
+
+def infPic():
+    st.text("eres un pícaro explorador, en busca de su camino… engañaste a gente, mentiste y robaste para sobrevivir, pero jamás te descubrieron, eres ágil y con encantos de envidiar, digamos que convences hasta a la persona más desconfiada del planeta, posees una fuerza mental increíble y una supervivencia irrevocable… En tu cotidianidad tus pensamientos dicen “entre más obstáculos superados, más sabiduría” obviamente eres un aprendiz de la vida misma… Un día viste en un cartel tu siguiente obstáculo, salir de una mazmorra, y pensaste… ¿porque no? ")
 
 def main():
-
     cargar_estilos()
 
-    
 
-    st.title("Aventura Interactiva")
 
     # =========================
     # INICIALIZAR VARIABLES
     # =========================
 
     if "etapa" not in st.session_state:
-        st.session_state.etapa = 1
+        st.session_state.etapa = 0
 
     if "personaje" not in st.session_state:
         st.session_state.personaje = None
@@ -71,13 +72,23 @@ def main():
     if "opcionBatalla" not in st.session_state:
         st.session_state.opcionBatalla = None
 
+    if "informacion" not in st.session_state:
+        st.session_state.informacion = 1
+
+    #Comienzo
+    if st.session_state.etapa==0:
+        st.title("LO QUE AGUARDA EN LA PROFUNDIDAD")
+
+        if st.button("Comenzar Aventura"):
+            st.session_state.etapa = 1
+            st.rerun()
 
 
 
     # ETAPA 1: Selección del personaje
-    if st.session_state.etapa == 1:
+    elif st.session_state.etapa == 1:
 
-        st.subheader("Selecciona tu personaje")
+        st.subheader("Bienvenido a esta travesía, donde tu capacidad de intuición y sabiduría serán puestas a prueba elige tu personaje:")
 
         col1, col2 = st.columns(2)
 
@@ -97,6 +108,7 @@ def main():
                 key="elegir_explorador",
                 use_container_width=True
             ):
+                infPic()
                 st.session_state.personaje = "🧭 Explorador"
                 st.session_state.etapa = 2
                 st.rerun()
@@ -104,25 +116,44 @@ def main():
     # ETAPA 2: Selección del camino
     elif st.session_state.etapa == 2:
 
-        st.subheader(f"El camino del {st.session_state.personaje}")
+        # INFORMACIÓN DEL HADA
+        if st.session_state.personaje == "🧚 Hada" and st.session_state.informacion == 1:
+            infHad()
 
-        if st.session_state.personaje == "🧚 Hada":
-            destino = st.radio(
-                "¿A dónde quieres ir?",
-                ["Rio Bravo", "Bosque Brumoso"]
-            )
+            if st.button("Continuar"):
+                st.session_state.informacion = 0
+                st.rerun()
 
-        elif st.session_state.personaje == "🧭 Explorador":
-            destino = st.radio(
-                "¿A dónde quieres ir?",
-                ["Tunel Con Trampas", "Montaña Con Laberintos"]
-            )
+        # INFORMACIÓN DEL PICARO
+        if st.session_state.personaje == "🧭 Explorador" and st.session_state.informacion == 1:
+            infPic()
 
-        if st.button("Continuar"):
+            if st.button("Continuar"):
+                st.session_state.informacion = 0
+                st.rerun()
 
-            st.session_state.destino = destino
-            st.session_state.etapa = 3
-            st.rerun()
+
+        # SELECCIÓN DEL CAMINO
+        else:
+
+            st.subheader(f"El camino del {st.session_state.personaje}")
+
+            if st.session_state.personaje == "🧚 Hada":
+                destino = st.radio(
+                    "¿A dónde quieres ir?",
+                    ["Rio Bravo", "Bosque Brumoso"]
+                )
+
+            elif st.session_state.personaje == "🧭 Explorador":
+                destino = st.radio(
+                    "¿A dónde quieres ir?",
+                    ["Tunel Con Trampas", "Montaña Con Laberintos"]
+                )
+
+            if st.button("Continuar"):
+                st.session_state.destino = destino
+                st.session_state.etapa = 3
+                st.rerun()
 
     # ETAPA 3: Pasar el camino
     elif st.session_state.etapa == 3:
