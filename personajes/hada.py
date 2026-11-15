@@ -1,6 +1,7 @@
 import streamlit as st
 
 def textoCruce():
+    #CAMINO RIO BRAVO
     if st.session_state.destino == "Rio Bravo" and st.session_state.cruce =="Bordear el rio":
         if st.session_state.mostrarTextoComo==1:
             st.write("Elijes bordear el rio, dices que es mejor un trabajo duro que uno arriesgado, tu camino empieza complicado, te sientes observada y ansiosa, lo cual te hace tropezar y lastimarte, llegas a mitad de camino y sientes que no puedes más, de repente una manada de perros aparece en frente tuyo, gruñéndote y enfrentandote, tu miedo te ciega y tu cansancio actual no ayuda, pero")
@@ -28,6 +29,37 @@ def textoCruce():
             if st.button("Continuar", key="textHadaBalsDentr4"):
                 st.session_state.mostrarTextoComo = 0
                 st.rerun()
+
+    #CAMINO DEL BOSQUE
+    elif st.session_state.destino =="Bosque Brumoso" and st.session_state.cruce =="Volar Sobre el bosque":
+        if st.session_state.mostrarTextoComo==1:
+            st.write("Creíste que pasar por fuera del bosque sería lo más lógico, pensaste que el cielo sería tranquilo, pero estuviste equivocada, empezaste a volar y de primera un grupo de pájaros te chocó desestabilizandote un poco, un trayecto de silencio inquietante te hizo poner nerviosa, no estabas equivocada, ese bosque es tierra de nadie, pero hadas de diferentes reinos constantemente luchan por esos cielos")
+            st.write("te vieron y creyeron que eras un hada exploradora investigando terreno para posibles complicaciones en el futuro (para ellos, por supuesto) logran hacerte caer, pero fuiste tan rápida que tu caída fue cerca del final, aunque antes de caer te desmayas")
+
+            if st.button("Continuar", key="textHadaBalsBorde"):
+                st.session_state.mostrarTextoComo =2
+                st.rerun()
+        elif st.session_state.mostrarTextoComo ==2:
+            st.write("justo antes de caer un gato tricolor callejero rondaba por ahí, vio la situación e hizo sonar su campana, no entiendes bien que pasó pero saliste ilesa y tu cuerpo no dolía, cuando logras despertar estabas en el suelo y sobre ti había un amigo felino tricolor mirándote fijo, crees ver destellos dorados salir de su collar pero dudas")
+            st.write("Felicidades! tienes un nuevo amigo que te acompañará en esta travesía")
+            if st.button("Continuar", key="textHadaBalsBorde2"):
+                st.session_state.mostrarTextoComo = 0
+                st.rerun()
+
+    elif st.session_state.destino =="Bosque Brumoso" and st.session_state.cruce =="Cruzar Por Dentro":
+        if st.session_state.mostrarTextoComo==1:
+            st.write("Elegiste la mejor opción para cruzar este camino, el bosque es horrible, oscuro, tenebroso, pero no tiene peligro alguno, con tal de que no pises mal, ni te caigas, tu viaje es tranquilo, consejo: evita mirar hacia arriba")
+            if st.button("Continuar", key="textHadaBosqueDentro"):
+                st.session_state.mostrarTextoComo =2
+                st.rerun()
+        elif st.session_state.mostrarTextoComo ==2:
+            st.write("Estás llegando al final de tu camino… Pero… espera un momento, ¿qué es ese ruido? *escuchas ruido de madera, empiezas a tener miedo…* de la nada te cae una nuez en la cabeza")
+            st.write("Lejos de asustarte mirás hacia la dirección donde la viste venir, unos ojos redondos y brillosos te miran desde esa dirección, es una ardilla!! pero no cualquier ardilla, destellos dorados salen de su nariz y orejas cuando te ven, acaso esta será una conexión…?")
+            st.write("Felicidades! un compañero te eligió para acompañarte en tu aventura")
+            if st.button("Continuar", key="textHadaBosqueDentro"):
+                st.session_state.mostrarTextoComo = 0
+                st.rerun()
+
 
 
 
@@ -84,7 +116,7 @@ def etapa_3_hada():
         )
         cruce = st.radio(
             "",
-            ["Volar Sobre el bosque", "Ir por dentro del bosque"],
+            ["Volar Sobre el bosque", "Cruzar Por Dentro"],
             key="cruce_hada_bosque"
         )
     else:
@@ -99,11 +131,10 @@ def etapa_3_hada():
 def etapa_4_hada():
     if st.session_state.cruce in [
         "Bordear el rio",
-        "Ir por dentro del bosque"
+        "Cruzar Por Dentro"
     ]:
         st.write("Encuentras una Ardilla mascota en el camino.")
         st.session_state.mascota = "Ardilla"
-        st.session_state.mostrarTextoComo =3
 
     elif st.session_state.cruce in [
         "Balsa por dentro",
@@ -152,12 +183,19 @@ def etapa_6_hada():
     if sala == "Pasillo Tranquilo":
         st.write("entras a una habitación en penumbras, tras pasar la entrada tus ojos no pueden creer lo que ven, entidades, personas, espíritus, toda clase de fantasmas que te puedas imaginar, deambulando por todo el lugar… te encuentras frente a fantasmas que buscan oro y cosas brillantes, sino te raptan y no te dejan salir")
         st.write("¿qué decides hacer? ")
-        opciones = ["Polvo De Hadas", "¡snif snif!"]
+        opcion = st.radio(
+            "¿qué hacés?",
+            ["Polvo De Hadas", "¡snif snif!"]
+        )
+        
 
     elif sala == "Pasillo Familiar":
         st.write(" entras a la puerta de tu eleccion y te encuentras con un campo de flores hermoso, las flores más bellas que jamás hayas visto, tu amigo roedor se emociona porque jamás creyó que existiera algo así, empiezas tu camino pero a medida que avanzas te das cuenta que las flores largan un olor extraño, casi nauseabundo, malas noticias… las flores son venenosas, largan un hedor parecido al ácido y te asfixian")
-        st.write("¿qué hacés?")
-        opciones = ["Polvo De Hadas", "¡snif snif!"]
+        opcion = st.radio(
+            "¿qué hacés?",
+            ["Polvo De Hadas", "¡snif snif!"]
+        )
+
 
     elif sala == "Pasillo Izquierdo":
         st.write("Entras a una habitación llena de humedad.")
