@@ -117,21 +117,17 @@ def main():
     elif st.session_state.etapa == 2:
 
         # INFORMACIÓN DEL HADA
-        if st.session_state.personaje == "🧚 Hada" and st.session_state.informacion == 1:
-            infHad()
+        if st.session_state.informacion == 1:
 
-            if st.button("Continuar"):
+            if st.session_state.personaje == "🧚 Hada":
+                infHad()
+
+            elif st.session_state.personaje == "🧭 Explorador":
+                infPic()
+
+            if st.button("Continuar", key="continuar_historia"):
                 st.session_state.informacion = 0
                 st.rerun()
-
-        # INFORMACIÓN DEL PICARO
-        if st.session_state.personaje == "🧭 Explorador" and st.session_state.informacion == 1:
-            infPic()
-
-            if st.button("Continuar"):
-                st.session_state.informacion = 0
-                st.rerun()
-
 
         # SELECCIÓN DEL CAMINO
         else:
@@ -150,7 +146,7 @@ def main():
                     ["Tunel Con Trampas", "Montaña Con Laberintos"]
                 )
 
-            if st.button("Continuar"):
+            if st.button("Continuar", key="continuar_camino"):
                 st.session_state.destino = destino
                 st.session_state.etapa = 3
                 st.rerun()
