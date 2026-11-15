@@ -175,7 +175,6 @@ def etapa_5_explorador():
 
 
 def etapa_6_explorador():
-    st.subheader(f"El camino del {st.session_state.personaje}")
     sala = st.session_state.salaInicial
 
     if sala == "Entrada Superior":
