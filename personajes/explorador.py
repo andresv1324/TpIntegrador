@@ -17,7 +17,7 @@ def informacion_explorador():
         st.session_state.informacion = 0
         st.rerun()
 
-
+#OPCION DE CAMINO
 def elegir_camino_explorador():
     st.subheader(
         "Hiciste la elección de personaje, tu rumbo ha comenzado, elige tu camino"
@@ -34,7 +34,7 @@ def elegir_camino_explorador():
         st.session_state.etapa = 3
         st.rerun()
 
-
+#OPCION DE CRUZAR PRIMER CAMINO
 def etapa_3_explorador():
     if st.session_state.destino == "Tunel Con Trampas":
         st.subheader(
@@ -48,9 +48,10 @@ def etapa_3_explorador():
         )
 
     elif st.session_state.destino == "Montaña Con Laberintos":
-        st.subheader("La montaña tiene dos caminos para superar.")
+        st.subheader("te encuentras con la inmensidad de la naturaleza frente a tus ojos,un bosque gigante frente a ti," 
+                    "tus caminos son limitados pero para un Pícaro como vos, piensas “nada es imposible”... por donde decides ir?")
         cruce = st.radio(
-            "¿Cómo superar la montaña?",
+            "",
             ["Trepar montaña", "Pasar por medio de la montaña"],
             key="cruce_explorador_montana"
         )

@@ -40,6 +40,7 @@ def inicializar_variables():
         "salaInicial": None,
         "opcionBatalla": None,
         "informacion": 1,
+        "mostrarTextoComo": 1
     }
 
     for variable, valor in valores_iniciales.items():
