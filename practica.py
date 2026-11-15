@@ -1,11 +1,10 @@
 import streamlit as st
-from PIL import Image
 from pathlib import Path
-
 import base64
 
-import pandas as pd
-import numpy as np
+from personajes.hada import main_hada
+from personajes.explorador import main_explorador
+
 
 @st.cache_data
 def cargar_gif(nombre):
@@ -17,6 +16,7 @@ def cargar_gif(nombre):
 
     return f"data:image/gif;base64,{gif}"
 
+
 def cargar_estilos():
     ruta_proyecto = Path(__file__).parent
     ruta_css = ruta_proyecto / "css" / "estilos.css"
@@ -24,344 +24,101 @@ def cargar_estilos():
     with open(ruta_css, "r", encoding="utf-8") as archivo:
         css = archivo.read()
 
-    # Cargar GIF
     gif_hada = cargar_gif("hadaSaludando.gif")
-
-    # Reemplazar marcadores del CSS
     css = css.replace("__HADA_GIF__", gif_hada)
 
-    # Aplicar estilos
-    st.markdown(
-        f"<style>{css}</style>",
-        unsafe_allow_html=True
+    st.markdown(f"<style>{css}</style>", unsafe_allow_html=True)
+
+
+def inicializar_variables():
+    valores_iniciales = {
+        "etapa": 0,
+        "personaje": None,
+        "destino": None,
+        "cruce": None,
+        "mascota": None,
+        "salaInicial": None,
+        "opcionBatalla": None,
+        "informacion": 1,
+    }
+
+    for variable, valor in valores_iniciales.items():
+        if variable not in st.session_state:
+            st.session_state[variable] = valor
+
+
+def seleccionar_personaje():
+    st.subheader(
+        "Bienvenido a esta travesía, donde tu capacidad de intuición "
+        "y sabiduría serán puestas a prueba. Elige tu personaje:"
     )
 
-def infHad():
-    st.text("eres un hada que fue exiliada de su lugar, de su casa, de su familia, luchaste por quedarte y te defendiste, pero la reina no te creyó a pesar de que todo haya sido una confusión y el culpable sea otro, tu exiliacion solo puede ser redimida enfrentando esta aventura, si logras superar, serás inocente y podrás volver a tu aldea, sino tu peor destino será no salir de la mazmorra…. te deseamos suerte. ")
+    col1, col2 = st.columns(2)
 
-def infPic():
-    st.text("eres un pícaro explorador, en busca de su camino… engañaste a gente, mentiste y robaste para sobrevivir, pero jamás te descubrieron, eres ágil y con encantos de envidiar, digamos que convences hasta a la persona más desconfiada del planeta, posees una fuerza mental increíble y una supervivencia irrevocable… En tu cotidianidad tus pensamientos dicen “entre más obstáculos superados, más sabiduría” obviamente eres un aprendiz de la vida misma… Un día viste en un cartel tu siguiente obstáculo, salir de una mazmorra, y pensaste… ¿porque no? ")
+    with col1:
+        if st.button("", key="elegir_hada", use_container_width=True):
+            st.session_state.personaje = "🧚 Hada"
+            st.session_state.informacion = 1
+            st.session_state.etapa = 2
+            st.rerun()
+
+    with col2:
+        if st.button("", key="elegir_explorador", use_container_width=True):
+            st.session_state.personaje = "🧭 Explorador"
+            st.session_state.informacion = 1
+            st.session_state.etapa = 2
+            st.rerun()
+
 
 def main():
     cargar_estilos()
+    inicializar_variables()
 
-
-
-    # =========================
-    # INICIALIZAR VARIABLES
-    # =========================
-
-    if "etapa" not in st.session_state:
-        st.session_state.etapa = 0
-
-    if "personaje" not in st.session_state:
-        st.session_state.personaje = None
-
-    if "destino" not in st.session_state:
-        st.session_state.destino = None
-
-    if "cruce" not in st.session_state:
-        st.session_state.cruce = None
-
-    if "mascota" not in st.session_state:
-        st.session_state.mascota = None
-
-    if "salaInicial" not in st.session_state:
-        st.session_state.salaInicial = None
-
-    if "opcionBatalla" not in st.session_state:
-        st.session_state.opcionBatalla = None
-
-    if "informacion" not in st.session_state:
-        st.session_state.informacion = 1
-
-    #Comienzo
-    if st.session_state.etapa==0:
+    if st.session_state.etapa == 0:
         st.title("LO QUE AGUARDA EN LA PROFUNDIDAD")
 
         if st.button("Comenzar Aventura"):
             st.session_state.etapa = 1
             st.rerun()
 
-
-
-    # ETAPA 1: Selección del personaje
+    #Etapa 1
     elif st.session_state.etapa == 1:
+        seleccionar_personaje()
 
-        st.subheader("Bienvenido a esta travesía, donde tu capacidad de intuición y sabiduría serán puestas a prueba elige tu personaje:")
-
-        col1, col2 = st.columns(2)
-
-        with col1:
-            if st.button(
-                "",
-                key="elegir_hada",
-                use_container_width=True
-            ):
-                st.session_state.personaje = "🧚 Hada"
-                st.session_state.etapa = 2
-                st.rerun()
-
-        with col2:
-            if st.button(
-                "",
-                key="elegir_explorador",
-                use_container_width=True
-            ):
-                infPic()
-                st.session_state.personaje = "🧭 Explorador"
-                st.session_state.etapa = 2
-                st.rerun()
-
-    # ETAPA 2: Selección del camino
     elif st.session_state.etapa == 2:
+        if st.session_state.personaje == "🧚 Hada":
+            main_hada()
+        elif st.session_state.personaje == "🧭 Explorador":
+            main_explorador()
 
-        # INFORMACIÓN DEL HADA
-        if st.session_state.informacion == 1:
-
-            if st.session_state.personaje == "🧚 Hada":
-                infHad()
-
-            elif st.session_state.personaje == "🧭 Explorador":
-                infPic()
-
-            if st.button("Continuar", key="continuar_historia"):
-                st.session_state.informacion = 0
-                st.rerun()
-
-        # SELECCIÓN DEL CAMINO
-        else:
-
-            st.subheader(f"El camino del {st.session_state.personaje}")
-
-            if st.session_state.personaje == "🧚 Hada":
-                destino = st.radio(
-                    "¿A dónde quieres ir?",
-                    ["Rio Bravo", "Bosque Brumoso"]
-                )
-
-            elif st.session_state.personaje == "🧭 Explorador":
-                destino = st.radio(
-                    "¿A dónde quieres ir?",
-                    ["Tunel Con Trampas", "Montaña Con Laberintos"]
-                )
-
-            if st.button("Continuar", key="continuar_camino"):
-                st.session_state.destino = destino
-                st.session_state.etapa = 3
-                st.rerun()
-
-    # ETAPA 3: Pasar el camino
-    elif st.session_state.etapa == 3:
-
-        st.subheader(f"El camino del {st.session_state.destino}")
-
-        if st.session_state.destino == "Rio Bravo":
-            cruce = st.radio(
-                "Encuentra una balsa",
-                ["Usarla para ir por dentro del Rio","Ignorarla y bordear el rio"]
-            )
-        
-        elif st.session_state.destino =="Bosque Brumoso":
-            cruce = st.radio(
-                "Ves un bosque el que deberas pasar",
-                ["Volar Sobre el bosque","Ir por dentro del bosque"]
-            )
-
-        elif st.session_state.destino == "Tunel Con Trampas":
-            cruce = st.radio(
-                "Como superar el tunel",
-                ["Trepar tunel","Cruzar el tunel"]
-            )
-
-        elif st.session_state.destino == "Montaña Con Laberintos":
-            cruce = st.radio(
-                "Como superar la montaña",
-                ["Trepar montaña","Pasar por medio de la montaña"]
-            )
-
-        if st.button("Continuar"):
-            st.session_state.cruce = cruce
-            st.session_state.etapa = 4
-            st.rerun()
-        
-    # ETAPA 4:
-    elif st.session_state.etapa == 4:
-
-        st.subheader(f"El camino del {st.session_state.personaje}")
-
-        if st.session_state.cruce =="Usarla para ir por dentro del Rio" or st.session_state.cruce == "Ir por dentro del bosque" or st.session_state.cruce == "Trepar tunel" or st.session_state.cruce == "Pasar por medio de la montaña":
-            st.write("Encuentras una Ardilla mascota en el camino.")
-            st.session_state.mascota = "Ardilla"
-
-        elif st.session_state.cruce == "Ignorarla y bordear el rio" or st.session_state.cruce == "Volar Sobre el bosque" or st.session_state.cruce == "Cruzar el tunel" or st.session_state.cruce == "Trepar montaña":
-            st.write("Encontraste un Gato Tricolor mascota en el camino")
-            st.session_state.mascota = "Gato Tricolor"
-
-        if st.button("Continuar"):
-            st.session_state.etapa = "MAZMORRA"
-            st.rerun()
-
-    #ENTRADA A LA MAZMORRA
+    # La etapa 3 en adelante queda a cargo del personaje seleccionado.
     elif st.session_state.etapa == "MAZMORRA":
         st.header("ENTRASTE EN LA MAZMORRA")
-        st.session_state.etapa= 5
+        st.session_state.etapa = 5
         st.rerun()
 
-    #ETAPA 5
     elif st.session_state.etapa == 5:
-        st.subheader(f"El camino del {st.session_state.personaje}")
+        if st.session_state.personaje == "🧚 Hada":
+            main_hada()
+        elif st.session_state.personaje == "🧭 Explorador":
+            main_explorador()
 
-        if st.session_state.mascota == "Ardilla" and st.session_state.personaje == "🧚 Hada":
-            st.write("Al entras en la mazmorra vez un Tunel con una luz en el camino")
-            st.write("Al fondo encuentras 2 salas que tendra que superar para poder continuar")
-            salaInicial = st.radio(
-                "¿Con quien vas a Luchar?",
-                ["Fantasmas","Campo de Flores"]
-            )
-
-        elif st.session_state.mascota == "Gato Tricolor" and st.session_state.personaje == "🧚 Hada":
-            st.write("Al entras en la mazmorra vez un Tunel oscuro donde se escuchan voces a lo lejos")
-            st.write("Al fondo encuentras 2 salas que tendra que superar para poder continuar")
-
-            salaInicial = st.radio(
-                "Un Pasillo Izquierdo - donde se escucha el fluir del agua y pasillo Derecho - Donde se ve una caida a un cuerto oscuro con mucho ruido",
-                ["Pasillo Izquierdo","Pasillo Derecho"]
-            )
-###################
-        elif st.session_state.mascota == "Ardilla" and st.session_state.personaje == "🧭 Explorador":
-            st.write("Al entar en la mazmorra sentis un aroma agradable")
-            st.write("Vez 2 caminos ")
-            salaInicial = st.radio(
-                "¿Pasillo izquierdo - Vez una corriente de aire y pasillo Derecho - vez un pasillo oscuro",
-                ["Corriente de aire","Pasillo oscuro"]
-            )
-
-        elif st.session_state.mascota == "Gato Tricolor" and st.session_state.personaje == "🧭 Explorador":
-            st.write("Al entrar en la mazmorra sentis un fuerte aroma desagradable")
-            st.write("Vez dos caminos ")
-
-            salaInicial = st.radio(
-                "Pasillo Izquierdo vez al fondo una reja metalica y Pasillo Derecho Una galeria con lodo en el piso ",
-                ["Pasillo reja","Pasillo a la galeria"]
-            )
-###################
-        if st.button("Continuar"):
-            st.session_state.salaInicial = salaInicial
-            st.session_state.etapa = 6
-            st.rerun()
-
-
-    #ETAPA 6
     elif st.session_state.etapa == 6:
-        st.subheader(f"El camino del {st.session_state.personaje}")
+        if st.session_state.personaje == "🧚 Hada":
+            main_hada()
+        elif st.session_state.personaje == "🧭 Explorador":
+            main_explorador()
 
-        if st.session_state.salaInicial == "Fantasmas" and st.session_state.personaje == "🧚 Hada":
-            st.write("Podes luchar Usando Polvo de Hadas que genera explosiones que te ayudan a esconderte en la habitacion")
-            st.write(f"Puedes usar a tu mascota: {st.session_state.mascota}, que puede hacerte invisible para pasar la sala")
+    elif st.session_state.etapa == 3 or st.session_state.etapa == 4:
+        if st.session_state.personaje == "🧚 Hada":
+            main_hada()
+        elif st.session_state.personaje == "🧭 Explorador":
+            main_explorador()
 
-            opcionBatalla = st.radio(
-                "Como vas a superar la sala?",
-                [
-                    "Polvo De Hadas",
-                    f"Habilidad de la {st.session_state.mascota}"
-                ]
-            )
-
-        elif st.session_state.salaInicial == "Campo de Flores" and st.session_state.personaje == "🧚 Hada":
-            st.write("Podes luchar Usando Polvo de Hadas que anula el veneno de las flores")
-            st.write(f"Puedes usar a tu mascota: {st.session_state.mascota}, que genera una burbuja protectora que repele los gases")
-            opcionBatalla = st.radio(
-                "Como vas a superar la sala?",
-                [
-                    "Polvo De Hadas",
-                    f"Habilidad de la {st.session_state.mascota}"
-                ]
-            )
-
-        elif st.session_state.salaInicial == "Pasillo Izquierdo" and st.session_state.personaje == "🧚 Hada":
-            st.write(f"Usas a tu {st.session_state.mascota}, que genera una fuerte luz que seca a los espiritus")
-            st.write("Cortarse un mechon del cabello - Este genera un onda de luz")
-            opcionBatalla = st.radio(
-                "Como vas a superar la sala",
-                ["Habilad de tu mascota","Cortar el cabello"]
-            )
-
-        elif st.session_state.salaInicial == "Pasillo Derecho"and st.session_state.personaje == "🧚 Hada":
-            st.write(f"Usar a tu {st.session_state.mascota}, junto tu polvo de hadas")
-            st.write("tun tun tun")
-            opcionBatalla = st.radio(
-                "Como vas a superar la sala",
-                [
-                    f"Usar a tu {st.session_state.mascota} junto a tu polvo de hada",
-                "tun tun tun"
-                ]
-            )
-
-        elif st.session_state.salaInicial == "Corriente de aire" and st.session_state.personaje == "🧭 Explorador":
-
-            st.write(f"Puedes usar habilidad de {st.session_state.mascota}")
-            st.write(f"Tomar a tu compañero y huyes con el en brazos")
-
-            opcionBatalla = st.radio(
-                "Como vas a superar la sala",
-                [
-                    f"Usar la habilidad de tu compañero {st.session_state.mascota}"
-                    "Escapar con tu compañero"
-                ]
-            )
-
-        elif st.session_state.salaInicial == "Pasillo oscuro" and st.session_state.personaje == "🧭 Explorador":
-
-            st.write("Tu compañero extiende las patas hacia ti")
-            st.write("Crack Crack")
-
-            opcionBatalla = st.radio(
-                "Como vas a superar la sala",
-                [
-                    f"Sostener las patitas de tu compañero {st.session_state.mascota}"
-                    "Crack Crack Crack"
-                ]
-            )
-
-        elif st.session_state.salaInicial == "Pasillo reja" and st.session_state.personaje == "🧭 Explorador":
-
-            st.write("Intentar forzar cerrrojo con la ganzua")
-            st.write("Explotar bisagras con un trozo de pedernal")
-
-            opcionBatalla = st.radio(
-                "Como vas a superar la sala",
-                ["Forzar Cerrojo","Explotar Bisagra"]
-            )
-
-        elif st.session_state.salaInicial == "Pasillo a la galeria" and st.session_state.personaje == "🧭 Explorador":
-
-            st.write("Salto acrobatico")
-            st.write("Cubrirte con la capa y pasar la sala")
-
-            opcionBatalla = st.radio(
-                "Como vas a superar la sala",
-                ["Salto Acrobatico","Uso De La Capa"]
-            )
+    elif st.session_state.etapa == 7:
+        st.subheader("Continuación de la aventura")
+        st.write("Acá podés agregar la siguiente parte de tu historia.")
 
 
-
-        if st.button("Continuar"):
-            st.session_state.opcionBatalla = opcionBatalla
-            st.session_state.etapa = 7
-            st.rerun()
-
-
-
-
-
-
-
-
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
-
-
-
-# st.write(f"Personaje: {st.session_state.personaje}")
-# st.write(f"Destino: {st.session_state.destino}")
