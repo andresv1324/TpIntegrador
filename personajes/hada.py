@@ -220,6 +220,77 @@ def etapa_6_hada():
         st.session_state.etapa = 7
         st.rerun()
 
+def etapa_7_hada():
+    if st.session_state.salaInicial =="Pasillo Derecho" and st.session_state.opcionBatalla=="Tinteneo De Campana":
+        st.write("Tu compañero te llama, empieza a moverse inquieto y ves una lucecita tenue, recuerdas la caída en el bosque y los destellos dorados, intentas enfocar la vista y te das cuenta que es el collar de tu compañero, acercas tu mano para tocar la campana y al instante la campana brilla e ilumina todo el lugar mostrando que los ruidos no son más que unos cuantos bichos chocando contra metales")
+        st.write("estos son insectos comunes sumidos en una locura extraña, tu amigo felino y tú deciden avanzar empujandolos, no te generan daño alguno y al estar iluminados se calman.")
+        if st.button("Continuar"):
+            st.session_state.condicionSalida = 1
+            st.session_state.etapa = 8
+            st.rerun
+    elif st.session_state.salaInicial =="Pasillo Derecho" and st.session_state.opcionBatalla=="Correr":
+        st.write("Los ruidos no te dejan escuchar nada, no ves nada, dos de tus sentidos están totalmente bloqueados, tu corazón se empieza a acelerar y tu cabeza se empieza a nublar, solo logras sentir como tu gato compañero se altera y te pones aún más nerviosa")
+        st.write("Lo agarras y empiezas a correr para lo que sea que haya en ese lugar, para escapar, pero en la desesperación chocas contra una pared ")
+        if st.button("Continuar"):
+            st.session_state.condicionSalida = 2
+            st.session_state.etapa = 8
+            st.rerun
+    elif st.session_state.salaInicial =="Pasillo Izquierdo" and st.session_state.opcionBatalla=="Tintineo De Campana":
+        st.write("De repente escuchas un tintineo, el mismo que escuchaste aDes, es tu amigo felino que está a tu lado intentando llamar D atención moviendo su campana en su collarcito, esta empieza a bDllar y te inclinas para tocarla, en ese momento el brillo dDsu campan ")
+        st.write("Se fusiona con el tuyo y de ahí nace una luz que encandila al espíritu y lo seca en un segundo, dejando el barro seco y al espíritu encerrado.")
+        if st.button("Continuar"):
+            st.session_state.condicionSalida = 1
+            st.session_state.etapa = 8
+            st.rerun
+    elif st.session_state.salaInicial =="Pasillo Izquierdo" and st.session_state.opcionBatalla=="Cortar Mechon Del Cabello":
+        st.write("En tus épocas de estudio formaste parte de un grupo secreto que estudiaba magia prohibida que requiere partes de ti, agarras un mechón de tu largo cabello y lo cortas, ")
+        st.write("El hechizo dice que cuando un hada hace esto, el cabello brilla esparciendo la luz encerrada en sí, lamentablemente este brillo no es suficiente para secarlo a él y todo alrededor, el poder se consume rápido y el espíritu recupera su fuerza")
+        if st.button("Continuar"):
+            st.session_state.condicionSalida = 2
+            st.session_state.etapa = 8
+            st.rerun
+    elif st.session_state.salaInicial =="Pasillo Tranquilo" and st.session_state.opcionBatalla=="Polvo De Hadas":
+        st.write("Eliges el polvo de hada, lo lanzas como lluvia y este crea un humo que hace pequeñas explosiones, logran cegar a los fantasmas y permiten perderte entre el lugar para que los fantasmas no te perciban")
+        st.write("Lamentablemente tu hechizo no estaba bien estudiado, ni bien practicado, funciona hasta la mitad del lugar, pero luego se disipa, llegas a la puerta, pero antes de cruzar un fantasma te agarra de los pies arrastrándose por dentro")
+        if st.button("Continuar"):
+            st.session_state.condicionSalida = 2
+            st.session_state.etapa = 8
+            st.rerun
+    elif st.session_state.salaInicial =="Pasillo Tranquilo" and st.session_state.opcionBatalla=="¡snif snif!":
+        st.write("Te acuerdas de tu Ardilla y sus destellos dorados que salían de ella, pues… tiene poderes! permite que ella se suba en tu cabeza y te hará invisible para pasar entre los fantasmas…")
+        st.write("Bien! tienes que ser cuidadosa, no hacer ruido y seguir, eres un hada así que vuelas despacio para hacer el menor ruido posible y no tocar a ningún fantasma.")
+        if st.button("Continuar"):
+            st.session_state.condicionSalida = 1
+            st.session_state.etapa = 8
+            st.rerun
+    elif st.session_state.salaInicial =="Pasillo Familiar" and st.session_state.opcionBatalla=="Polvo De Hadas":
+        st.write("Empiezas a buscar soluciones y te acuerdas de tus clases de magia antes de ser exiliada, un hechizo se te viene a la memoria y junto a tu polvo de hadas apaga todo el veneno que te libera ")
+        st.write("Sigues avanzando lo más rápido posible para lograr salir pero hay un detalle que no viste, las plantas sin ese veneno que liberan, son agresivas, logras salvarte de su veneno pero no de sus rasguños")
+        st.write("Sus rasguños te dañan, te raspan y te vuelven más débil a medida que quieras salir")
+        if st.button("Continuar"):
+            st.session_state.condicionSalida = 2
+            st.session_state.etapa = 8
+            st.rerun
+    elif st.session_state.salaInicial =="Pasillo Familiar" and st.session_state.opcionBatalla=="¡snif snif!":
+        st.write("Ante la desesperación tu amigo roedor llama tu atención y ves como su pelaje empieza a brillar, no era mentira lo que viste en el bosque, él también tiene poderes!! tu ardilla empieza a trepar por tu cuerpo hasta lograr subir sobre tu cabeza")
+        st.write("Empieza a brillar cada vez más y genera una burbuja protectora que te repele de todos los gases venenosos, al no combatirlos ni apagar estos gases las flores se mantienen dormidas, pasas sigilosa y tranquila")
+        st.write("Las flores no se despertaron y llegaste al final")
+        if st.button("Continuar"):
+            st.session_state.condicionSalida = 1
+            st.session_state.etapa = 8
+            st.rerun
+
+def salidaMazmorra():
+    if st.session_state.condicionSalida == 1:
+        st.error("No lograste Escapar De La Mazmorra")
+        if st.button("Continuar"):
+            st.session_state.etapa = 9
+            st.rerun
+    elif st.session_state.condicionSalida == 2:
+        st.success("Felicidades! lograste Escapar De La Mazmorra")
+        if st.button("Continuar"):
+            st.session_state.etapa = 9
+            st.rerun
 
 def main_hada():
     etapa = st.session_state.etapa
@@ -240,5 +311,9 @@ def main_hada():
         etapa_5_hada()
     elif etapa == 6:
         etapa_6_hada()
+    elif etapa == 7:
+        etapa_7_hada()
+    elif etapa == 8:
+        salidaMazmorra()
 
 #python -m streamlit run practica.py

@@ -41,7 +41,8 @@ def inicializar_variables():
         "opcionBatalla": None,
         "informacion": 1,
         "mostrarTextoComo": 1,
-        "textoSalaFinal": 1
+        "textoSalaFinal": 1,
+        "condicionSalida": None
     }
 
     for variable, valor in valores_iniciales.items():
@@ -118,8 +119,28 @@ def main():
             main_explorador()
 
     elif st.session_state.etapa == 7:
-        st.subheader("Continuación de la aventura")
-        st.write("Acá podés agregar la siguiente parte de tu historia.")
+        if st.session_state.personaje == "🧚 Hada":
+            main_hada()
+        elif st.session_state.personaje == "🧭 Explorador":
+            main_explorador()
+
+    elif st.session_state.etapa == 8:
+        if st.session_state.personaje == "🧚 Hada":
+            main_hada()
+        elif st.session_state.personaje == "🧭 Explorador":
+            main_explorador()
+
+    elif st.session_state.etapa == 9:
+        st.title("¡FIN DE LA AVENTURA!")
+        st.write("Has completado tu recorrido.")
+
+        if st.button("Volver al inicio"):
+            st.session_state.clear()
+            st.rerun()
+
+#    elif st.session_state.etapa == 10:
+#        st.subheader("Continuación de la aventura")
+#        st.write("Acá podés agregar la siguiente parte de tu historia.")
 
 
 if __name__ == "__main__":
