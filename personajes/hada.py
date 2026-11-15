@@ -1,33 +1,34 @@
 import streamlit as st
 
-def textoComo():
-    if st.session_state.cruce =="Balsa por dentro":
-        st.write("Eliges cruzar el río por dentro, tu instinto de venganza y de ira te hace ir por el lugar más peligroso a simple vista, donde estabas había una balsa medianamente decente, que en tu cabeza era buena idea, y de hecho, sí… El primer trayecto fue un poco turbulento, pero luego el rio desemboca y se calma haciendo de tu viaje hasta la mazmorra tranquilo. Pero de repente, casi llegando al final, el río se alborota y se vuelve incontrolable, intentas mantenerte a flote hasta llegar pero tu balsa se vuelca…")
-        if st.button("Continuar", key="textHadaBalsDentr"):
-            st.session_state.mostrarTextoComo =2
-            st.rerun()
+def textoCruce():
+    if st.session_state.destino == "Rio Bravo" and st.session_state.cruce =="Bordear el rio":
+        if st.session_state.mostrarTextoComo==1:
+            st.write("Elijes bordear el rio, dices que es mejor un trabajo duro que uno arriesgado, tu camino empieza complicado, te sientes observada y ansiosa, lo cual te hace tropezar y lastimarte, llegas a mitad de camino y sientes que no puedes más, de repente una manada de perros aparece en frente tuyo, gruñéndote y enfrentandote, tu miedo te ciega y tu cansancio actual no ayuda, pero")
+            st.write("Desde lo más alto de los árboles a tu lado finos balines empiezan a dirigirse hacia los perros haciendo que se asusten y no sepan que hacer más que correr hacia diferentes direcciones, se olvidan de ti, pero debido a todo lo ocurrido te desmayas, momentos después te despiertas y sin entender mucho sigues el camino")
 
-def textoComo1():
-    if st.session_state.cruce =="Balsa por dentro":
-        st.write(" justo antes de caer un gato tricolor callejero rondaba por ahí, vio la situación e hizo sonar su campana, no entiendes bien que pasó pero saliste ilesa y tu cuerpo no dolía, cuando logras despertar estabas en el suelo y sobre ti había un amigo felino tricolor mirándote fijo, crees ver destellos dorados salir de su collar pero dudas")
-        st.write("Felicidades! un compañero te eligió para acompañarte en tu aventura")
-        if st.button("Continuar", key="textHadaBalsDentr2"):
-            st.session_state.mostrarTextoComo = False
-            st.rerun()
+            if st.button("Continuar", key="textHadaBalsBorde"):
+                st.session_state.mostrarTextoComo =2
+                st.rerun()
+        elif st.session_state.mostrarTextoComo ==2:
+            st.write("Estás llegando al final de tu camino… Pero… espera un momento, ¿qué es ese ruido? *escuchas ruido de madera, empiezas a tener miedo…* de la nada te cae una nuez en la cabeza")
+            st.write("Lejos de asustarte mirás hacia la dirección donde la viste venir, unos ojos redondos y brillosos te miran desde esa dirección, es una ardilla!! pero no cualquier ardilla, destellos dorados salen de su nariz y orejas cuando te ven, acaso esta será una conexión…?")
+            st.write("Felicidades! un compañero te eligió para acompañarte en tu aventura")
+            if st.button("Continuar", key="textHadaBalsBorde2"):
+                st.session_state.mostrarTextoComo = 0
+                st.rerun()
+    elif st.session_state.destino == "Rio Bravo" and st.session_state.cruce =="Balsa por dentro":
+        if st.session_state.mostrarTextoComo==1:
+            st.write("eliges cruzar el río por dentro, tu instinto de venganza y de ira te hace ir por el lugar más peligroso a simple vista, donde estabas había una balsa medianamente decente, que en tu cabeza era buena idea, y de hecho, sí… El primer trayecto fue un poco turbulento, pero luego el rio desemboca y se calma haciendo de tu viaje hasta la mazmorra tranquilo. Pero de repente, casi llegando al final, el río se alborota y se vuelve incontrolable, intentas mantenerte a flote hasta llegar pero tu balsa se vuelca…")
+            if st.button("Continuar", key="textHadaBalsDentr3"):
+                st.session_state.mostrarTextoComo = 2
+                st.rerun()
+        elif st.session_state.mostrarTextoComo ==2:
+            st.write(" justo antes de caer un gato tricolor callejero rondaba por ahí, vio la situación e hizo sonar su campana, no entiendes bien que pasó pero saliste ilesa y tu cuerpo no dolía, cuando logras despertar estabas en el suelo y sobre ti había un amigo felino tricolor mirándote fijo, crees ver destellos dorados salir de su collar pero dudas")
+            st.write("Felicidades! un compañero te eligió para acompañarte en tu aventura")
+            if st.button("Continuar", key="textHadaBalsDentr4"):
+                st.session_state.mostrarTextoComo = 0
+                st.rerun()
 
-def textoComo2():
-    st.write(" aaaaaaaaaaaaaaaaaaaaaaaaaajusto antes de caer un gato tricolor callejero rondaba por ahí, vio la situación e hizo sonar su campana, no entiendes bien que pasó pero saliste ilesa y tu cuerpo no dolía, cuando logras despertar estabas en el suelo y sobre ti había un amigo felino tricolor mirándote fijo, crees ver destellos dorados salir de su collar pero dudas")
-    st.write("Felicidades! un compañero te eligió para acompañarte en tu aventura")
-    if st.button("Continuar", key="textHadaBalsDentr3"):
-        st.session_state.mostrarTextoComo = 4
-        st.rerun()
-
-def textoComo3():
-    st.write(" aeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeaaaaaaaaaaaaaaaaaaaaaaajusto antes de caer un gato tricolor callejero rondaba por ahí, vio la situación e hizo sonar su campana, no entiendes bien que pasó pero saliste ilesa y tu cuerpo no dolía, cuando logras despertar estabas en el suelo y sobre ti había un amigo felino tricolor mirándote fijo, crees ver destellos dorados salir de su collar pero dudas")
-    st.write("Felicidades! un compañero te eligió para acompañarte en tu aventura")
-    if st.button("Continuar", key="textHadaBalsDentr4"):
-        st.session_state.mostrarTextoComo = False
-        st.rerun()
 
 
 def informacion_hada():
@@ -70,7 +71,6 @@ def etapa_3_hada():
             "rompe olas contra piedras filosas y hay muchísimo viento. "
             "¿Por dónde eliges ir?"
         )
-        st.session_state.mostrarTextoComo=3
         cruce = st.radio(
             "",
             ["Balsa por dentro", "Bordear el rio"],
@@ -103,6 +103,7 @@ def etapa_4_hada():
     ]:
         st.write("Encuentras una Ardilla mascota en el camino.")
         st.session_state.mascota = "Ardilla"
+        st.session_state.mostrarTextoComo =3
 
     elif st.session_state.cruce in [
         "Balsa por dentro",
@@ -110,6 +111,8 @@ def etapa_4_hada():
     ]:
         st.write("Encontraste un Gato Tricolor mascota en el camino.")
         st.session_state.mascota = "Gato Tricolor"
+
+
 
     if st.button("Continuar", key="continuar_mascota_hada"):
         st.session_state.etapa = "MAZMORRA"
@@ -127,11 +130,10 @@ def etapa_5_hada():
         )
 
     elif st.session_state.mascota == "Gato Tricolor":
-        st.write("Al entrar en la mazmorra ves un túnel oscuro donde se escuchan voces a lo lejos.")
-        st.write("Al fondo encuentras 2 salas que tendrás que superar para continuar.")
+        st.write("Llegas a la entrada de la mazmorra pasas por un túnel que te dirige hacia el este")
+        st.write("Está oscuro y hay muchos ruidos, pero crees que es la mejor entrada y que es un engaño el aspecto para que los exploradores como vos no pasen, más adelante te encuentras con dos pasillos ¿cuál eliges?")
         sala = st.radio(
-            "Un pasillo izquierdo donde se escucha el fluir del agua y "
-            "un pasillo derecho donde se ve una caída a un cuarto oscuro con mucho ruido.",
+            "",
             ["Pasillo Izquierdo", "Pasillo Derecho"],
             key="sala_hada_gato"
         )
@@ -145,7 +147,6 @@ def etapa_5_hada():
 
 
 def etapa_6_hada():
-    st.subheader(f"El camino del {st.session_state.personaje}")
     sala = st.session_state.salaInicial
 
     if sala == "Pasillo Tranquilo":
@@ -159,18 +160,22 @@ def etapa_6_hada():
         opciones = ["Polvo De Hadas", "¡snif snif!"]
 
     elif sala == "Pasillo Izquierdo":
-        st.write(f"Usas a tu {st.session_state.mascota}, que genera una fuerte luz que seca a los espíritus.")
-        st.write("Cortarse un mechón del cabello: este genera una onda de luz.")
-        opciones = ["Habilidad de tu mascota", "Cortar el cabello"]
+        st.write("Entras a una habitación llena de humedad.")
+        st.write("Es un espacio donde cae agua por doquier y su piso está inundado de barro, sientes como tus alas empiezan a pesar por el agua que cae y no te permite seguir volando, inevitablemente debes caminar, el barro te llegaba hasta por debajo de la rodilla, pero de repente sientes que este te tira un poco, frente a ti se eleva una montaña de barro, es un espiritu que usa el barro como cuerpo")
+        opcion = st.radio(
+            "¿Que haces?",
+            ["Tintineo De Campana", "Cortar Mechon Del Cabello"]
+        ) 
 
     elif sala == "Pasillo Derecho":
-        st.write(f"Usar a tu {st.session_state.mascota} junto a tu polvo de hadas.")
-        st.write("tun tun tun")
-        opciones = [f"Usar a tu {st.session_state.mascota} junto a tu polvo de hada", "tun tun tun"]
+        st.write("este pasillo está oscuro, haces 5 pasos y el piso se pierde")
+        st.write("caes por un túnel y al caer te encuentras con una habitación completamente a oscuras donde hay mucho ruido, sabes que si sigues 5 minutos así no resistiras")
+        opcion = st.radio(
+            "Que haces?",
+            ["Tinteno De Campana", "Correr"]
+        ) 
     else:
         return
-
-    opcion = st.radio("¿Cómo vas a superar la sala?", opciones, key="batalla_hada")
 
     if st.button("Continuar", key="continuar_batalla_hada"):
         st.session_state.opcionBatalla = opcion
@@ -189,14 +194,8 @@ def main_hada():
     elif etapa == 3:
         etapa_3_hada()
     elif etapa == 4:
-        if st.session_state.mostrarTextoComo==1:
-            textoComo()
-        elif st.session_state.mostrarTextoComo==2:
-            textoComo1()
-        elif st.session_state.mostrarTextoComo==3:
-            textoComo2()
-        elif st.session_state.mostrarTextoComo==4:
-            textoComo3()
+        if st.session_state.mostrarTextoComo==1 or st.session_state.mostrarTextoComo==2:
+            textoCruce()
         else:
             etapa_4_hada()
     elif etapa == 5:
