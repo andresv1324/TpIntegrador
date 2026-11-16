@@ -253,7 +253,7 @@ def etapa_7_hada():
             st.rerun()
     elif st.session_state.salaInicial =="Pasillo Derecho" and st.session_state.opcionBatalla=="Correr":
         st.write("Los ruidos no te dejan escuchar nada, no ves nada, dos de tus sentidos están totalmente bloqueados, tu corazón se empieza a acelerar y tu cabeza se empieza a nublar, solo logras sentir como tu gato compañero se altera y te pones aún más nerviosa")
-        st.image(RUTA_GIF / "hadaGatitosLocos.gif")
+        st.image(RUTA_GIF / "hadaGatitoLocos.gif")
         if st.button("Continuar"):
             st.session_state.condicionSalida = 2
             st.session_state.etapa = 8
