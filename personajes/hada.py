@@ -19,7 +19,7 @@ hadaCalva = Image.open(RUTA_IMG / "hadaCorte.png")
 hadaSubSue = Image.open(RUTA_IMG / "hadaEnSubSuelo.png")
 hadaCampana = Image.open(RUTA_IMG / "hadaCampanaGato.png")
 hadaArdAntCam = Image.open(RUTA_IMG /"hadaArdiAnteCamino.png")
-hadaFloresMag = Image.opne(RUTA_IMG /"hadaEcuentroFlores.png")
+hadaFloresMag = Image.opne(RUTA_IMG /"hadaEncuentroFlores.png")
 
 
 def textoCruce():
