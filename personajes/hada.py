@@ -323,6 +323,7 @@ def infoSalia():
             st.session_state.etapa = 10
             st.rerun()
 
+
 def finalAventura():
     if st.session_state.salaInicial =="Pasillo Izquierdo" and st.session_state.opcionBatalla=="Tintineo De Campana":
         st.write("Se fusiona con el tuyo y de ahí nace una luz que encandila al espíritu y lo seca en un segundo, dejando el barro seco y al espíritu encerrado.")
