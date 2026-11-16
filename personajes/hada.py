@@ -20,6 +20,8 @@ hadaSubSue = Image.open(RUTA_IMG / "hadaEnSubSuelo.png")
 hadaCampana = Image.open(RUTA_IMG / "hadaCampanaGato.png")
 hadaArdAntCam = Image.open(RUTA_IMG /"hadaArdiAnteCamino.png")
 hadaFloresMag = Image.open(RUTA_IMG /"hadaEncuentroFlores.png")
+hadaBosque = Image.open(RUTA_IMG / "hadaEnBosque.png")
+hadaDentroBsque = Image.opne (RUTA_IMG / "hadaDentroBosque.png")
 
 
 def textoCruce():
@@ -61,14 +63,16 @@ def textoCruce():
     elif st.session_state.destino =="Bosque Brumoso" and st.session_state.cruce =="Volar Sobre el bosque":
         if st.session_state.mostrarTextoComo==1:
             st.write("Creíste que pasar por fuera del bosque sería lo más lógico, pensaste que el cielo sería tranquilo, pero estuviste equivocada, empezaste a volar y de primera un grupo de pájaros te chocó desestabilizandote un poco, un trayecto de silencio inquietante te hizo poner nerviosa, no estabas equivocada, ese bosque es tierra de nadie, pero hadas de diferentes reinos constantemente luchan por esos cielos")
-            st.write("te vieron y creyeron que eras un hada exploradora investigando terreno para posibles complicaciones en el futuro (para ellos, por supuesto) logran hacerte caer, pero fuiste tan rápida que tu caída fue cerca del final, aunque antes de caer te desmayas")
+            st.write("Te vieron y creyeron que eras un hada exploradora investigando terreno para posibles complicaciones en el futuro (para ellos, por supuesto) logran hacerte caer, pero fuiste tan rápida que tu caída fue cerca del final, aunque antes de caer te desmayas")
+            st.image(RUTA_GIF / "hadaCaidaBosque.gif")
 
             if st.button("Continuar", key="textHadaBalsBorde"):
                 st.session_state.mostrarTextoComo =2
                 st.rerun()
         elif st.session_state.mostrarTextoComo ==2:
-            st.write("justo antes de caer un gato tricolor callejero rondaba por ahí, vio la situación e hizo sonar su campana, no entiendes bien que pasó pero saliste ilesa y tu cuerpo no dolía, cuando logras despertar estabas en el suelo y sobre ti había un amigo felino tricolor mirándote fijo, crees ver destellos dorados salir de su collar pero dudas")
+            st.write("Justo antes de caer un gato tricolor callejero rondaba por ahí, vio la situación e hizo sonar su campana, no entiendes bien que pasó pero saliste ilesa y tu cuerpo no dolía, cuando logras despertar estabas en el suelo y sobre ti había un amigo felino tricolor mirándote fijo, crees ver destellos dorados salir de su collar pero dudas")
             st.write("Felicidades! tienes un nuevo amigo que te acompañará en esta travesía")
+            st.image(RUTA_GIF /"hadaRescateBosque.gif")
             if st.button("Continuar", key="textHadaBalsBorde2"):
                 st.session_state.mostrarTextoComo = 0
                 st.rerun()
@@ -76,6 +80,7 @@ def textoCruce():
     elif st.session_state.destino =="Bosque Brumoso" and st.session_state.cruce =="Cruzar Por Dentro":
         if st.session_state.mostrarTextoComo==1:
             st.write("Elegiste la mejor opción para cruzar este camino, el bosque es horrible, oscuro, tenebroso, pero no tiene peligro alguno, con tal de que no pises mal, ni te caigas, tu viaje es tranquilo, consejo: evita mirar hacia arriba")
+            st(hadaDentroBsque)
             if st.button("Continuar", key="textHadaBosqueDentro"):
                 st.session_state.mostrarTextoComo =2
                 st.rerun()
@@ -83,6 +88,7 @@ def textoCruce():
             st.write("Estás llegando al final de tu camino… Pero… espera un momento, ¿qué es ese ruido? *escuchas ruido de madera, empiezas a tener miedo…* de la nada te cae una nuez en la cabeza")
             st.write("Lejos de asustarte mirás hacia la dirección donde la viste venir, unos ojos redondos y brillosos te miran desde esa dirección, es una ardilla!! pero no cualquier ardilla, destellos dorados salen de su nariz y orejas cuando te ven, acaso esta será una conexión…?")
             st.write("Felicidades! un compañero te eligió para acompañarte en tu aventura")
+            st.image(RUTA_GIF / "hadaArdilla.gif")
             if st.button("Continuar", key="textHadaBosqueDentro"):
                 st.session_state.mostrarTextoComo = 0
                 st.rerun()
@@ -139,6 +145,7 @@ def etapa_3_hada():
             "Inicias tu recorrido por el bosque brumoso, está todo lleno de "
             "niebla y hay un ambiente tenso y sombrío."
         )
+        st.image(hadaBosque)
         cruce = st.radio(
             "",
             ["Volar Sobre el bosque", "Cruzar Por Dentro"],
