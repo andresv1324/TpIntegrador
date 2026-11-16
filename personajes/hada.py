@@ -18,6 +18,7 @@ hadaBajLlu = Image.open(RUTA_IMG / "gataBajoLaLluvia.png")
 hadaCalva = Image.open(RUTA_IMG / "hadaCorte.png")
 hadaSubSue = Image.open(RUTA_IMG / "hadaEnSubSuelo.png")
 hadaCampana = Image.open(RUTA_IMG / "hadaCampanaGato.png")
+hadaArdAntCam = Image.open(RUTA_IMG /"hadaArdiAnteCamino.png")
 
 
 def textoCruce():
@@ -26,6 +27,7 @@ def textoCruce():
         if st.session_state.mostrarTextoComo==1:
             st.write("Elijes bordear el rio, dices que es mejor un trabajo duro que uno arriesgado, tu camino empieza complicado, te sientes observada y ansiosa, lo cual te hace tropezar y lastimarte, llegas a mitad de camino y sientes que no puedes más, de repente una manada de perros aparece en frente tuyo, gruñéndote y enfrentandote, tu miedo te ciega y tu cansancio actual no ayuda, pero")
             st.write("Desde lo más alto de los árboles a tu lado finos balines empiezan a dirigirse hacia los perros haciendo que se asusten y no sepan que hacer más que correr hacia diferentes direcciones, se olvidan de ti, pero debido a todo lo ocurrido te desmayas, momentos después te despiertas y sin entender mucho sigues el camino")
+            st.image(RUTA_GIF / "hadaBordearRio.gif")
 
             if st.button("Continuar", key="textHadaBalsBorde"):
                 st.session_state.mostrarTextoComo =2
@@ -33,6 +35,7 @@ def textoCruce():
         elif st.session_state.mostrarTextoComo ==2:
             st.write("Estás llegando al final de tu camino… Pero… espera un momento, ¿qué es ese ruido? *escuchas ruido de madera, empiezas a tener miedo…* de la nada te cae una nuez en la cabeza")
             st.write("Lejos de asustarte mirás hacia la dirección donde la viste venir, unos ojos redondos y brillosos te miran desde esa dirección, es una ardilla!! pero no cualquier ardilla, destellos dorados salen de su nariz y orejas cuando te ven, acaso esta será una conexión…?")
+            st.image(RUTA_GIF / "hadaArdilla.gif")
             st.write("Felicidades! un compañero te eligió para acompañarte en tu aventura")
             if st.button("Continuar", key="textHadaBalsBorde2"):
                 st.session_state.mostrarTextoComo = 0
@@ -154,7 +157,6 @@ def etapa_4_hada():
         "Bordear el rio",
         "Cruzar Por Dentro"
     ]:
-        st.write("Encuentras una Ardilla mascota en el camino.")
         st.session_state.mascota = "Ardilla"
 
     elif st.session_state.cruce in [
@@ -170,6 +172,7 @@ def etapa_4_hada():
 def etapa_5_hada():
     if st.session_state.mascota == "Ardilla":
         st.write("Encuentras y entras a la mazmorra")
+        st.image(hadaArdAntCam)
         st.write("pasas por un tunel que te dirige hacia el este (izquierda) y te encuentras con dos opciones de camino, el primero tiene un aspecto tranquilo, calmo e inquietante, el segundo se ve más familiar, como tu hogar, algunas flores salen de la puerta y se ve vida…")
         sala = st.radio(
             "¿Con quién vas a luchar?",
@@ -199,8 +202,8 @@ def etapa_6_hada():
     sala = st.session_state.salaInicial
 
     if sala == "Pasillo Tranquilo":
-        st.write("entras a una habitación en penumbras, tras pasar la entrada tus ojos no pueden creer lo que ven, entidades, personas, espíritus, toda clase de fantasmas que te puedas imaginar, deambulando por todo el lugar… te encuentras frente a fantasmas que buscan oro y cosas brillantes, sino te raptan y no te dejan salir")
-        st.write("¿qué decides hacer? ")
+        st.write("Entras a una habitación en penumbras, tras pasar la entrada tus ojos no pueden creer lo que ven, entidades, personas, espíritus, toda clase de fantasmas que te puedas imaginar, deambulando por todo el lugar… te encuentras frente a fantasmas que buscan oro y cosas brillantes, sino te raptan y no te dejan salir")
+        st.image(RUTA_GIF /"hadaSalaFantasma.gif")
         opcion = st.radio(
             "¿qué hacés?",
             ["Polvo De Hadas", "¡snif snif!"],
@@ -274,6 +277,7 @@ def etapa_7_hada():
             st.rerun()
     elif st.session_state.salaInicial =="Pasillo Tranquilo" and st.session_state.opcionBatalla=="Polvo De Hadas":
         st.write("Eliges el polvo de hada, lo lanzas como lluvia y este crea un humo que hace pequeñas explosiones, logran cegar a los fantasmas y permiten perderte entre el lugar para que los fantasmas no te perciban")
+        st.image(RUTA_GIF /"hadaFantasmaMal.gif")
         st.write("Lamentablemente tu hechizo no estaba bien estudiado, ni bien practicado, funciona hasta la mitad del lugar, pero luego se disipa, llegas a la puerta, pero antes de cruzar un fantasma te agarra de los pies arrastrándose por dentro")
         if st.button("Continuar"):
             st.session_state.condicionSalida = 2
@@ -281,7 +285,7 @@ def etapa_7_hada():
             st.rerun()
     elif st.session_state.salaInicial =="Pasillo Tranquilo" and st.session_state.opcionBatalla=="¡snif snif!":
         st.write("Te acuerdas de tu Ardilla y sus destellos dorados que salían de ella, pues… tiene poderes! permite que ella se suba en tu cabeza y te hará invisible para pasar entre los fantasmas…")
-        st.write("Bien! tienes que ser cuidadosa, no hacer ruido y seguir, eres un hada así que vuelas despacio para hacer el menor ruido posible y no tocar a ningún fantasma.")
+        st.image(RUTA_GIF/"hadaInvisible.gif")
         if st.button("Continuar"):
             st.session_state.condicionSalida = 1
             st.session_state.etapa = 8
@@ -342,6 +346,23 @@ def finalAventura():
     elif st.session_state.salaInicial =="Pasillo Derecho" and st.session_state.opcionBatalla=="Correr":
         st.write("Lo agarras y empiezas a correr para lo que sea que haya en ese lugar, para escapar, pero en la desesperación chocas contra una pared ")
         st.image(RUTA_GIF / "hadaContraPared.gif")
+        if st.button("Continuar"):
+            st.session_state.etapa = 9
+            st.rerun()
+    elif st.session_state.salaInicial =="Pasillo Tranquilo" and st.session_state.opcionBatalla=="Polvo De Hadas":
+        st.session_state.etapa = 9
+        st.rerun()
+    elif st.session_state.salaInicial =="Pasillo Tranquilo" and st.session_state.opcionBatalla=="¡snif snif!":
+        st.write("Bien! tienes que ser cuidadosa, no hacer ruido y seguir, eres un hada así que vuelas despacio para hacer el menor ruido posible y no tocar a ningún fantasma.")
+        st.image(RUTA_GIF / "hadaArdillaEscape")
+        if st.button("Continuar"):
+            st.session_state.etapa = 9
+            st.rerun()
+    elif st.session_state.salaInicial =="Pasillo Familiar" and st.session_state.opcionBatalla=="Polvo De Hadas":
+        if st.button("Continuar"):
+            st.session_state.etapa = 9
+            st.rerun()
+    elif st.session_state.salaInicial =="Pasillo Familiar" and st.session_state.opcionBatalla=="¡snif snif!":
         if st.button("Continuar"):
             st.session_state.etapa = 9
             st.rerun()
