@@ -253,7 +253,7 @@ def etapa_7_hada():
             st.rerun()
     elif st.session_state.salaInicial =="Pasillo Derecho" and st.session_state.opcionBatalla=="Correr":
         st.write("Los ruidos no te dejan escuchar nada, no ves nada, dos de tus sentidos están totalmente bloqueados, tu corazón se empieza a acelerar y tu cabeza se empieza a nublar, solo logras sentir como tu gato compañero se altera y te pones aún más nerviosa")
-        st.write("Lo agarras y empiezas a correr para lo que sea que haya en ese lugar, para escapar, pero en la desesperación chocas contra una pared ")
+        st.image(RUTA_GIF / "hadaGatitosLocos.gif")
         if st.button("Continuar"):
             st.session_state.condicionSalida = 2
             st.session_state.etapa = 8
@@ -336,6 +336,12 @@ def finalAventura():
         st.write("Y al instante la campana brilla e ilumina todo el lugar mostrando que los ruidos no son más que unos cuantos bichos chocando contra metales")
         st.write("estos son insectos comunes sumidos en una locura extraña, tu amigo felino y tú deciden avanzar empujandolos, no te generan daño alguno y al estar iluminados se calman.")
         st.image(RUTA_GIF/ "hadaGatitoLuz.gif")
+        if st.button("Continuar"):
+            st.session_state.etapa = 9
+            st.rerun()
+    elif st.session_state.salaInicial =="Pasillo Derecho" and st.session_state.opcionBatalla=="Correr":
+        st.write("Lo agarras y empiezas a correr para lo que sea que haya en ese lugar, para escapar, pero en la desesperación chocas contra una pared ")
+        st.image(RUTA_GIF / "hadaPared.gif")
         if st.button("Continuar"):
             st.session_state.etapa = 9
             st.rerun()
