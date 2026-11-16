@@ -335,6 +335,7 @@ def finalAventura():
     elif st.session_state.salaInicial =="Pasillo Derecho" and st.session_state.opcionBatalla=="Tintineo De Campana":
         st.write("Y al instante la campana brilla e ilumina todo el lugar mostrando que los ruidos no son más que unos cuantos bichos chocando contra metales")
         st.write("estos son insectos comunes sumidos en una locura extraña, tu amigo felino y tú deciden avanzar empujandolos, no te generan daño alguno y al estar iluminados se calman.")
+        st.image(RUTA_GIF/ "hadaGatitoLuz.gif")
         if st.button("Continuar"):
             st.session_state.etapa = 9
             st.rerun()
