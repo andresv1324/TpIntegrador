@@ -80,7 +80,7 @@ def textoCruce():
     elif st.session_state.destino =="Bosque Brumoso" and st.session_state.cruce =="Cruzar Por Dentro":
         if st.session_state.mostrarTextoComo==1:
             st.write("Elegiste la mejor opción para cruzar este camino, el bosque es horrible, oscuro, tenebroso, pero no tiene peligro alguno, con tal de que no pises mal, ni te caigas, tu viaje es tranquilo, consejo: evita mirar hacia arriba")
-            st(hadaDentroBsque)
+            st.image(hadaDentroBsque)
             if st.button("Continuar", key="textHadaBosqueDentro"):
                 st.session_state.mostrarTextoComo =2
                 st.rerun()
