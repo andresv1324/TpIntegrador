@@ -197,7 +197,7 @@ def etapa_6_explorador():
     if sala == "Entrada Superior":
         st.write("Entras a la entrada de arriba, por alguna razón tienes un buen presentimiento, de repente un viento desde abajo te hacen volar hasta uno de los últimos pisos de la mazmorra y te encuentras frente a frente con un enjambre de murciélagos y ratas que no se quedan quietas, parece el mismo infierno. ")
         st.write("Pero antes de entrar en pánico buscas a tu amigo roedor para que no le suceda nada, mientras corres por lugares medianamente estables piensas ¿Qué hago?")
-        st.image(RUTA_GIF /"excapeRuinas.gif")
+        st.image(RUTA_GIF /"salidaRuinas.gif")
         opcion = st.radio(
             "",
             ["¡Snif Snif!","¡Flish, flash flish!"]
