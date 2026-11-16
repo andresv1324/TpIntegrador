@@ -354,7 +354,7 @@ def finalAventura():
         st.rerun()
     elif st.session_state.salaInicial =="Pasillo Tranquilo" and st.session_state.opcionBatalla=="¡snif snif!":
         st.write("Bien! tienes que ser cuidadosa, no hacer ruido y seguir, eres un hada así que vuelas despacio para hacer el menor ruido posible y no tocar a ningún fantasma.")
-        st.image(RUTA_GIF / "hadaArdillaEscape")
+        st.image(RUTA_GIF / "hadaArdillaEscape.gif")
         if st.button("Continuar"):
             st.session_state.etapa = 9
             st.rerun()
