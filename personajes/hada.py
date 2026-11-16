@@ -210,7 +210,7 @@ def etapa_6_hada():
         st.write("caes por un túnel y al caer te encuentras con una habitación completamente a oscuras donde hay mucho ruido, sabes que si sigues 5 minutos así no resistiras")
         opcion = st.radio(
             "que haces?",
-            ["Tinteno De Campana", "Correr"]
+            ["Tintino De Campana", "Correr"]
         ) 
     else:
         return
