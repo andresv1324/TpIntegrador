@@ -12,9 +12,9 @@ RUTA_IMG = RUTA_PROYECTO / "assets" / "picaro" / "img"
 RUTA_GIF = RUTA_PROYECTO / "assets" / "picaro" / "gif"
 
 # Cargar imágenes
-infoPicaro = Image.open("elPicaPica.png")
-picaroEnTunel = Image.open("picaroTunel.png")
-tunelCamino = Image.open("tunelCaminos.png")
+infoPicaro = Image.open(RUTA_IMG /"elPicaPica.png")
+picaroEnTunel = Image.open(RUTA_IMG / "picaroTunel.png")
+tunelCamino = Image.open(RUTA_IMG / "tunelCaminos.png")
 
 
 def textoCruce():
