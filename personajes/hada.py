@@ -16,6 +16,8 @@ imgRioBravo = Image.open(RUTA_IMG / "hadaAnteElRioTempestuoso.png")
 hadaGatAntCam = Image.open(RUTA_IMG / "hadaGatoAnteCamino.png")
 hadaBajLlu = Image.open(RUTA_IMG / "gataBajoLaLluvia.png")
 hadaCalva = Image.open(RUTA_IMG / "hadaCorte.png")
+hadaSubSue = Image.open(RUTA_IMG / "hadaEnSubSuelo.png")
+hadaCampana = Image.open(RUTA_IMG / "hadaCampanaGato.png")
 
 
 def textoCruce():
@@ -224,8 +226,8 @@ def etapa_6_hada():
         )
 
     elif sala == "Pasillo Derecho":
-        st.write("Este pasillo está oscuro...")
-
+        st.write("Este pasillo está oscuro, haces 5 pasos y el piso se pierde… caes por un túnel y al caer te encuentras con una habitación completamente a oscuras donde hay mucho ruido, sabes que si sigues 5 minutos así no resistiras ¿qué haces?")
+        st.image(hadaSubSue)
         opcion = st.radio(
             "¿que haces?",
             ["Tintineo De Campana", "Correr"],
@@ -243,8 +245,8 @@ def etapa_6_hada():
 def etapa_7_hada():
 
     if st.session_state.salaInicial =="Pasillo Derecho" and st.session_state.opcionBatalla=="Tintineo De Campana":
-        st.write("Tu compañero te llama, empieza a moverse inquieto y ves una lucecita tenue, recuerdas la caída en el bosque y los destellos dorados, intentas enfocar la vista y te das cuenta que es el collar de tu compañero, acercas tu mano para tocar la campana y al instante la campana brilla e ilumina todo el lugar mostrando que los ruidos no son más que unos cuantos bichos chocando contra metales")
-        st.write("estos son insectos comunes sumidos en una locura extraña, tu amigo felino y tú deciden avanzar empujandolos, no te generan daño alguno y al estar iluminados se calman.")
+        st.write("Tu compañero te llama, empieza a moverse inquieto y ves una lucecita tenue, recuerdas la caída en el bosque y los destellos dorados, intentas enfocar la vista y te das cuenta que es el collar de tu compañero, acercas tu mano para tocar la campana")
+        st.image(hadaCampana)
         if st.button("Continuar"):
             st.session_state.condicionSalida = 1
             st.session_state.etapa = 8
@@ -264,7 +266,7 @@ def etapa_7_hada():
             st.session_state.etapa = 8
             st.rerun()
     elif st.session_state.salaInicial =="Pasillo Izquierdo" and st.session_state.opcionBatalla=="Cortar Mechon Del Cabello":
-        st.write("En tus épocas de estudio formaste parte de un grupo secreto que estudiaba magia prohibida que requiere partes de ti, agarras un mechón de tu largo cabello y lo cortas, ")
+        st.write("En tus épocas de estudio formaste parte de un grupo secreto que estudiaba magia prohibida que requiere partes de ti, agarras un mechón de tu largo cabello y lo cortas, El hechizo dice que cuando un hada hace esto, el cabello brilla esparciendo la luz encerrada en sí. ")
         st.image(hadaCalva)
         if st.button("Continuar"):
             st.session_state.condicionSalida = 2
@@ -325,8 +327,14 @@ def finalAventura():
             st.session_state.etapa = 9
             st.rerun()
     elif st.session_state.salaInicial =="Pasillo Izquierdo" and st.session_state.opcionBatalla=="Cortar Mechon Del Cabello":
-        st.write("El hechizo dice que cuando un hada hace esto, el cabello brilla esparciendo la luz encerrada en sí, lamentablemente este brillo no es suficiente para secarlo a él y todo alrededor, el poder se consume rápido y el espíritu recupera su fuerza")
+        st.write("lamentablemente este brillo no es suficiente para secarlo a él y todo alrededor, el poder se consume rápido y el espíritu recupera su fuerza")
         st.image(RUTA_GIF/ "hadaMostroFallo.gif")
+        if st.button("Continuar"):
+            st.session_state.etapa = 9
+            st.rerun()
+    elif st.session_state.salaInicial =="Pasillo Derecho" and st.session_state.opcionBatalla=="Tintineo De Campana":
+        st.write("Y al instante la campana brilla e ilumina todo el lugar mostrando que los ruidos no son más que unos cuantos bichos chocando contra metales")
+        st.write("estos son insectos comunes sumidos en una locura extraña, tu amigo felino y tú deciden avanzar empujandolos, no te generan daño alguno y al estar iluminados se calman.")
         if st.button("Continuar"):
             st.session_state.etapa = 9
             st.rerun()
