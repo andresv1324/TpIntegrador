@@ -6,6 +6,13 @@ from personajes.hada import main_hada
 from personajes.explorador import main_explorador
 
 
+st.set_page_config(
+    page_title="Lo que aguarda en la profundidad",
+    page_icon="🌒",
+    layout="wide"
+)
+
+
 @st.cache_data
 def cargaGifHada(nombre):
     ruta_proyecto = Path(__file__).parent
@@ -102,18 +109,42 @@ def seleccionar_personaje():
             st.rerun()
 
 
+def mostrar_portada():
+    st.markdown(
+        """
+        <section class="landing-screen">
+            <div class="landing-kicker">Una aventura de decisiones y misterio</div>
+            <h1 class="landing-title">
+                LO QUE AGUARDA
+                <span>EN LA PROFUNDIDAD</span>
+            </h1>
+            <div class="landing-divider"></div>
+            <p class="landing-description">
+                Más allá de los senderos conocidos, algo antiguo despierta.
+                Elegí tu camino, confiá en tu instinto y descubrí qué secretos
+                se ocultan en la oscuridad.
+            </p>
+            <div class="landing-hint">Tu historia comienza aquí</div>
+        </section>
+        """,
+        unsafe_allow_html=True
+    )
+
+    _, centro, _ = st.columns([1, 2, 1])
+    with centro:
+        if st.button("✦  Comenzar aventura  ✦", key="comenzar_aventura", use_container_width=True):
+            st.session_state.etapa = 1
+            st.rerun()
+
+
 def main():
     cargar_estilos()
     inicializar_variables()
 
     if st.session_state.etapa == 0:
-        st.title("LO QUE AGUARDA EN LA PROFUNDIDAD")
+        mostrar_portada()
 
-        if st.button("Comenzar Aventura"):
-            st.session_state.etapa = 1
-            st.rerun()
-
-    #Etapa 1
+    # Etapa 1
     elif st.session_state.etapa == 1:
         seleccionar_personaje()
 
@@ -170,10 +201,6 @@ def main():
         if st.button("Volver al inicio"):
             st.session_state.clear()
             st.rerun()
-
-#    elif st.session_state.etapa == 10:
-#        st.subheader("Continuación de la aventura")
-#        st.write("Acá podés agregar la siguiente parte de tu historia.")
 
 
 if __name__ == "__main__":
