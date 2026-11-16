@@ -14,6 +14,7 @@ RUTA_GIF = RUTA_PROYECTO / "assets" / "picaro" / "gif"
 # Cargar imágenes
 picaroEnTunel = Image.open(RUTA_IMG / "picaroTunel.png")
 tunelCamino = Image.open(RUTA_IMG / "tunelCaminos.png")
+picaCandado = Image.open(RUTA_IMG / "picaCandado.png")
 
 
 def textoCruce():
@@ -37,12 +38,14 @@ def textoCruce():
         if st.session_state.mostrarTextoComo==1:
             st.write("Eres un pícaro, maestro de las trampas y la mentira, analizas tu trayecto, lo poco que se ve, pero mejor precavido que distraído… al hacer tu análisis notas ciertas características, piedras sobresalidas más de lo debido, pequeños huecos extrañamente bien posicionados en las paredes y demás")
             st.write("Ya has visto millones de veces este tipo de trampas, así que decides avanzar, esquivas una, esquivas otra, así hasta llegar a mitad de camino, logras ver la salida pero es difícil ver e identificar qué hay más adelante")
+            st.image(RUTA_GIF/"trampasCueva.gif")
             if st.button("Continuar", key="textoPicaroTunCruzar"):
                 st.session_state.mostrarTextoComo = 2
                 st.rerun()
         elif st.session_state.mostrarTextoComo ==2:
-            st.write("un tintineo se acerca de lo más oscuro, ves pequeños destellos dorados pero se desvanecen rápidamente revelando la figura de un gato tricolor, este se dirige hacia ti, pasando entre tus piernas hace iluminar tus pasos y el camino siguiente, decides seguirlo… logras llegar al final")
+            st.write("Un tintineo se acerca de lo más oscuro, ves pequeños destellos dorados pero se desvanecen rápidamente revelando la figura de un gato tricolor, este se dirige hacia ti, pasando entre tus piernas hace iluminar tus pasos y el camino siguiente, decides seguirlo… logras llegar al final")
             st.write("¡Felicidades! tienes un nuevo amigo de aventuras")
+            st.image(RUTA_GIF/"gato.gif")
             if st.button("Continuar", key="textoPicaroTunCruzar2"):
                 st.session_state.mostrarTextoComo = 0
                 st.rerun()
@@ -59,6 +62,7 @@ def textoCruce():
         elif st.session_state.mostrarTextoComo ==2:
             st.write("Un tintineo se acerca de lo más oscuro, ves pequeños destellos dorados pero se desvanecen rápidamente revelando la figura de un gato tricolor, este se dirige hacia ti, pasando entre tus piernas hace iluminar tus pasos y el camino siguiente, decides seguirlo… logras llegar al final")
             st.write("Felicidades! tienes un nuevo amigo de aventuras")
+            st.image(RUTA_GIF/"gato.gif")
             if st.button("Continuar", key="textoPicaroMonTrepar2"):
                 st.session_state.mostrarTextoComo = 0
                 st.rerun()
@@ -175,8 +179,9 @@ def etapa_5_explorador():
         )
 
     elif st.session_state.mascota == "Gato Tricolor":
-        st.write("llegas a la entrada de la mazmorra, te encuentras con dos caminos, uno arriba del otro, el de abajo irradia un olor nauseabundo y asqueroso, pero no logras llegar a ver nada más, del pasillo de arriba no hay ningun tipo de olor, pero el viento se escucha como roza las paredes…")
+        st.write("Llegas a la entrada de la mazmorra, te encuentras con dos caminos, uno arriba del otro, el de abajo irradia un olor nauseabundo y asqueroso, pero no logras llegar a ver nada más, del pasillo de arriba no hay ningun tipo de olor, pero el viento se escucha como roza las paredes…")
         st.write("¿por donde eliges ir?")
+        st.image(tunelCamino)
         sala = st.radio(
             "",
             ["Pasillo Abajo", "Pasillo Arriba"],
@@ -197,7 +202,7 @@ def etapa_6_explorador():
     if sala == "Entrada Superior":
         st.write("Entras a la entrada de arriba, por alguna razón tienes un buen presentimiento, de repente un viento desde abajo te hacen volar hasta uno de los últimos pisos de la mazmorra y te encuentras frente a frente con un enjambre de murciélagos y ratas que no se quedan quietas, parece el mismo infierno. ")
         st.write("Pero antes de entrar en pánico buscas a tu amigo roedor para que no le suceda nada, mientras corres por lugares medianamente estables piensas ¿Qué hago?")
-        st.image(RUTA_GIF /"salidaRuinas.gif")
+        st.image(RUTA_GIF /"excapeRuinas.gif")
         opcion = st.radio(
             "",
             ["¡Snif Snif!","¡Flish, flash flish!"]
@@ -205,8 +210,9 @@ def etapa_6_explorador():
 
 
     elif sala == "Entrada Inferior":
-        st.write("entras por la entrada de abajo, das unos pasos intentando ver el camino y un viento en dirección hacia abajo te obliga a caer y su fuerza hace perforar el piso, y a su vez aplastarte")
+        st.write("Entras por la entrada de abajo, das unos pasos intentando ver el camino y un viento en dirección hacia abajo te obliga a caer y su fuerza hace perforar el piso, y a su vez aplastarte")
         st.write("¿Resistiras?")
+        st.image(RUTA_GIF / "caidaMazmorra.gif")
         opcion = st.radio(
             "",
             ["¡Snif Snif!","Crack crack"]
@@ -215,6 +221,7 @@ def etapa_6_explorador():
     elif sala == "Pasillo Abajo":
         st.write("Entras con toda tu confianza por la entrada de abajo, ya que piensan que la peor entrada será el mejor camino, este túnel esta dividido en dos y tu decides ir por la izquierda, tu camino desemboca en una reja de hierro oxidada bloqueada con un candado viejo.")
         st.write("A tus pies, el agua estancada burbujea despidiendo un gas verdoso e inflamable que hace arder los ojos. el gato tricolor empieza a bufar hacia el techo, erizando su lomo tricolor mientras un tenue brillo protector rodea a ambos, neutralizando parte del aire tóxico")
+        st.image(RUTA_GIF / "ruinas.gif")
         opcion = st.radio(
             "",
             ["Forzar Cerrojo", "Explotar Bisagra"]
@@ -248,27 +255,29 @@ def etapa_7_explorador():
     elif st.session_state.salaInicial =="Entrada Superior" and st.session_state.opcionBatalla=="¡Flish, flash flish!":
         st.write("Llegas al espacio donde ese viento te mandó y caes, tus ojos no pueden creer lo que ven, enjambres de murciélagos y ratas corrompidos por una fuerza mayor se volvieron locos y son peligrosos, ante la situación quedás momentáneamente paralizado hasta que tu amigo roedor chilla de dolor, una rata lo morido!")
         st.write("Lo agarras rápidamente para no permitir que le vuelva a pasar y ante la desesperación, empiezas a correr y empujar a los animales con todas tus fuerzas ( la fuerza no es tu habilidad…")
-        st.write("Tu cuerpo no aguanta los golpes y rasguños de tantas criaturas a la vez…")
+        st.image(RUTA_GIF /"excapeRuinasFallado.gif")
         if st.button("Continuar"):
             st.session_state.condicionSalida = 2
             st.session_state.etapa = 8
             st.rerun()
     elif st.session_state.salaInicial =="Entrada Inferior" and st.session_state.opcionBatalla=="¡Snif Snif!":
-        st.write("Tu amigo roedor se acerca a ti con las patitas brillantes para que las toques, te acercas y se convierte en un roedor el quintuple de su tamaño, cava más rápido que el aire que los está aplastando, aumenta su velocidad y puedes ver minimos rayos de luz asomarse entre montones de tierra")
-        
+        st.write("Tu amigo roedor se acerca a ti con las patitas brillantes para que las toques, te acercas y se convierte en un roedor el quintuple de su tamaño, cava más rápido que el aire que los está aplastando, aumenta su velocidad")
+        st.image(RUTA_GIF/"excapeCalabaza.gif")
         if st.button("Continuar"):
             st.session_state.condicionSalida = 1
             st.session_state.etapa = 8
             st.rerun()
     elif st.session_state.salaInicial =="Entrada Inferior" and st.session_state.opcionBatalla=="Crack crack":
         st.write("El pelaje de tu amigo roedor empieza a expulsar brillos dorados, lo de antes no fue una ilusión. El se acerca a tu pierna para alcanzarte y sientes que todo empieza a cambiar")
-        st.write("De repente te sientes más fuerte, con menos dolor, no pierdes del tiempo y empiezas a cavar y a avanzar, parece que funciona y logras casi salir, pero el viento es tan fuerte que se vuelve díficil seguir")
+        st.write("De repente te sientes más fuerte, con menos dolor, no pierdes del tiempo y empiezas a cavar y a avanzar")
+        st.image(RUTA_GIF /"excapeALuz.gif")
         if st.button("Continuar"):
             st.session_state.condicionSalida = 2
             st.session_state.etapa = 8
             st.rerun()
     elif st.session_state.salaInicial =="Pasillo Abajo" and st.session_state.opcionBatalla=="Forzar Cerrojo":
-        st.write("Decides forzar a toda prisa el cerrojo con tus ganzúas, segundos valiosos te obligan a respirar este gas tóxico ya que el poder de tu amigo felino no está del todo desarrollado, logras abrir el cerrojo, pero al momento de pasar la reja y lograr respirar, te desmayas")
+        st.write("Decides forzar a toda prisa el cerrojo con tus ganzúas, segundos valiosos te obligan a respirar este gas tóxico ya que el poder de tu amigo felino no está del todo desarrollado")
+        st.image(picaCandado)
         if st.button("Continuar"):
             st.session_state.condicionSalida = 2
             st.session_state.etapa = 8
@@ -311,7 +320,30 @@ def finalAventura():
     if st.session_state.salaInicial =="Entrada Superior" and st.session_state.opcionBatalla=="¡Snif Snif!":
         st.session_state.etapa = 9
         st.rerun()
-
+    elif st.session_state.salaInicial =="Entrada Superior" and st.session_state.opcionBatalla=="¡Flish, flash flish!":
+        st.write("Tu cuerpo no aguanta los golpes y rasguños de tantas criaturas a la vez…")
+        st.image(RUTA_GIF /"ruinaSinExcape.gif")
+        if st.button("Continuar"):
+            st.session_state.etapa = 9
+            st.rerun()
+    elif st.session_state.salaInicial =="Entrada Inferior" and st.session_state.opcionBatalla=="¡Snif Snif!":
+        st.write("Puedes ver minimos rayos de luz asomarse entre montones de tierra, Gracias a tu amigo roedor sales de la mazmorra")
+        st.image(RUTA_GIF /"salidaTunel.gif")
+        if st.button("Continuar"):
+            st.session_state.etapa = 9
+            st.rerun()
+    elif st.session_state.salaInicial =="Entrada Inferior" and st.session_state.opcionBatalla=="Crack crack":
+        st.write("parece que funciona y logras casi salir pero el viento es tan fuerte que se vuelve díficil seguir")
+        st.image(RUTA_GIF/"sinEscape.gif")
+        if st.button("Continuar"):
+            st.session_state.etapa = 9
+            st.rerun()
+    elif st.session_state.salaInicial =="Pasillo Abajo" and st.session_state.opcionBatalla=="Forzar Cerrojo":
+        st.write("logras abrir el cerrojo, pero al momento de pasar la reja y lograr respirar, te desmayas")
+        st.write(RUTA_GIF / "gasVeneno.gif")
+        if st.button("Continuar"):
+            st.session_state.etapa = 9
+            st.rerun()
 
 def main_explorador():
     etapa = st.session_state.etapa
