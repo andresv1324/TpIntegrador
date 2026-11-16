@@ -213,7 +213,7 @@ def etapa_6_hada():
 
     elif sala == "Pasillo Familiar":
         st.write("Entras a la puerta de tu eleccion y te encuentras con un campo de flores hermoso, las flores más bellas que jamás hayas visto, tu amigo roedor se emociona porque jamás creyó que existiera algo así, empiezas tu camino pero a medida que avanzas te das cuenta que las flores largan un olor extraño, casi nauseabundo, malas noticias… las flores son venenosas, largan un hedor parecido al ácido y te asfixian")
-        st.image(RUTA_GIF / "hadaFlores")
+        st.image(RUTA_GIF / "hadaFlores.gif")
         opcion = st.radio(
             "¿qué hacés?",
             ["Polvo De Hadas", "¡snif snif!"],
