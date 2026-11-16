@@ -225,7 +225,7 @@ def etapa_7_explorador():
         if st.button("Continuar"):
             st.session_state.condicionSalida = 1
             st.session_state.etapa = 8
-            st.rerun
+            st.rerun()
     elif st.session_state.salaInicial =="Entrada Superior" and st.session_state.opcionBatalla=="¡Flish, flash flish!":
         st.write("Llegas al espacio donde ese viento te mandó y caes, tus ojos no pueden creer lo que ven, enjambres de murciélagos y ratas corrompidos por una fuerza mayor se volvieron locos y son peligrosos, ante la situación quedás momentáneamente paralizado hasta que tu amigo roedor chilla de dolor, una rata lo morido!")
         st.write("Lo agarras rápidamente para no permitir que le vuelva a pasar y ante la desesperación, empiezas a correr y empujar a los animales con todas tus fuerzas ( la fuerza no es tu habilidad…")
@@ -233,47 +233,47 @@ def etapa_7_explorador():
         if st.button("Continuar"):
             st.session_state.condicionSalida = 2
             st.session_state.etapa = 8
-            st.rerun
+            st.rerun()
     elif st.session_state.salaInicial =="Entrada Inferior" and st.session_state.opcionBatalla=="¡Snif Snif!":
         st.write("Tu amigo roedor se acerca a ti con las patitas brillantes para que las toques, te acercas y se convierte en un roedor el quintuple de su tamaño, cava más rápido que el aire que los está aplastando, aumenta su velocidad y puedes ver minimos rayos de luz asomarse entre montones de tierra")
         if st.button("Continuar"):
             st.session_state.condicionSalida = 1
             st.session_state.etapa = 8
-            st.rerun
+            st.rerun()
     elif st.session_state.salaInicial =="Entrada Inferior" and st.session_state.opcionBatalla=="Crack crack":
         st.write("El pelaje de tu amigo roedor empieza a expulsar brillos dorados, lo de antes no fue una ilusión. El se acerca a tu pierna para alcanzarte y sientes que todo empieza a cambiar")
         st.write("De repente te sientes más fuerte, con menos dolor, no pierdes del tiempo y empiezas a cavar y a avanzar, parece que funciona y logras casi salir, pero el viento es tan fuerte que se vuelve díficil seguir")
         if st.button("Continuar"):
             st.session_state.condicionSalida = 2
             st.session_state.etapa = 8
-            st.rerun
+            st.rerun()
     elif st.session_state.salaInicial =="Pasillo Abajo" and st.session_state.opcionBatalla=="Forzar Cerrojo":
         st.write("Decides forzar a toda prisa el cerrojo con tus ganzúas, segundos valiosos te obligan a respirar este gas tóxico ya que el poder de tu amigo felino no está del todo desarrollado, logras abrir el cerrojo, pero al momento de pasar la reja y lograr respirar, te desmayas")
         if st.button("Continuar"):
             st.session_state.condicionSalida = 2
             st.session_state.etapa = 8
-            st.rerun
+            st.rerun()
     elif st.session_state.salaInicial =="Pasillo Abajo" and st.session_state.opcionBatalla=="Explotar Bisagra":
         st.write("En uno de tus tantos viajes, un viejo sabio te enseño a llevar pedernal en una pequeña bolsa por precaución, recuerdas a este viejo y decides sacar la bolsita, pero en tus herramientas te das cuenta que no tienes absolutamente nada para hacer estallar más que gas y pedernal, pero necesitas fuego! alguna chispa!...")
         st.write("Tu amigo tricolor se da cuenta de lo que buscas y frunce su cara, su pelaje se empieza a erizar y a chispear, ¡BOOM! la reja salta de golpe y el humo también se disipa, las chispas fueron la mayor clave, tú y tu amigo felino salen rápidamente por el hueco de la reja hacia una salida oculta de la mazmorra")
         if st.button("Continuar"):
             st.session_state.condicionSalida = 1
             st.session_state.etapa = 8
-            st.rerun
+            st.rerun()
     elif st.session_state.salaInicial =="Pasillo Arriba" and st.session_state.opcionBatalla=="Salto":
         st.write("Antes de que caigas tu instinto de sobrevivir se activa y saltas hacia una pared enganchadote con tu daga a ella, al momento siguiente tu amigo felino tambien salta agarrandose a ti y trepando hacia una viga para no caer")
         st.write("En conjunto eligen saltar ambos hacia el piso que queda y logran llegar al otro lado, pero no consideraron que podrian venir más roedores subterraneos")
         if st.button("Continuar"):
             st.session_state.condicionSalida = 2
             st.session_state.etapa = 8
-            st.rerun
+            st.rerun()
     elif st.session_state.salaInicial =="Pasillo Arriba" and st.session_state.opcionBatalla=="Uso De La Capa":
         st.write("Elijes cubrirte con tu capa ante la plaga pero no te mueves por el miedo, recibes unos cuantos golpes pero de un momento a otro ya no sientes nada")
         st.write("Sorpresa tu amigo felino tiene poderes, y con tan solo sonar dos veces su campanita te hizo levitar a vos y a él, hasta llevarlos a un lugar seguro para continuar su camino")
         if st.button("Continuar"):
             st.session_state.condicionSalida = 1
             st.session_state.etapa = 8
-            st.rerun
+            st.rerun()
 
 def salidaMazmorra():
     if st.session_state.condicionSalida == 1:
