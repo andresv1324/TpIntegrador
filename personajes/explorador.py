@@ -29,7 +29,7 @@ def textoCruce():
         elif st.session_state.mostrarTextoComo ==2:
             st.write("¡Es una ardilla! ¿una ardilla? ¿por acá?, se te hace extraño pero ella se acerca y te ve con curiosidad, te indica que la sigas, claramente por el mismo camino que vos estabas ya recorriendo, pero de repente te empiezas a sentir mejor, el ambiente se aligera y tu velocidad se normaliza, ves tu próximo desafío en frente tuyo…")
             st.write("Felicidades! un compañero te eligió para acompañarte en tu aventura")
-            st.image(RUTA_GIF / "tunelArdlla.gif")
+            st.image(RUTA_GIF / "tunelArdilla.gif")
             if st.button("Continuar", key="textoPicaroTunTrepar2"):
                 st.session_state.mostrarTextoComo = 0
                 st.rerun()
