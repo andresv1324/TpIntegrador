@@ -15,6 +15,7 @@ RUTA_GIF = RUTA_PROYECTO / "assets" / "hada" / "gif"
 imgRioBravo = Image.open(RUTA_IMG / "hadaAnteElRioTempestuoso.png")
 hadaGatAntCam = Image.open(RUTA_IMG / "hadaGatoAnteCamino.png")
 hadaBajLlu = Image.open(RUTA_IMG / "gataBajoLaLluvia.png")
+hadaCalva = Image.open(RUTA_IMG / "hadaCorte.png")
 
 
 def textoCruce():
@@ -264,7 +265,7 @@ def etapa_7_hada():
             st.rerun()
     elif st.session_state.salaInicial =="Pasillo Izquierdo" and st.session_state.opcionBatalla=="Cortar Mechon Del Cabello":
         st.write("En tus épocas de estudio formaste parte de un grupo secreto que estudiaba magia prohibida que requiere partes de ti, agarras un mechón de tu largo cabello y lo cortas, ")
-        st.write("El hechizo dice que cuando un hada hace esto, el cabello brilla esparciendo la luz encerrada en sí, lamentablemente este brillo no es suficiente para secarlo a él y todo alrededor, el poder se consume rápido y el espíritu recupera su fuerza")
+        st.image(hadaCalva)
         if st.button("Continuar"):
             st.session_state.condicionSalida = 2
             st.session_state.etapa = 8
@@ -320,6 +321,12 @@ def finalAventura():
     if st.session_state.salaInicial =="Pasillo Izquierdo" and st.session_state.opcionBatalla=="Tintineo De Campana":
         st.write("Se fusiona con el tuyo y de ahí nace una luz que encandila al espíritu y lo seca en un segundo, dejando el barro seco y al espíritu encerrado.")
         st.image(RUTA_GIF / "hadaEscapaBarro.gif")
+        if st.button("Continuar"):
+            st.session_state.etapa = 9
+            st.rerun()
+    elif st.session_state.salaInicial =="Pasillo Izquierdo" and st.session_state.opcionBatalla=="Cortar Mechon Del Cabello":
+        st.write("El hechizo dice que cuando un hada hace esto, el cabello brilla esparciendo la luz encerrada en sí, lamentablemente este brillo no es suficiente para secarlo a él y todo alrededor, el poder se consume rápido y el espíritu recupera su fuerza")
+        st.image(RUTA_GIF/ "hadaMostroFallo.gif")
         if st.button("Continuar"):
             st.session_state.etapa = 9
             st.rerun()
