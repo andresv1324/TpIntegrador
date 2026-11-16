@@ -240,6 +240,7 @@ def etapa_6_explorador():
 def etapa_7_explorador():
     if st.session_state.salaInicial =="Entrada Superior" and st.session_state.opcionBatalla=="¡Snif Snif!":
         st.write("Tu amigo roedor te llama y pide que toques su nariz la cual se empieza a iluminar, tocas su pequeña naricita y en ese momento se ilumina un camino dónde parece que podras pasar hacia la salida, aprovechas tu vitalidad momentánea y tu agilidad para moverte y sigues el camino…")
+        st.image(RUTA_GIF /"salidaRuina.gif")
         if st.button("Continuar"):
             st.session_state.condicionSalida = 1
             st.session_state.etapa = 8
@@ -254,7 +255,7 @@ def etapa_7_explorador():
             st.rerun()
     elif st.session_state.salaInicial =="Entrada Inferior" and st.session_state.opcionBatalla=="¡Snif Snif!":
         st.write("Tu amigo roedor se acerca a ti con las patitas brillantes para que las toques, te acercas y se convierte en un roedor el quintuple de su tamaño, cava más rápido que el aire que los está aplastando, aumenta su velocidad y puedes ver minimos rayos de luz asomarse entre montones de tierra")
-        st.image(RUTA_GIF /"salidaRuina.gif")
+        
         if st.button("Continuar"):
             st.session_state.condicionSalida = 1
             st.session_state.etapa = 8
@@ -307,9 +308,10 @@ def infoSalia():
             st.rerun()
 
 def finalAventura():
-    if st.session_state.salaInicial =="Entrada Inferior" and st.session_state.opcionBatalla=="¡Snif Snif!":
+    if st.session_state.salaInicial =="Entrada Superior" and st.session_state.opcionBatalla=="¡Snif Snif!":
         st.session_state.etapa = 9
         st.rerun()
+
 
 def main_explorador():
     etapa = st.session_state.etapa
