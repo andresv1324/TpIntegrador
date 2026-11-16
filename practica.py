@@ -51,8 +51,10 @@ def cargar_estilos():
     with open(ruta_css, "r", encoding="utf-8") as archivo:
         css = archivo.read()
 
-    gif_hada = cargaGifHada("hadaSaludando.gif")
-    css = css.replace("__HADA_GIF__", gif_hada)
+    gifHada = cargaGifHada("hadaSaludando.gif")
+    gifPicaro = cargaGifPicaro("picaroSaludando.gif")
+    css = css.replace("__HADA_GIF__", gifHada)
+    css = css.replace("__PICARO_GIF__",gifPicaro)
 
     st.markdown(f"<style>{css}</style>", unsafe_allow_html=True)
 
@@ -158,9 +160,13 @@ def main():
             main_explorador()
 
     elif st.session_state.etapa == 9:
-        st.title("¡FIN DE LA AVENTURA!")
-        st.write("Has completado tu recorrido.")
+        if st.session_state.personaje == "🧚 Hada":
+            main_hada()
+        elif st.session_state.personaje == "🧭 Explorador":
+            main_explorador()
 
+    elif st.session_state.etapa == 10:
+        st.title("¡FIN DE LA AVENTURA!")
         if st.button("Volver al inicio"):
             st.session_state.clear()
             st.rerun()

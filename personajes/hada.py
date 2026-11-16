@@ -1,4 +1,10 @@
 import streamlit as st
+from PIL import Image
+
+imgRioBravo = Image.open("assets/hada/img/hadaAnteElRioTempestuoso.png")
+hadaGatAntCam =Image.open("assets/hada/img/hadaGatoAnteCamino.png")
+hadaBajLlu =Image.open("assets/hada/img/gataBajoLaLluvia.png")
+
 
 def textoCruce():
     #CAMINO RIO BRAVO
@@ -19,13 +25,16 @@ def textoCruce():
                 st.rerun()
     elif st.session_state.destino == "Rio Bravo" and st.session_state.cruce =="Balsa por dentro":
         if st.session_state.mostrarTextoComo==1:
-            st.write("eliges cruzar el río por dentro, tu instinto de venganza y de ira te hace ir por el lugar más peligroso a simple vista, donde estabas había una balsa medianamente decente, que en tu cabeza era buena idea, y de hecho, sí… El primer trayecto fue un poco turbulento, pero luego el rio desemboca y se calma haciendo de tu viaje hasta la mazmorra tranquilo. Pero de repente, casi llegando al final, el río se alborota y se vuelve incontrolable, intentas mantenerte a flote hasta llegar pero tu balsa se vuelca…")
+            st.write("Eliges cruzar el río por dentro, tu instinto de venganza y de ira te hace ir por el lugar más peligroso a simple vista, donde estabas había una balsa medianamente decente, que en tu cabeza era buena idea, y de hecho, sí… El primer trayecto fue un poco turbulento, pero luego el rio desemboca y se calma haciendo de tu viaje hasta la mazmorra tranquilo. Pero de repente, casi llegando al final, el río se alborota y se vuelve incontrolable, intentas mantenerte a flote hasta llegar pero tu balsa se vuelca…")
+            st.image("assets/hada/gif/hadaPelirrojaEnLosRapidos.gif")
+
             if st.button("Continuar", key="textHadaBalsDentr3"):
                 st.session_state.mostrarTextoComo = 2
                 st.rerun()
         elif st.session_state.mostrarTextoComo ==2:
-            st.write(" justo antes de caer un gato tricolor callejero rondaba por ahí, vio la situación e hizo sonar su campana, no entiendes bien que pasó pero saliste ilesa y tu cuerpo no dolía, cuando logras despertar estabas en el suelo y sobre ti había un amigo felino tricolor mirándote fijo, crees ver destellos dorados salir de su collar pero dudas")
+            st.write("Justo antes de caer un gato tricolor callejero rondaba por ahí, vio la situación e hizo sonar su campana, no entiendes bien que pasó pero saliste ilesa y tu cuerpo no dolía, cuando logras despertar estabas en el suelo y sobre ti había un amigo felino tricolor mirándote fijo, crees ver destellos dorados salir de su collar pero dudas")
             st.write("Felicidades! un compañero te eligió para acompañarte en tu aventura")
+            st.image("assets/hada/gif/encuentroGatito.gif")
             if st.button("Continuar", key="textHadaBalsDentr4"):
                 st.session_state.mostrarTextoComo = 0
                 st.rerun()
@@ -60,11 +69,8 @@ def textoCruce():
                 st.session_state.mostrarTextoComo = 0
                 st.rerun()
 
-
-
-
 def informacion_hada():
-    st.image("assets/gif/hadaDesterrada.gif")
+    st.image("assets/hada/gif/hadaDesterrada.gif")
     st.text(
         "Eres un hada que fue exiliada de su lugar, de su casa, de su familia, "
         "luchaste por quedarte y te defendiste, pero la reina no te creyó a pesar "
@@ -103,6 +109,7 @@ def etapa_3_hada():
             "rompe olas contra piedras filosas y hay muchísimo viento. "
             "¿Por dónde eliges ir?"
         )
+        st.image(imgRioBravo, width=500)
         cruce = st.radio(
             "",
             ["Balsa por dentro", "Bordear el rio"],
@@ -140,14 +147,10 @@ def etapa_4_hada():
         "Balsa por dentro",
         "Volar Sobre el bosque"
     ]:
-        st.write("Encontraste un Gato Tricolor mascota en el camino.")
         st.session_state.mascota = "Gato Tricolor"
 
-
-
-    if st.button("Continuar", key="continuar_mascota_hada"):
-        st.session_state.etapa = "MAZMORRA"
-        st.rerun()
+    st.session_state.etapa = "MAZMORRA"
+    st.rerun()
 
 
 def etapa_5_hada():
@@ -163,6 +166,7 @@ def etapa_5_hada():
     elif st.session_state.mascota == "Gato Tricolor":
         st.write("Llegas a la entrada de la mazmorra pasas por un túnel que te dirige hacia el este")
         st.write("Está oscuro y hay muchos ruidos, pero crees que es la mejor entrada y que es un engaño el aspecto para que los exploradores como vos no pasen, más adelante te encuentras con dos pasillos ¿cuál eliges?")
+        st.image(hadaGatAntCam)
         sala = st.radio(
             "",
             ["Pasillo Izquierdo", "Pasillo Derecho"],
@@ -200,6 +204,7 @@ def etapa_6_hada():
     elif sala == "Pasillo Izquierdo":
         st.write("Entras a una habitación llena de humedad.")
         st.write("Es un espacio donde cae agua por doquier y su piso está inundado de barro, sientes como tus alas empiezan a pesar por el agua que cae y no te permite seguir volando, inevitablemente debes caminar, el barro te llegaba hasta por debajo de la rodilla, pero de repente sientes que este te tira un poco, frente a ti se eleva una montaña de barro, es un espiritu que usa el barro como cuerpo")
+        st.image("assets/hada/gif/hadaAnteBarro.gif")
         opcion = st.radio(
             "¿qué haces?",
             ["Tintineo De Campana", "Cortar Mechon Del Cabello"],
@@ -240,8 +245,8 @@ def etapa_7_hada():
             st.session_state.etapa = 8
             st.rerun()
     elif st.session_state.salaInicial =="Pasillo Izquierdo" and st.session_state.opcionBatalla=="Tintineo De Campana":
-        st.write("De repente escuchas un tintineo, el mismo que escuchaste aDes, es tu amigo felino que está a tu lado intentando llamar D atención moviendo su campana en su collarcito, esta empieza a bDllar y te inclinas para tocarla, en ese momento el brillo dDsu campan ")
-        st.write("Se fusiona con el tuyo y de ahí nace una luz que encandila al espíritu y lo seca en un segundo, dejando el barro seco y al espíritu encerrado.")
+        st.write("De repente escuchas un tintineo, el mismo que escuchaste antes, es tu amigo felino que está a tu lado intentando llamar tu atención moviendo su campana en su collarcito, esta empieza a brillar y te inclinas para tocarla, en ese momento el brillo de su campan ")
+        st.image(hadaBajLlu)
         if st.button("Continuar"):
             st.session_state.condicionSalida = 1
             st.session_state.etapa = 8
@@ -288,14 +293,23 @@ def etapa_7_hada():
         st.write("Sala recibida:", repr(st.session_state.salaInicial))
         st.write("Opción recibida:", repr(st.session_state.opcionBatalla))
 
-def salidaMazmorra():
-    if st.session_state.condicionSalida == 1:
+def infoSalia():
+    if st.session_state.condicionSalida == 2:
         st.error("No lograste Escapar De La Mazmorra")
         if st.button("Continuar"):
             st.session_state.etapa = 9
             st.rerun()
-    elif st.session_state.condicionSalida == 2:
+    elif st.session_state.condicionSalida == 1:
         st.success("Felicidades! lograste Escapar De La Mazmorra")
+        if st.button("Continuar"):
+            st.session_state.etapa = 10
+            st.rerun()
+
+def finalAventura():
+    st.session_state.etapa=9
+    if st.session_state.salaInicial =="Pasillo Izquierdo" and st.session_state.opcionBatalla=="Tintineo De Campana":
+        st.write("Se fusiona con el tuyo y de ahí nace una luz que encandila al espíritu y lo seca en un segundo, dejando el barro seco y al espíritu encerrado.")
+        st.image("assets/hada/gif/hadaEscapaBarro.gif")
         if st.button("Continuar"):
             st.session_state.etapa = 9
             st.rerun()
@@ -322,6 +336,9 @@ def main_hada():
     elif etapa == 7:
         etapa_7_hada()
     elif etapa == 8:
-        salidaMazmorra()
+        finalAventura()
+    elif etapa ==9:
+        infoSalia()
+
 
 #python -m streamlit run practica.py
