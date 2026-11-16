@@ -341,7 +341,7 @@ def finalAventura():
             st.rerun()
     elif st.session_state.salaInicial =="Pasillo Derecho" and st.session_state.opcionBatalla=="Correr":
         st.write("Lo agarras y empiezas a correr para lo que sea que haya en ese lugar, para escapar, pero en la desesperación chocas contra una pared ")
-        st.image(RUTA_GIF / "hadaPared.gif")
+        st.image(RUTA_GIF / "hadaContraPared.gif")
         if st.button("Continuar"):
             st.session_state.etapa = 9
             st.rerun()
