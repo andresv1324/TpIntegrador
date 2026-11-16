@@ -219,7 +219,7 @@ def etapa_6_explorador():
         st.session_state.etapa = 7
         st.rerun()
 
-def etapa_7_hada():
+def etapa_7_explorador():
     if st.session_state.salaInicial =="Entrada Superior" and st.session_state.opcionBatalla=="¡Snif Snif!":
         st.write("Tu amigo roedor te llama y pide que toques su nariz la cual se empieza a iluminar, tocas su pequeña naricita y en ese momento se ilumina un camino dónde parece que podras pasar hacia la salida, aprovechas tu vitalidad momentánea y tu agilidad para moverte y sigues el camino…")
         if st.button("Continuar"):
