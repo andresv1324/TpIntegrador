@@ -185,44 +185,46 @@ def etapa_6_hada():
         st.write("¿qué decides hacer? ")
         opcion = st.radio(
             "¿qué hacés?",
-            ["Polvo De Hadas", "¡snif snif!"]
+            ["Polvo De Hadas", "¡snif snif!"],
+            key="opcionPasilloTranquilo"
         )
-        
 
     elif sala == "Pasillo Familiar":
         st.write(" entras a la puerta de tu eleccion y te encuentras con un campo de flores hermoso, las flores más bellas que jamás hayas visto, tu amigo roedor se emociona porque jamás creyó que existiera algo así, empiezas tu camino pero a medida que avanzas te das cuenta que las flores largan un olor extraño, casi nauseabundo, malas noticias… las flores son venenosas, largan un hedor parecido al ácido y te asfixian")
         opcion = st.radio(
             "¿qué hacés?",
-            ["Polvo De Hadas", "¡snif snif!"]
+            ["Polvo De Hadas", "¡snif snif!"],
+            key="opcionPasilloFamiliar"
         )
-
 
     elif sala == "Pasillo Izquierdo":
         st.write("Entras a una habitación llena de humedad.")
         st.write("Es un espacio donde cae agua por doquier y su piso está inundado de barro, sientes como tus alas empiezan a pesar por el agua que cae y no te permite seguir volando, inevitablemente debes caminar, el barro te llegaba hasta por debajo de la rodilla, pero de repente sientes que este te tira un poco, frente a ti se eleva una montaña de barro, es un espiritu que usa el barro como cuerpo")
         opcion = st.radio(
-            "¿que haces?",
-            ["Tintineo De Campana", "Cortar Mechon Del Cabello"]
-        ) 
+            "¿qué haces?",
+            ["Tintineo De Campana", "Cortar Mechon Del Cabello"],
+            key="opcionPasilloIzquierdo"
+        )
 
     elif sala == "Pasillo Derecho":
-        st.write("este pasillo está oscuro, haces 5 pasos y el piso se pierde")
-        st.write("caes por un túnel y al caer te encuentras con una habitación completamente a oscuras donde hay mucho ruido, sabes que si sigues 5 minutos así no resistiras")
+        st.write("Este pasillo está oscuro...")
+
         opcion = st.radio(
-            "que haces?",
-            ["Tintino De Campana", "Correr"]
-        ) 
+            "¿que haces?",
+            ["Tintineo De Campana", "Correr"],
+            key="opcionPasilloDerecho"
+        )
+
     else:
         return
 
-    if st.button("Continuar", key="continuar_batalla_hada"):
+    if st.button("Continuar", key="continuarBatallaHada"):
         st.session_state.opcionBatalla = opcion
         st.session_state.etapa = 7
         st.rerun()
 
 def etapa_7_hada():
-    st.write("DEBUG SALA:", st.session_state.salaInicial)
-    st.write("DEBUG OPCIÓN:", st.session_state.opcionBatalla)
+
     if st.session_state.salaInicial =="Pasillo Derecho" and st.session_state.opcionBatalla=="Tintineo De Campana":
         st.write("Tu compañero te llama, empieza a moverse inquieto y ves una lucecita tenue, recuerdas la caída en el bosque y los destellos dorados, intentas enfocar la vista y te das cuenta que es el collar de tu compañero, acercas tu mano para tocar la campana y al instante la campana brilla e ilumina todo el lugar mostrando que los ruidos no son más que unos cuantos bichos chocando contra metales")
         st.write("estos son insectos comunes sumidos en una locura extraña, tu amigo felino y tú deciden avanzar empujandolos, no te generan daño alguno y al estar iluminados se calman.")
@@ -281,18 +283,22 @@ def etapa_7_hada():
             st.session_state.condicionSalida = 1
             st.session_state.etapa = 8
             st.rerun()
+    else:
+        st.error("No se encontró una combinación válida")
+        st.write("Sala recibida:", repr(st.session_state.salaInicial))
+        st.write("Opción recibida:", repr(st.session_state.opcionBatalla))
 
 def salidaMazmorra():
     if st.session_state.condicionSalida == 1:
         st.error("No lograste Escapar De La Mazmorra")
         if st.button("Continuar"):
             st.session_state.etapa = 9
-            st.rerun
+            st.rerun()
     elif st.session_state.condicionSalida == 2:
         st.success("Felicidades! lograste Escapar De La Mazmorra")
         if st.button("Continuar"):
             st.session_state.etapa = 9
-            st.rerun
+            st.rerun()
 
 def main_hada():
     etapa = st.session_state.etapa
