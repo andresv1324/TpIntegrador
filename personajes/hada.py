@@ -19,6 +19,7 @@ hadaCalva = Image.open(RUTA_IMG / "hadaCorte.png")
 hadaSubSue = Image.open(RUTA_IMG / "hadaEnSubSuelo.png")
 hadaCampana = Image.open(RUTA_IMG / "hadaCampanaGato.png")
 hadaArdAntCam = Image.open(RUTA_IMG /"hadaArdiAnteCamino.png")
+hadaFloresMag = Image.opne(RUTA_IMG /"hadaEcuentroFlores.png")
 
 
 def textoCruce():
@@ -172,8 +173,8 @@ def etapa_4_hada():
 def etapa_5_hada():
     if st.session_state.mascota == "Ardilla":
         st.write("Encuentras y entras a la mazmorra")
-        st.image(hadaArdAntCam)
         st.write("pasas por un tunel que te dirige hacia el este (izquierda) y te encuentras con dos opciones de camino, el primero tiene un aspecto tranquilo, calmo e inquietante, el segundo se ve más familiar, como tu hogar, algunas flores salen de la puerta y se ve vida…")
+        st.image(hadaArdAntCam)
         sala = st.radio(
             "¿Con quién vas a luchar?",
             ["Pasillo Tranquilo", "Pasillo Familiar"],
@@ -211,7 +212,8 @@ def etapa_6_hada():
         )
 
     elif sala == "Pasillo Familiar":
-        st.write(" entras a la puerta de tu eleccion y te encuentras con un campo de flores hermoso, las flores más bellas que jamás hayas visto, tu amigo roedor se emociona porque jamás creyó que existiera algo así, empiezas tu camino pero a medida que avanzas te das cuenta que las flores largan un olor extraño, casi nauseabundo, malas noticias… las flores son venenosas, largan un hedor parecido al ácido y te asfixian")
+        st.write("Entras a la puerta de tu eleccion y te encuentras con un campo de flores hermoso, las flores más bellas que jamás hayas visto, tu amigo roedor se emociona porque jamás creyó que existiera algo así, empiezas tu camino pero a medida que avanzas te das cuenta que las flores largan un olor extraño, casi nauseabundo, malas noticias… las flores son venenosas, largan un hedor parecido al ácido y te asfixian")
+        st.image(RUTA_GIF / "hadaFlores")
         opcion = st.radio(
             "¿qué hacés?",
             ["Polvo De Hadas", "¡snif snif!"],
@@ -277,8 +279,8 @@ def etapa_7_hada():
             st.rerun()
     elif st.session_state.salaInicial =="Pasillo Tranquilo" and st.session_state.opcionBatalla=="Polvo De Hadas":
         st.write("Eliges el polvo de hada, lo lanzas como lluvia y este crea un humo que hace pequeñas explosiones, logran cegar a los fantasmas y permiten perderte entre el lugar para que los fantasmas no te perciban")
-        st.image(RUTA_GIF /"hadaFantasmaMal.gif")
         st.write("Lamentablemente tu hechizo no estaba bien estudiado, ni bien practicado, funciona hasta la mitad del lugar, pero luego se disipa, llegas a la puerta, pero antes de cruzar un fantasma te agarra de los pies arrastrándose por dentro")
+        st.image(RUTA_GIF /"hadaFantasmaMal.gif")
         if st.button("Continuar"):
             st.session_state.condicionSalida = 2
             st.session_state.etapa = 8
@@ -291,17 +293,15 @@ def etapa_7_hada():
             st.session_state.etapa = 8
             st.rerun()
     elif st.session_state.salaInicial =="Pasillo Familiar" and st.session_state.opcionBatalla=="Polvo De Hadas":
-        st.write("Empiezas a buscar soluciones y te acuerdas de tus clases de magia antes de ser exiliada, un hechizo se te viene a la memoria y junto a tu polvo de hadas apaga todo el veneno que te libera ")
-        st.write("Sigues avanzando lo más rápido posible para lograr salir pero hay un detalle que no viste, las plantas sin ese veneno que liberan, son agresivas, logras salvarte de su veneno pero no de sus rasguños")
-        st.write("Sus rasguños te dañan, te raspan y te vuelven más débil a medida que quieras salir")
+        st.write("Empiezas a buscar soluciones y te acuerdas de tus clases de magia antes de ser exiliada, un hechizo se te viene a la memoria y junto a tu polvo de hadas apaga todo el veneno que te libera sigues avanzando lo más rápido posible para lograr salir")
+        st.image(RUTA_GIF / "hadaSinNiebla.gif")
         if st.button("Continuar"):
             st.session_state.condicionSalida = 2
             st.session_state.etapa = 8
             st.rerun()
     elif st.session_state.salaInicial =="Pasillo Familiar" and st.session_state.opcionBatalla=="¡snif snif!":
-        st.write("Ante la desesperación tu amigo roedor llama tu atención y ves como su pelaje empieza a brillar, no era mentira lo que viste en el bosque, él también tiene poderes!! tu ardilla empieza a trepar por tu cuerpo hasta lograr subir sobre tu cabeza")
-        st.write("Empieza a brillar cada vez más y genera una burbuja protectora que te repele de todos los gases venenosos, al no combatirlos ni apagar estos gases las flores se mantienen dormidas, pasas sigilosa y tranquila")
-        st.write("Las flores no se despertaron y llegaste al final")
+        st.write("Ante la desesperación tu amigo roedor llama tu atención y ves como su pelaje empieza a brillar, no era mentira lo que viste en el bosque, él también tiene poderes!!")
+        st.write(hadaFloresMag)
         if st.button("Continuar"):
             st.session_state.condicionSalida = 1
             st.session_state.etapa = 8
@@ -359,10 +359,16 @@ def finalAventura():
             st.session_state.etapa = 9
             st.rerun()
     elif st.session_state.salaInicial =="Pasillo Familiar" and st.session_state.opcionBatalla=="Polvo De Hadas":
+        st.write("Pero hay un detalle que no viste, las plantas sin ese veneno que liberan, son agresivas, logras salvarte de su veneno pero no de sus rasguños")
+        st.write("Sus rasguños te dañan, te raspan y te vuelven más débil a medida que quieras salir")
+        st.image(RUTA_GIF / "hadaEspinas.gif")
         if st.button("Continuar"):
             st.session_state.etapa = 9
             st.rerun()
     elif st.session_state.salaInicial =="Pasillo Familiar" and st.session_state.opcionBatalla=="¡snif snif!":
+        st.write("Tu ardilla empieza a trepar por tu cuerpo hasta lograr subir sobre tu cabeza")
+        st.write("Empieza a brillar cada vez más y genera una burbuja protectora que te repele de todos los gases venenosos, al no combatirlos ni apagar estos gases las flores se mantienen dormidas, pasas sigilosa y tranquila Las flores no se despertaron y llegaste al final")
+        st.image(RUTA_GIF / "hadaEscudo.gif")
         if st.button("Continuar"):
             st.session_state.etapa = 9
             st.rerun()
