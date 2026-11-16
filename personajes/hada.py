@@ -1,9 +1,20 @@
 import streamlit as st
 from PIL import Image
+from pathlib import Path
 
-imgRioBravo = Image.open("assets/hada/img/hadaAnteElRioTempestuoso.png")
-hadaGatAntCam =Image.open("assets/hada/img/hadaGatoAnteCamino.png")
-hadaBajLlu =Image.open("assets/hada/img/gataBajoLaLluvia.png")
+# Ruta absoluta de la carpeta principal del proyecto
+RUTA_PROYECTO = Path(__file__).resolve().parent.parent
+
+# Carpeta de imágenes
+RUTA_IMG = RUTA_PROYECTO / "assets" / "hada" / "img"
+
+# Carpeta de GIF
+RUTA_GIF = RUTA_PROYECTO / "assets" / "hada" / "gif"
+
+# Cargar imágenes
+imgRioBravo = Image.open(RUTA_IMG / "hadaAnteElRioTempestuoso.png")
+hadaGatAntCam = Image.open(RUTA_IMG / "hadaGatoAnteCamino.png")
+hadaBajLlu = Image.open(RUTA_IMG / "gataBajoLaLluvia.png")
 
 
 def textoCruce():
@@ -26,7 +37,7 @@ def textoCruce():
     elif st.session_state.destino == "Rio Bravo" and st.session_state.cruce =="Balsa por dentro":
         if st.session_state.mostrarTextoComo==1:
             st.write("Eliges cruzar el río por dentro, tu instinto de venganza y de ira te hace ir por el lugar más peligroso a simple vista, donde estabas había una balsa medianamente decente, que en tu cabeza era buena idea, y de hecho, sí… El primer trayecto fue un poco turbulento, pero luego el rio desemboca y se calma haciendo de tu viaje hasta la mazmorra tranquilo. Pero de repente, casi llegando al final, el río se alborota y se vuelve incontrolable, intentas mantenerte a flote hasta llegar pero tu balsa se vuelca…")
-            st.image("assets/hada/gif/hadaPelirrojaEnLosRapidos.gif")
+            st.image(RUTA_GIF / "hadaPelirrojaEnLosRapidos.gif")
 
             if st.button("Continuar", key="textHadaBalsDentr3"):
                 st.session_state.mostrarTextoComo = 2
@@ -34,7 +45,7 @@ def textoCruce():
         elif st.session_state.mostrarTextoComo ==2:
             st.write("Justo antes de caer un gato tricolor callejero rondaba por ahí, vio la situación e hizo sonar su campana, no entiendes bien que pasó pero saliste ilesa y tu cuerpo no dolía, cuando logras despertar estabas en el suelo y sobre ti había un amigo felino tricolor mirándote fijo, crees ver destellos dorados salir de su collar pero dudas")
             st.write("Felicidades! un compañero te eligió para acompañarte en tu aventura")
-            st.image("assets/hada/gif/encuentroGatito.gif")
+            st.image(RUTA_GIF / "encuentroGatito.gif")
             if st.button("Continuar", key="textHadaBalsDentr4"):
                 st.session_state.mostrarTextoComo = 0
                 st.rerun()
@@ -70,7 +81,7 @@ def textoCruce():
                 st.rerun()
 
 def informacion_hada():
-    st.image("assets/hada/gif/hadaDesterrada.gif")
+    st.image(RUTA_GIF / "hadaDesterrada.gif")
     st.text(
         "Eres un hada que fue exiliada de su lugar, de su casa, de su familia, "
         "luchaste por quedarte y te defendiste, pero la reina no te creyó a pesar "
@@ -204,7 +215,7 @@ def etapa_6_hada():
     elif sala == "Pasillo Izquierdo":
         st.write("Entras a una habitación llena de humedad.")
         st.write("Es un espacio donde cae agua por doquier y su piso está inundado de barro, sientes como tus alas empiezan a pesar por el agua que cae y no te permite seguir volando, inevitablemente debes caminar, el barro te llegaba hasta por debajo de la rodilla, pero de repente sientes que este te tira un poco, frente a ti se eleva una montaña de barro, es un espiritu que usa el barro como cuerpo")
-        st.image("assets/hada/gif/hadaAnteBarro.gif")
+        st.image(RUTA_GIF / "hadaAnteBarro.gif")
         opcion = st.radio(
             "¿qué haces?",
             ["Tintineo De Campana", "Cortar Mechon Del Cabello"],
@@ -309,7 +320,7 @@ def finalAventura():
     st.session_state.etapa=9
     if st.session_state.salaInicial =="Pasillo Izquierdo" and st.session_state.opcionBatalla=="Tintineo De Campana":
         st.write("Se fusiona con el tuyo y de ahí nace una luz que encandila al espíritu y lo seca en un segundo, dejando el barro seco y al espíritu encerrado.")
-        st.image("assets/hada/gif/hadaEscapaBarro.gif")
+        st.image(RUTA_GIF / "hadaEscapaBarro.gif")
         if st.button("Continuar"):
             st.session_state.etapa = 9
             st.rerun()
