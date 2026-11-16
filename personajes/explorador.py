@@ -12,7 +12,6 @@ RUTA_IMG = RUTA_PROYECTO / "assets" / "picaro" / "img"
 RUTA_GIF = RUTA_PROYECTO / "assets" / "picaro" / "gif"
 
 # Cargar imágenes
-infoPicaro = Image.open(RUTA_IMG /"elPicaPica.png")
 picaroEnTunel = Image.open(RUTA_IMG / "picaroTunel.png")
 tunelCamino = Image.open(RUTA_IMG / "tunelCaminos.png")
 
@@ -90,7 +89,7 @@ def informacion_explorador():
         "la vida misma. Un día viste en un cartel tu siguiente obstáculo: salir "
         "de una mazmorra, y pensaste… ¿por qué no?"
     )
-    st.image(infoPicaro)
+    st.image(RUTA_GIF / "infoPicaro")
     if st.button("Continuar", key="continuar_historia_explorador"):
         st.session_state.informacion = 0
         st.rerun()
