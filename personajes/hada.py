@@ -317,7 +317,6 @@ def infoSalia():
             st.rerun()
 
 def finalAventura():
-    st.session_state.etapa=9
     if st.session_state.salaInicial =="Pasillo Izquierdo" and st.session_state.opcionBatalla=="Tintineo De Campana":
         st.write("Se fusiona con el tuyo y de ahí nace una luz que encandila al espíritu y lo seca en un segundo, dejando el barro seco y al espíritu encerrado.")
         st.image(RUTA_GIF / "hadaEscapaBarro.gif")
