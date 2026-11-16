@@ -89,7 +89,7 @@ def informacion_explorador():
         "la vida misma. Un día viste en un cartel tu siguiente obstáculo: salir "
         "de una mazmorra, y pensaste… ¿por qué no?"
     )
-    st.image(RUTA_GIF / "infoPicaro.gif")
+    st.image(RUTA_GIF / "elPicaPica.gif")
     if st.button("Continuar", key="continuar_historia_explorador"):
         st.session_state.informacion = 0
         st.rerun()
