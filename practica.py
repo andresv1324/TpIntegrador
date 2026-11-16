@@ -7,9 +7,36 @@ from personajes.explorador import main_explorador
 
 
 @st.cache_data
-def cargar_gif(nombre):
+def cargaGifHada(nombre):
     ruta_proyecto = Path(__file__).parent
-    ruta_gif = ruta_proyecto / "assets" / "gif" / nombre
+    ruta_gif = ruta_proyecto / "assets"/ "hada" / "gif" / nombre
+
+    with open(ruta_gif, "rb") as archivo:
+        gif = base64.b64encode(archivo.read()).decode("utf-8")
+
+    return f"data:image/gif;base64,{gif}"
+
+def cargaImgHada(nombre):
+    ruta_proyecto = Path(__file__).parent
+    ruta_gif = ruta_proyecto / "assets"/ "hada" / "img" / nombre
+
+    with open(ruta_gif, "rb") as archivo:
+        gif = base64.b64encode(archivo.read()).decode("utf-8")
+
+    return f"data:image/gif;base64,{gif}"
+
+def cargaGifPicaro(nombre):
+    ruta_proyecto = Path(__file__).parent
+    ruta_gif = ruta_proyecto / "assets"/ "picaro" / "gif" / nombre
+
+    with open(ruta_gif, "rb") as archivo:
+        gif = base64.b64encode(archivo.read()).decode("utf-8")
+
+    return f"data:image/gif;base64,{gif}"
+
+def cargaImgPicaro(nombre):
+    ruta_proyecto = Path(__file__).parent
+    ruta_gif = ruta_proyecto / "assets"/ "picaro" / "img" / nombre
 
     with open(ruta_gif, "rb") as archivo:
         gif = base64.b64encode(archivo.read()).decode("utf-8")
@@ -24,7 +51,7 @@ def cargar_estilos():
     with open(ruta_css, "r", encoding="utf-8") as archivo:
         css = archivo.read()
 
-    gif_hada = cargar_gif("hadaSaludando.gif")
+    gif_hada = cargaGifHada("hadaSaludando.gif")
     css = css.replace("__HADA_GIF__", gif_hada)
 
     st.markdown(f"<style>{css}</style>", unsafe_allow_html=True)
