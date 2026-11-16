@@ -221,6 +221,8 @@ def etapa_6_hada():
         st.rerun()
 
 def etapa_7_hada():
+    st.write("DEBUG SALA:", st.session_state.salaInicial)
+    st.write("DEBUG OPCIÓN:", st.session_state.opcionBatalla)
     if st.session_state.salaInicial =="Pasillo Derecho" and st.session_state.opcionBatalla=="Tintineo De Campana":
         st.write("Tu compañero te llama, empieza a moverse inquieto y ves una lucecita tenue, recuerdas la caída en el bosque y los destellos dorados, intentas enfocar la vista y te das cuenta que es el collar de tu compañero, acercas tu mano para tocar la campana y al instante la campana brilla e ilumina todo el lugar mostrando que los ruidos no son más que unos cuantos bichos chocando contra metales")
         st.write("estos son insectos comunes sumidos en una locura extraña, tu amigo felino y tú deciden avanzar empujandolos, no te generan daño alguno y al estar iluminados se calman.")
