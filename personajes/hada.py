@@ -308,7 +308,7 @@ def infoSalia():
     if st.session_state.condicionSalida == 2:
         st.error("No lograste Escapar De La Mazmorra")
         if st.button("Continuar"):
-            st.session_state.etapa = 9
+            st.session_state.etapa = 10
             st.rerun()
     elif st.session_state.condicionSalida == 1:
         st.success("Felicidades! lograste Escapar De La Mazmorra")
