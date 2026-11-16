@@ -1,18 +1,36 @@
 import streamlit as st
+from PIL import Image
+from pathlib import Path
+
+# Ruta absoluta de la carpeta principal del proyecto
+RUTA_PROYECTO = Path(__file__).resolve().parent.parent
+
+# Carpeta de imágenes
+RUTA_IMG = RUTA_PROYECTO / "assets" / "picaro" / "img"
+
+# Carpeta de GIF
+RUTA_GIF = RUTA_PROYECTO / "assets" / "picaro" / "gif"
+
+# Cargar imágenes
+infoPicaro = Image.open("elPicaPica.png")
+picaroEnTunel = Image.open("picaroTunel.png")
+tunelCamino = Image.open("tunelCaminos.png")
+
 
 def textoCruce():
     #CAMINO TUNEL
     if st.session_state.destino == "Tunel" and st.session_state.cruce =="Trepar tunel":
         if st.session_state.mostrarTextoComo==1:
             st.write("Entras al túnel y a tu derecha visualizas una escalera que recorre el túnel hasta llegar al techo y sigue por dentro, recto, perfecto para cruzar el túnel sin depender de nada, crees que es arriesgado ya que tendrás que estar en posición vertical pero no sabes por cuánto tiempo, sin embargo sigues por esa opción a pesar de tus dudas, empiezas tu camino y el ambiente se vuelve pesado")
-            st.write("hay ruidos pero no logras visualizar que es lo que escuchas, de repente ves algo enfrente tuyo, crees que es una rata asquerosa, pero medianamente se va acercando empiezas a ver con claridad extrañamente este ser brilla levemente…")
-
+            st.write("Hay ruidos pero no logras visualizar que es lo que escuchas, de repente ves algo enfrente tuyo, crees que es una rata asquerosa, pero medianamente se va acercando empiezas a ver con claridad extrañamente este ser brilla levemente…")
+            st.image(RUTA_GIF/"tunelArriba.gif")
             if st.button("Continuar", key="textoPicaroTunTrepar"):
                 st.session_state.mostrarTextoComo =2
                 st.rerun()
         elif st.session_state.mostrarTextoComo ==2:
             st.write("¡Es una ardilla! ¿una ardilla? ¿por acá?, se te hace extraño pero ella se acerca y te ve con curiosidad, te indica que la sigas, claramente por el mismo camino que vos estabas ya recorriendo, pero de repente te empiezas a sentir mejor, el ambiente se aligera y tu velocidad se normaliza, ves tu próximo desafío en frente tuyo…")
             st.write("Felicidades! un compañero te eligió para acompañarte en tu aventura")
+            st.image(RUTA_GIF / "tunelArdlla.gif")
             if st.button("Continuar", key="textoPicaroTunTrepar2"):
                 st.session_state.mostrarTextoComo = 0
                 st.rerun()
@@ -72,7 +90,7 @@ def informacion_explorador():
         "la vida misma. Un día viste en un cartel tu siguiente obstáculo: salir "
         "de una mazmorra, y pensaste… ¿por qué no?"
     )
-
+    st.image(infoPicaro)
     if st.button("Continuar", key="continuar_historia_explorador"):
         st.session_state.informacion = 0
         st.rerun()
@@ -101,6 +119,7 @@ def etapa_3_explorador():
             " te encuentras con un túnel, bastante gigante para tu tamaño, piensas y piensas, solo se te ocurren dos formas de cruzar…"
             "¿Cuál eliges?"
         )
+        st.image(picaroEnTunel)
         cruce = st.radio(
             "",
             ["Trepar tunel", "Cruzar el tunel"],
@@ -132,7 +151,6 @@ def etapa_4_explorador():
         "Trepar tunel",
         "Cruzar La Montaña"
     ]:
-        st.write("Encuentras una Ardilla mascota en el camino.")
         st.session_state.mascota = "Ardilla"
 
     elif st.session_state.cruce in [
@@ -142,15 +160,15 @@ def etapa_4_explorador():
         st.write("Encontraste un Gato Tricolor mascota en el camino.")
         st.session_state.mascota = "Gato Tricolor"
 
-    if st.button("Continuar", key="continuar_mascota_explorador"):
-        st.session_state.etapa = "MAZMORRA"
-        st.rerun()
+    st.session_state.etapa = "MAZMORRA"
+    st.rerun()
 
 
 def etapa_5_explorador():
     if st.session_state.mascota == "Ardilla":
-        st.write("llegas a la entrada de la mazmorra, te encuentras con dos caminos, uno arriba del otro, el de abajo irradia un olor nauseabundo y asqueroso, pero no logras llegar a ver nada más, del pasillo de arriba no hay ningun tipo de olor, pero el viento se escucha como roza las paredes…")
+        st.write("Llegas a la entrada de la mazmorra, te encuentras con dos caminos, uno arriba del otro, el de abajo irradia un olor nauseabundo y asqueroso, pero no logras llegar a ver nada más, del pasillo de arriba no hay ningun tipo de olor, pero el viento se escucha como roza las paredes…")
         st.write("¿por donde eliges ir?")
+        st.image(tunelCamino)
         sala = st.radio(
             "",
             ["Entrada Superior", "Entrada Inferior"],
@@ -180,6 +198,7 @@ def etapa_6_explorador():
     if sala == "Entrada Superior":
         st.write("Entras a la entrada de arriba, por alguna razón tienes un buen presentimiento, de repente un viento desde abajo te hacen volar hasta uno de los últimos pisos de la mazmorra y te encuentras frente a frente con un enjambre de murciélagos y ratas que no se quedan quietas, parece el mismo infierno. ")
         st.write("Pero antes de entrar en pánico buscas a tu amigo roedor para que no le suceda nada, mientras corres por lugares medianamente estables piensas ¿Qué hago?")
+        st.image(RUTA_GIF /"excapeRuinas.gif")
         opcion = st.radio(
             "",
             ["¡Snif Snif!","¡Flish, flash flish!"]
@@ -236,6 +255,7 @@ def etapa_7_explorador():
             st.rerun()
     elif st.session_state.salaInicial =="Entrada Inferior" and st.session_state.opcionBatalla=="¡Snif Snif!":
         st.write("Tu amigo roedor se acerca a ti con las patitas brillantes para que las toques, te acercas y se convierte en un roedor el quintuple de su tamaño, cava más rápido que el aire que los está aplastando, aumenta su velocidad y puedes ver minimos rayos de luz asomarse entre montones de tierra")
+        st.image(RUTA_GIF /"salidaRuina.gif")
         if st.button("Continuar"):
             st.session_state.condicionSalida = 1
             st.session_state.etapa = 8
@@ -275,17 +295,22 @@ def etapa_7_explorador():
             st.session_state.etapa = 8
             st.rerun()
 
-def salidaMazmorra():
-    if st.session_state.condicionSalida == 1:
+def infoSalia():
+    if st.session_state.condicionSalida == 2:
         st.error("No lograste Escapar De La Mazmorra")
         if st.button("Continuar"):
-            st.session_state.etapa = 9
-            st.rerun
-    elif st.session_state.condicionSalida == 2:
+            st.session_state.etapa = 10
+            st.rerun()
+    elif st.session_state.condicionSalida == 1:
         st.success("Felicidades! lograste Escapar De La Mazmorra")
         if st.button("Continuar"):
-            st.session_state.etapa = 9
-            st.rerun
+            st.session_state.etapa = 10
+            st.rerun()
+
+def finalAventura():
+    if st.session_state.salaInicial =="Entrada Inferior" and st.session_state.opcionBatalla=="¡Snif Snif!":
+        st.session_state.etapa = 9
+        st.rerun()
 
 def main_explorador():
     etapa = st.session_state.etapa
@@ -309,6 +334,8 @@ def main_explorador():
     elif etapa == 7:
         etapa_7_explorador()
     elif etapa == 8:
-        salidaMazmorra()
+        finalAventura()
+    elif etapa ==9:
+        infoSalia()
 
 #python -m streamlit run practica.py
