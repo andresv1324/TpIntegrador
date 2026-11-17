@@ -271,14 +271,14 @@ def etapa_7_hada():
             st.session_state.etapa = 8
             st.rerun()
     elif st.session_state.salaInicial =="Pasillo Derecho" and st.session_state.opcionBatalla=="Correr":
-        st.write("Los ruidos no te dejan escuchar nada, no ves nada, dos de tus sentidos están totalmente bloqueados, tu corazón se empieza a acelerar y tu cabeza se empieza a nublar, solo logras sentir como tu gato compañero se altera y te pones aún más nerviosa")
+        st.write("Los ruidos no te permiten escuchar nada y la oscuridad te impide ver lo que tienes delante. Dos de tus sentidos están completamente bloqueados. Tu corazón comienza a acelerarse y tu mente se nubla por el miedo.")
         st.image(RUTA_GIF / "hadaGatitoLocos.gif")
         if st.button("Continuar"):
             st.session_state.condicionSalida = 2
             st.session_state.etapa = 8
             st.rerun()
     elif st.session_state.salaInicial =="Pasillo Izquierdo" and st.session_state.opcionBatalla=="Tintineo De Campana":
-        st.write("De repente escuchas un tintineo, el mismo que escuchaste antes, es tu amigo felino que está a tu lado intentando llamar tu atención moviendo su campana en su collarcito, esta empieza a brillar y te inclinas para tocarla, en ese momento el brillo de su campan ")
+        st.write("Tu compañero intenta llamar tu atención y comienza a moverse inquieto. De pronto, ves una pequeña luz tenue. Recuerdas la caída en el bosque y aquellos destellos dorados. Intentas enfocar la vista y descubres que la luz proviene del collar de tu compañero. ")
         st.image(hadaBajLlu)
         if st.button("Continuar"):
             st.session_state.condicionSalida = 1
@@ -353,14 +353,15 @@ def finalAventura():
             st.session_state.etapa = 9
             st.rerun()
     elif st.session_state.salaInicial =="Pasillo Derecho" and st.session_state.opcionBatalla=="Tintineo De Campana":
-        st.write("Y al instante la campana brilla e ilumina todo el lugar mostrando que los ruidos no son más que unos cuantos bichos chocando contra metales")
-        st.write("estos son insectos comunes sumidos en una locura extraña, tu amigo felino y tú deciden avanzar empujandolos, no te generan daño alguno y al estar iluminados se calman.")
+        st.write("Acercas tu mano para tocar la campana y, al instante, esta comienza a brillar e ilumina toda la habitación. Finalmente, descubres que los ruidos no eran más que unos cuantos insectos chocando contra objetos metálicos. Se trata de insectos comunes, aunque parecen estar sumidos en una extraña locura.")
+        st.write("Tu amigo felino y tú deciden avanzar apartándolos del camino. No representan ningún peligro para ustedes y, al quedar iluminados por la campana, los insectos comienzan a tranquilizarse.")
         st.image(RUTA_GIF/ "hadaGatitoLuz.gif")
         if st.button("Continuar"):
             st.session_state.etapa = 9
             st.rerun()
     elif st.session_state.salaInicial =="Pasillo Derecho" and st.session_state.opcionBatalla=="Correr":
-        st.write("Lo agarras y empiezas a correr para lo que sea que haya en ese lugar, para escapar, pero en la desesperación chocas contra una pared ")
+        st.write("Solo alcanzas a sentir cómo tu compañero felino se altera, lo que te pone aún más nerviosa. Lo tomas entre tus brazos y comienzas a correr sin rumbo, intentando escapar de lo que sea que se encuentre en ese lugar.
+        Pero, en medio de la desesperación, terminas chocando contra una pared…")
         st.image(RUTA_GIF / "hadaContraPared.gif")
         if st.button("Continuar"):
             st.session_state.etapa = 9
