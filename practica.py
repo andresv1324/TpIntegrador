@@ -65,6 +65,17 @@ def cargar_estilos():
 
     st.markdown(f"<style>{css}</style>", unsafe_allow_html=True)
 
+#agregado
+def cargaPortada(ruta_relativa="assets/portada.jpg"):
+    ruta_proyecto = Path(__file__).parent
+    ruta_img = ruta_proyecto / ruta_relativa
+
+    with open(ruta_img, "rb") as archivo:
+        img = base64.b64encode(archivo.read()).decode("utf-8")
+
+    return f"data:image/jpeg;base64,{img}"
+
+
 
 def inicializar_variables():
     valores_iniciales = {
@@ -114,18 +125,35 @@ def main():
     cargar_estilos()
     inicializar_variables()
 
-    if st.session_state.etapa == 0:
-        st.markdown("""
-            <div class="portada-contenedor">
-                <div class="portada-etiqueta">✦ Aventura Interactiva ✦</div>
-                <h1 class="portada-titulo">LO QUE AGUARDA<br>EN LA PROFUNDIDAD</h1>
-                <p class="portada-subtitulo">
-                    Dos caminos, un compañero inesperado y una mazmorra de la que pocos regresan.
-                </p>
-            </div>
+if st.session_state.etapa == 0:
+        fondo_jpg = cargaPortada("assets/portada.jpg") # <-- Pon aquí el nombre exacto de tu .jpg
+
+        st.markdown(f"""
+            <style>
+                /* Ocultar barra superior de Streamlit en la portada */
+                header[data-testid="stHeader"] {{
+                    display: none;
+                }}
+                /* Poner tu .jpg ocupando toda la pantalla */
+                .stApp {{
+                    background-image: url("{fondo_jpg}") !important;
+                    background-size: cover !important;
+                    background-position: center center !important;
+                    background-repeat: no-repeat !important;
+                    background-attachment: fixed !important;
+                }}
+                /* Empujar el botón hacia la parte inferior de la pantalla */
+                .block-container {{
+                    min-height: 100vh;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: flex-end;
+                    padding-bottom: 6vh !important;
+                }}
+            </style>
         """, unsafe_allow_html=True)
 
-        _, col_centro, _ = st.columns([1.2, 1, 1.2])
+        _, col_centro, _ = st.columns([1.3, 1, 1.3])
         with col_centro:
             if st.button("⚔️ COMENZAR AVENTURA", key="btn_comenzar", use_container_width=True):
                 st.session_state.etapa = 1
