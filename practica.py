@@ -5,6 +5,7 @@ import base64
 from personajes.hada import main_hada
 from personajes.explorador import main_explorador
 
+st.set_page_config(page_title="Lo que aguarda en la profundidad", layout="wide")
 
 @st.cache_data
 def cargaGifHada(nombre):
