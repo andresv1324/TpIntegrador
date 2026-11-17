@@ -28,8 +28,8 @@ def textoCruce():
     #CAMINO RIO BRAVO
     if st.session_state.destino == "Rio Bravo" and st.session_state.cruce =="Bordear el rio":
         if st.session_state.mostrarTextoComo==1:
-            st.write("Elijes bordear el rio, dices que es mejor un trabajo duro que uno arriesgado, tu camino empieza complicado, te sientes observada y ansiosa, lo cual te hace tropezar y lastimarte, llegas a mitad de camino y sientes que no puedes más, de repente una manada de perros aparece en frente tuyo, gruñéndote y enfrentandote, tu miedo te ciega y tu cansancio actual no ayuda, pero")
-            st.write("Desde lo más alto de los árboles a tu lado finos balines empiezan a dirigirse hacia los perros haciendo que se asusten y no sepan que hacer más que correr hacia diferentes direcciones, se olvidan de ti, pero debido a todo lo ocurrido te desmayas, momentos después te despiertas y sin entender mucho sigues el camino")
+            st.write(" Eliges bordear el río. Piensas que es mejor realizar un trabajo duro que arriesgarte a tomar un camino peligroso. El recorrido comienza siendo complicado. Te sientes observada y ansiosa, lo que provoca que tropieces y termines lastimándote. Llegas a mitad de camino y sientes que ya no puedes continuar. De repente, una manada de perros aparece frente a ti, gruñendo y mostrándose amenazantes.")
+            st.write("El miedo te invade y te impide reaccionar con claridad. El cansancio acumulado tampoco ayuda, pero… desde lo más alto de los árboles que te rodean, comienzan a salir disparados unos finos balines que se dirigen hacia los lobos. Estos se asustan, se desorientan y salen corriendo en distintas direcciones, olvidándose por completo de ti. Sin embargo, todo lo ocurrido termina pasándote factura y pierdes el conocimiento. Unos momentos después, despiertas sin entender muy bien qué sucedió. Aún confundida, decides continuar por el camino…")
             st.image(RUTA_GIF / "hadaBordearRio.gif")
 
             if st.button("Continuar", key="textHadaBalsBorde"):
@@ -45,7 +45,10 @@ def textoCruce():
                 st.rerun()
     elif st.session_state.destino == "Rio Bravo" and st.session_state.cruce =="Balsa por dentro":
         if st.session_state.mostrarTextoComo==1:
-            st.write("Eliges cruzar el río por dentro, tu instinto de venganza y de ira te hace ir por el lugar más peligroso a simple vista, donde estabas había una balsa medianamente decente, que en tu cabeza era buena idea, y de hecho, sí… El primer trayecto fue un poco turbulento, pero luego el rio desemboca y se calma haciendo de tu viaje hasta la mazmorra tranquilo. Pero de repente, casi llegando al final, el río se alborota y se vuelve incontrolable, intentas mantenerte a flote hasta llegar pero tu balsa se vuelca…")
+            st.write(" Eliges atravesar el río por dentro. Tu instinto de venganza y tu ira te impulsan a tomar el camino que, a simple vista, parece el más peligroso. En la orilla encuentras una balsa medianamente decente que, en ese momento, te parece una buena idea."
+            "Y, de hecho, ¡lo es! El primer tramo del recorrido resulta un poco turbulento, pero luego el río desemboca en una zona más tranquila, haciendo que tu viaje hacia la mazmorra sea mucho más llevadero."
+            "Sin embargo, cuando estás a punto de llegar al final, el río vuelve a alborotarse y se vuelve completamente incontrolable. Intentas mantenerte a flote hasta alcanzar la orilla, pero, de repente, ¡tu balsa se vuelca…!"
+")
             st.image(RUTA_GIF / "hadaPelirrojaEnLosRapidos.gif")
 
             if st.button("Continuar", key="textHadaBalsDentr3"):
@@ -132,8 +135,8 @@ def elegir_camino_hada():
 def etapa_3_hada():
     if st.session_state.destino == "Rio Bravo":
         st.header(
-            "Empiezas tu recorrido por un río turbulento que intimida, "
-            "rompe olas contra piedras filosas y hay muchísimo viento. "
+            "Comienzas tu recorrido junto a un río turbulento e intimidante. Las olas rompen violentamente contra las piedras afiladas de la orilla, mientras fuertes ráfagas de viento azotan todo a tu alrededor."
+            "El camino no parece nada sencillo…"
             "¿Por dónde eliges ir?"
         )
         st.image(imgRioBravo, width=500)
@@ -192,7 +195,7 @@ def etapa_5_hada():
         )
 
     elif st.session_state.mascota == "Gato Tricolor":
-        st.write("Avanzas por un túnel que te conduce hacia el este (izquierda). El lugar está oscuro y se escuchan muchos ruidos, pero crees que es la mejor entrada. Piensas que su aspecto tenebroso es solo un engaño para evitar que exploradores como tú se atrevan a entrar.")
+        st.write("Avanzas por un túnel que te conduce hacia el este. El lugar está oscuro y se escuchan muchos ruidos, pero crees que es la mejor entrada. Piensas que su aspecto tenebroso es solo un engaño para evitar que exploradores como tú se atrevan a entrar.")
         st.write("Más adelante, te encuentras con dos pasillos… ¿Cuál eliges?")
         st.image(hadaGatAntCam)
         sala = st.radio(
