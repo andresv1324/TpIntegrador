@@ -128,7 +128,7 @@ def main():
     if st.session_state.etapa == 0:
         fondo_jpg = cargaPortada("assets/hada/img/portada.png") # <-- Pon aquí el nombre exacto de tu .jpg
 
-     st.markdown(f"""
+    st.markdown(f"""
             <style>
                 header[data-testid="stHeader"] {{
                     display: none;
