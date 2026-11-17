@@ -1,81 +1,149 @@
+/* Importar fuentes de fantasía y lectura limpia */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=Lora:ital,wght@0,400;0,600;1,400&display=swap');
 
 /* =========================
-    TARJETAS DE PERSONAJES
+   FONDO Y TIPOGRAFÍA GENERAL
 ========================= */
+.stApp {
+    background: radial-gradient(circle at top, #1b172e 0%, #0d0b14 70%, #08070c 100%);
+    color: #F1F5F9;
+    font-family: 'Lora', serif;
+}
 
-/* Estilos compartidos */
+/* Títulos con estilo medieval / fantasía */
+h1, h2, h3 {
+    font-family: 'Cinzel', serif !important;
+    letter-spacing: 1.5px;
+    color: #F8FAFC !important;
+    text-shadow: 0 2px 12px rgba(185, 156, 244, 0.35);
+}
+
+/* Textos narrativos más cómodos de leer */
+.stMarkdown p {
+    font-size: 1.08rem;
+    line-height: 1.75;
+    color: #E2E8F0;
+}
+
+/* =========================
+   CONTENEDORES Y TARJETAS NARRATIVAS
+========================= */
+[data-testid="stVerticalBlockBorderWrapper"] {
+    background: rgba(22, 19, 38, 0.72);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(185, 156, 244, 0.25) !important;
+    border-radius: 14px !important;
+    padding: 18px !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45);
+}
+
+/* Marcos para las imágenes y GIFs de las escenas */
+[data-testid="stImage"] img {
+    border-radius: 12px;
+    border: 2px solid rgba(185, 156, 244, 0.35);
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.6);
+}
+
+/* =========================
+   BOTONES GENERALES DEL JUEGO
+========================= */
+.stButton > button {
+    background: linear-gradient(135deg, #252040 0%, #171429 100%);
+    color: #F1F5F9;
+    border: 1px solid #8B6FD4;
+    border-radius: 10px;
+    padding: 0.65rem 1.2rem;
+    font-family: 'Cinzel', serif;
+    font-weight: 600;
+    letter-spacing: 0.8px;
+    transition: all 0.25s ease;
+}
+
+.stButton > button:hover {
+    background: linear-gradient(135deg, #3B2D59 0%, #241C3D 100%);
+    border-color: #D9C4FF;
+    color: #FFFFFF;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(185, 156, 244, 0.3);
+}
+
+/* =========================
+   TARJETAS DE PERSONAJES (TU DISEÑO ORIGINAL MEJORADO)
+========================= */
 .st-key-elegir_hada button,
 .st-key-elegir_explorador button {
     width: 100%;
-    min-height: 300px;
-
+    min-height: 340px;
     white-space: pre-wrap;
     text-align: center;
-
-    border-radius: 12px;
+    border-radius: 16px;
     border: 2px solid;
     padding: 24px;
-
     color: #F1F5F9;
-
-    transition: border-color 0.2s ease;
+    font-family: 'Cinzel', serif;
+    font-size: 1.3rem;
+    font-weight: 800;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
 }
 
-/* Texto de las tarjetas */
 .st-key-elegir_hada button p,
 .st-key-elegir_explorador button p {
     white-space: pre-wrap;
     text-align: center;
-    line-height: 2;
+    line-height: 1.6;
     color: #F1F5F9;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
 }
 
 /* Tarjeta Hada */
-/* TARJETA HADA */
-
 .st-key-elegir_hada button {
-
     background-image:
         linear-gradient(
-            rgba(20, 15, 35, 0.45),
-            rgba(20, 15, 35, 0.65)
+            to top,
+            rgba(20, 15, 35, 0.88) 0%,
+            rgba(20, 15, 35, 0.25) 55%,
+            rgba(20, 15, 35, 0.45) 100%
         ),
         url("__HADA_GIF__");
-
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-
     border-color: #B99CF4;
-    color: #F1F5F9;
 }
 
 /* Tarjeta Explorador */
 .st-key-elegir_explorador button {
-
     background-image:
         linear-gradient(
-            rgba(20, 15, 35, 0.45),
-            rgba(20, 15, 35, 0.65)
+            to top,
+            rgba(15, 32, 34, 0.88) 0%,
+            rgba(20, 15, 35, 0.25) 55%,
+            rgba(20, 15, 35, 0.45) 100%
         ),
         url("__PICARO_GIF__");
-
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     background-color: #183B3C;
     border-color: #65C9BA;
 }
 
 /* Hover Hada */
 .st-key-elegir_hada button:hover {
-    background-color: #3B2D59;
-    border-color: #D9C4FF;
-    color: #FFFFFF;
+    border-color: #E9D8FD;
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(185, 156, 244, 0.45);
 }
 
 /* Hover Explorador */
 .st-key-elegir_explorador button:hover {
-    background-color: #245653;
-    border-color: #8CE7D6;
-    color: #FFFFFF;
+    border-color: #9AE6B4;
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(101, 201, 186, 0.45);
 }
 
 /* Accesibilidad con teclado */
