@@ -65,7 +65,7 @@ def textoCruce():
             if mostrar_escena(
                 parrafos=[
                     "Eliges atravesar el río por dentro. Tu instinto de venganza y tu ira te impulsan a tomar el camino que, a simple vista, parece el más peligroso. En la orilla encuentras una balsa medianamente decente que, en ese momento, te parece una buena idea.",
-                    "Y, de hecho, ¡lo es! El primer tramo del recorrido resulta un poco turbulento, pero luego el río desemboca en una zona más tranquila, haciendo que tu viaje hacia la mazmorra sea mucho más llevadero.",
+                    "Y de hecho... ¡lo es! El primer tramo del recorrido resulta un poco turbulento, pero luego el río desemboca en una zona más tranquila, haciendo que tu viaje hacia la mazmorra sea mucho más llevadero.",
                     "Sin embargo, cuando estás a punto de llegar al final, el río vuelve a alborotarse y se vuelve completamente incontrolable. Intentas mantenerte a flote hasta alcanzar la orilla, pero, de repente, ¡tu balsa se vuelca…!"
                 ],
                 media=RUTA_GIF / "hadaPelirrojaEnLosRapidos.gif",
