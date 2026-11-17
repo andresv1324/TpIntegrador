@@ -55,7 +55,7 @@ def cargar_estilos():
     gifPicaro = cargaGifPicaro("picaroSaludando.gif")
     
     # 1. Elige la imagen o GIF de fondo (puede ser de hada o de picaro)
-    fondoPortada = cargaImgHada("hadaEnBosque.png") # <-- Cambia el nombre si prefieres otra imagen/gif
+    fondoPortada = cargaImgHada("portada.png") # <-- Cambia el nombre si prefieres otra imagen/gif
 
     css = css.replace("__HADA_GIF__", gifHada)
     css = css.replace("__PICARO_GIF__", gifPicaro)
