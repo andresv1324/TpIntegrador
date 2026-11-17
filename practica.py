@@ -80,22 +80,23 @@ def inicializar_variables():
 
 
 def seleccionar_personaje():
-    st.subheader(
-        "Bienvenido a esta travesía, donde tu capacidad de intuición "
-        "y sabiduría serán puestas a prueba. Elige tu personaje:"
+    st.markdown("<h2 style='text-align: center;'>Elige tu personaje</h2>", unsafe_allow_html=True)
+    st.markdown(
+        "<p style='text-align: center; opacity: 0.85;'>Bienvenido a esta travesía, donde tu capacidad de intuición y sabiduría serán puestas a prueba.</p>",
+        unsafe_allow_html=True
     )
 
-    col1, col2 = st.columns(2)
+    col1, col2 = st.columns(2, gap="large")
 
     with col1:
-        if st.button("", key="elegir_hada", use_container_width=True):
+        if st.button("🧚 HADA EXILIADA\nMagia natural e intuición", key="elegir_hada", use_container_width=True):
             st.session_state.personaje = "🧚 Hada"
             st.session_state.informacion = 1
             st.session_state.etapa = 2
             st.rerun()
 
     with col2:
-        if st.button("", key="elegir_explorador", use_container_width=True):
+        if st.button("🧭 PÍCARO EXPLORADOR\nSigilo, astucia y supervivencia", key="elegir_explorador", use_container_width=True):
             st.session_state.personaje = "🧭 Explorador"
             st.session_state.informacion = 1
             st.session_state.etapa = 2
