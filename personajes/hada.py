@@ -96,12 +96,12 @@ def textoCruce():
 def informacion_hada():
     st.image(RUTA_GIF / "hadaDesterrada.gif")
     st.text(
-        "Eres un hada que fue exiliada de su lugar, de su casa, de su familia, "
-        "luchaste por quedarte y te defendiste, pero la reina no te creyó a pesar "
-        "de que todo haya sido una confusión y el culpable sea otro, tu exiliación "
-        "solo puede ser redimida enfrentando esta aventura. Si logras superar, "
-        "serás inocente y podrás volver a tu aldea; si no, tu peor destino será "
-        "no salir de la mazmorra. Te deseamos suerte."
+        "Eres un hada que fue exiliada de su hogar, de su familia y de su aldea."
+         "Luchaste por quedarte y te defendiste, pero la reina no te creyó, a pesar"
+         "de que todo haya sido una confusión y el verdadero culpable sea otra persona. "
+        "Tu exilio solo podrá ser redimido si enfrentas esta aventura. Si logras superarla,"
+         "serás declarada inocente y podrás regresar a tu aldea. De lo contrario, "
+        "tu peor destino será no volver a salir de la mazmorra… Te deseamos suerte"
     )
 
     if st.button("Continuar", key="continuar_historia_hada"):
