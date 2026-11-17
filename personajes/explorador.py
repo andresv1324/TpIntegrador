@@ -231,6 +231,7 @@ def etapa_6_explorador():
     elif sala == "Pasillo Arriba":
         st.write("Eliges ir por la derecha cruzando una galería angosta con barro hasta los tobillos, pisas una losa floja que cede con un chasquido metálico. El suelo bajo tus botas se quiebra sobre una fosa llena de agua turbia y escombros.")
         st.write("De las grietas de los muros laterales asoman chillidos hambrientos: una plaga de roedores subterraneos de gran tamaño atraídos por el olor a carroña ¿que haces?")
+        st.image(RUTA_GIF / "tunelRata.gif")
         opcion = st.radio(
             "",
             ["Salto", "Uso De La Capa"]
@@ -284,21 +285,23 @@ def etapa_7_explorador():
             st.rerun()
     elif st.session_state.salaInicial =="Pasillo Abajo" and st.session_state.opcionBatalla=="Explotar Bisagra":
         st.write("En uno de tus tantos viajes, un viejo sabio te enseño a llevar pedernal en una pequeña bolsa por precaución, recuerdas a este viejo y decides sacar la bolsita, pero en tus herramientas te das cuenta que no tienes absolutamente nada para hacer estallar más que gas y pedernal, pero necesitas fuego! alguna chispa!...")
-        st.write("Tu amigo tricolor se da cuenta de lo que buscas y frunce su cara, su pelaje se empieza a erizar y a chispear, ¡BOOM! la reja salta de golpe y el humo también se disipa, las chispas fueron la mayor clave, tú y tu amigo felino salen rápidamente por el hueco de la reja hacia una salida oculta de la mazmorra")
+        st.write("Tu amigo tricolor se da cuenta de lo que buscas y frunce su cara, su pelaje se empieza a erizar y a chispear, ¡BOOM! la reja salta de golpe y el humo también se disipa, las chispas fueron la mayor clave")
+        st.image(RUTA_GIF / "boom.gif")
         if st.button("Continuar"):
             st.session_state.condicionSalida = 1
             st.session_state.etapa = 8
             st.rerun()
     elif st.session_state.salaInicial =="Pasillo Arriba" and st.session_state.opcionBatalla=="Salto":
         st.write("Antes de que caigas tu instinto de sobrevivir se activa y saltas hacia una pared enganchadote con tu daga a ella, al momento siguiente tu amigo felino tambien salta agarrandose a ti y trepando hacia una viga para no caer")
-        st.write("En conjunto eligen saltar ambos hacia el piso que queda y logran llegar al otro lado, pero no consideraron que podrian venir más roedores subterraneos")
+        st.image(RUTA_GIF / "rescateGato.gif")
         if st.button("Continuar"):
             st.session_state.condicionSalida = 2
             st.session_state.etapa = 8
             st.rerun()
     elif st.session_state.salaInicial =="Pasillo Arriba" and st.session_state.opcionBatalla=="Uso De La Capa":
         st.write("Elijes cubrirte con tu capa ante la plaga pero no te mueves por el miedo, recibes unos cuantos golpes pero de un momento a otro ya no sientes nada")
-        st.write("Sorpresa tu amigo felino tiene poderes, y con tan solo sonar dos veces su campanita te hizo levitar a vos y a él, hasta llevarlos a un lugar seguro para continuar su camino")
+        st.write("Sorpresa tu amigo felino tiene poderes, y con tan solo sonar dos veces su campanita te hizo levitar a vos y a él")
+        st.image(RUTA_GIF / "elGatoVolador.gif")
         if st.button("Continuar"):
             st.session_state.condicionSalida = 1
             st.session_state.etapa = 8
@@ -340,10 +343,32 @@ def finalAventura():
             st.rerun()
     elif st.session_state.salaInicial =="Pasillo Abajo" and st.session_state.opcionBatalla=="Forzar Cerrojo":
         st.write("logras abrir el cerrojo, pero al momento de pasar la reja y lograr respirar, te desmayas")
-        st.write(RUTA_GIF / "gasVeneno.gif")
+        st.image(RUTA_GIF / "gasVeneno.gif")
         if st.button("Continuar"):
             st.session_state.etapa = 9
             st.rerun()
+    elif st.session_state.salaInicial =="Pasillo Abajo" and st.session_state.opcionBatalla=="Explotar Bisagra":
+        st.write("Tú y tu amigo felino salen rápidamente por el hueco de la reja hacia una salida oculta de la mazmorra")
+        st.image(RUTA_GIF /"escapeluz.gif")
+        if st.button("Continuar"):
+            st.session_state.condicionSalida = 1
+            st.session_state.etapa = 9
+            st.rerun()
+    elif st.session_state.salaInicial =="Pasillo Arriba" and st.session_state.opcionBatalla=="Salto":
+        st.write("En conjunto eligen saltar ambos hacia el piso que queda y logran llegar al otro lado, pero no consideraron que podrian venir más roedores subterraneos")
+        st.image(RUTA_GIF / "spiderman.gif")
+        if st.button("Continuar"):
+            st.session_state.condicionSalida = 2
+            st.session_state.etapa = 9
+            st.rerun()
+    elif st.session_state.salaInicial =="Pasillo Arriba" and st.session_state.opcionBatalla=="Uso De La Capa":
+        st.write("Hasta llevarlos a un lugar seguro para continuar su camino")
+        st.image(RUTA_GIF / "escapeTunelVuela.gif")
+        if st.button("Continuar"):
+            st.session_state.condicionSalida = 1
+            st.session_state.etapa = 9
+            st.rerun()
+
 
 def main_explorador():
     etapa = st.session_state.etapa
