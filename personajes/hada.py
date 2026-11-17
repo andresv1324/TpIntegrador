@@ -62,18 +62,18 @@ def textoCruce():
     #CAMINO DEL BOSQUE
     elif st.session_state.destino =="Bosque Brumoso" and st.session_state.cruce =="Volar Sobre el bosque":
         if st.session_state.mostrarTextoComo==1:
-            st.write("Creíste que atravesar el bosque por fuera sería la opción más lógica. Pensaste que el cielo sería tranquilo, pero estabas equivocada. Apenas comenzaste a volar, un grupo de pájaros chocó contra ti y te desestabilizó por un momento.
-            Un tramo de silencio inquietante comenzó a ponerte nerviosa. No estabas equivocada: ese bosque es tierra de nadie. Hadas de diferentes reinos luchan constantemente por dominar esos cielos.")
-            st.write("Al verte, creyeron que eras un hada exploradora que estaba investigando el terreno para detectar posibles amenazas o complicaciones futuras (al menos, desde su perspectiva). Decidieron atacarte y lograron hacerte caer.
-            Sin embargo, fuiste tan rápida que conseguiste llegar bastante cerca del final del recorrido antes de perder el conocimiento por la caída")
+            st.write("Creíste que atravesar el bosque por fuera sería la opción más lógica. Pensaste que el cielo sería tranquilo, pero estabas equivocada. Apenas comenzaste a volar, un grupo de pájaros chocó contra ti y te desestabilizó por un momento." \
+            "Un tramo de silencio inquietante comenzó a ponerte nerviosa. No estabas equivocada: ese bosque es tierra de nadie. Hadas de diferentes reinos luchan constantemente por dominar esos cielos.")
+            st.write("Al verte, creyeron que eras un hada exploradora que estaba investigando el terreno para detectar posibles amenazas o complicaciones futuras (al menos, desde su perspectiva). Decidieron atacarte y lograron hacerte caer." \
+            "Sin embargo, fuiste tan rápida que conseguiste llegar bastante cerca del final del recorrido antes de perder el conocimiento por la caída")
             st.image(RUTA_GIF / "hadaCaidaBosque.gif")
 
             if st.button("Continuar", key="textHadaBalsBorde"):
                 st.session_state.mostrarTextoComo =2
                 st.rerun()
         elif st.session_state.mostrarTextoComo ==2:
-            st.write("Justo antes de caer, un gato tricolor callejero que rondaba por la zona presenció la situación e hizo sonar su campana. No entiendes muy bien qué sucedió, pero, de alguna manera, lograste salir ilesa y tu cuerpo no sentía ningún dolor.
-            Cuando finalmente despiertas, te encuentras en el suelo, con un nuevo amigo felino tricolor observándote fijamente desde arriba. Por un instante, crees ver unos destellos dorados salir de su collar, aunque no estás del todo segura…")
+            st.write("Justo antes de caer, un gato tricolor callejero que rondaba por la zona presenció la situación e hizo sonar su campana. No entiendes muy bien qué sucedió, pero, de alguna manera, lograste salir ilesa y tu cuerpo no sentía ningún dolor." \
+            "Cuando finalmente despiertas, te encuentras en el suelo, con un nuevo amigo felino tricolor observándote fijamente desde arriba. Por un instante, crees ver unos destellos dorados salir de su collar, aunque no estás del todo segura…")
             st.write("Felicidades! tienes un nuevo amigo que te acompañará en esta travesía")
             st.image(RUTA_GIF /"hadaRescateBosque.gif")
             if st.button("Continuar", key="textHadaBalsBorde2"):
@@ -213,8 +213,8 @@ def etapa_6_hada():
     sala = st.session_state.salaInicial
 
     if sala == "Pasillo Tranquilo":
-        st.write("Entras a una habitación en penumbras. Apenas cruzas la entrada, tus ojos no pueden creer lo que ven: entidades, personas, espíritus y toda clase de fantasmas que puedas imaginar deambulando por el lugar…
-        Te encuentras rodeado de fantasmas que buscan oro y objetos brillantes. Si no les das lo que quieren, podrían raptarte y no dejarte salir jamás.")
+        st.write("Entras a una habitación en penumbras. Apenas cruzas la entrada, tus ojos no pueden creer lo que ven: entidades, personas, espíritus y toda clase de fantasmas que puedas imaginar deambulando por el lugar…" \
+        "Te encuentras rodeado de fantasmas que buscan oro y objetos brillantes. Si no les das lo que quieren, podrían raptarte y no dejarte salir jamás.")
         st.image(RUTA_GIF /"hadaSalaFantasma.gif")
         opcion = st.radio(
             "¿qué hacés?",
@@ -223,8 +223,8 @@ def etapa_6_hada():
         )
 
     elif sala == "Pasillo Familiar":
-        st.write("Entras por la puerta que elegiste y te encuentras con un hermoso campo de flores. Son las flores más bellas que jamás hayas visto. Tu pequeño amigo roedor está emocionado, pues nunca creyó que pudiera existir un lugar así.
-        Comienzas a avanzar, pero, a medida que te adentras en el campo, notas que las flores desprenden un olor extraño, casi nauseabundo. ¡Malas noticias! Las flores son venenosas y liberan un hedor ácido que dificulta la respiración.")
+        st.write("Entras por la puerta que elegiste y te encuentras con un hermoso campo de flores. Son las flores más bellas que jamás hayas visto. Tu pequeño amigo roedor está emocionado, pues nunca creyó que pudiera existir un lugar así." \
+        "Comienzas a avanzar, pero, a medida que te adentras en el campo, notas que las flores desprenden un olor extraño, casi nauseabundo. ¡Malas noticias! Las flores son venenosas y liberan un hedor ácido que dificulta la respiración.")
         st.image(RUTA_GIF / "hadaFlores.gif")
         opcion = st.radio(
             "¿qué hacés?",
@@ -234,8 +234,8 @@ def etapa_6_hada():
 
     elif sala == "Pasillo Izquierdo":
         st.write("Entras a una habitación llena de humedad.")
-        st.write("El agua cae por todas partes y el suelo está completamente inundado de barro. Sientes cómo tus alas comienzan a volverse cada vez más pesadas debido al agua, impidiéndote seguir volando. Inevitablemente, no te queda otra opción que avanzar caminando.
-        El barro te llega por debajo de las rodillas, pero, de repente, sientes que algo tira de tus piernas y dificulta tu avance. Frente a ti, una enorme montaña de barro comienza a elevarse. ¡Es un espíritu que utiliza el barro como cuerpo!")
+        st.write("El agua cae por todas partes y el suelo está completamente inundado de barro. Sientes cómo tus alas comienzan a volverse cada vez más pesadas debido al agua, impidiéndote seguir volando. Inevitablemente, no te queda otra opción que avanzar caminando." \
+        "El barro te llega por debajo de las rodillas, pero, de repente, sientes que algo tira de tus piernas y dificulta tu avance. Frente a ti, una enorme montaña de barro comienza a elevarse. ¡Es un espíritu que utiliza el barro como cuerpo!")
         st.image(RUTA_GIF / "hadaAnteBarro.gif")
         opcion = st.radio(
             "¿qué haces?",
@@ -244,8 +244,8 @@ def etapa_6_hada():
         )
 
     elif sala == "Pasillo Derecho":
-        st.write("Este pasillo está completamente oscuro. Apenas logras dar cinco pasos cuando, de repente, ¡el suelo desaparece bajo tus pies! Caes por un túnel y terminas en una habitación sumida en la oscuridad, donde se escuchan ruidos por todas partes.
-        No sabes qué se esconde allí, pero tienes la certeza de que, si permaneces en ese lugar durante cinco minutos más, no podrás resistirlo.")
+        st.write("Este pasillo está completamente oscuro. Apenas logras dar cinco pasos cuando, de repente, ¡el suelo desaparece bajo tus pies! Caes por un túnel y terminas en una habitación sumida en la oscuridad, donde se escuchan ruidos por todas partes." \
+        "No sabes qué se esconde allí, pero tienes la certeza de que, si permaneces en ese lugar durante cinco minutos más, no podrás resistirlo.")
         st.image(hadaSubSue)
         opcion = st.radio(
             "¿que haces?",
@@ -285,8 +285,8 @@ def etapa_7_hada():
             st.session_state.etapa = 8
             st.rerun()
     elif st.session_state.salaInicial =="Pasillo Izquierdo" and st.session_state.opcionBatalla=="Cortar Mechon Del Cabello":
-        st.write("Durante tus épocas de estudio, formaste parte de un grupo secreto dedicado a investigar magia prohibida, cuyos hechizos requieren utilizar partes de uno mismo como fuente de poder.
-        Recuerdas uno de esos hechizos y decides ponerlo en práctica. Tomas un mechón de tu largo cabello y lo cortas. Según las enseñanzas, cuando un hada realiza este ritual, su cabello comienza a brillar y libera la luz mágica que lleva encerrada en su interior.")
+        st.write("Durante tus épocas de estudio, formaste parte de un grupo secreto dedicado a investigar magia prohibida, cuyos hechizos requieren utilizar partes de uno mismo como fuente de poder." \
+        "Recuerdas uno de esos hechizos y decides ponerlo en práctica. Tomas un mechón de tu largo cabello y lo cortas. Según las enseñanzas, cuando un hada realiza este ritual, su cabello comienza a brillar y libera la luz mágica que lleva encerrada en su interior.")
         st.image(hadaCalva)
         if st.button("Continuar"):
             st.session_state.condicionSalida = 2
@@ -360,8 +360,7 @@ def finalAventura():
             st.session_state.etapa = 9
             st.rerun()
     elif st.session_state.salaInicial =="Pasillo Derecho" and st.session_state.opcionBatalla=="Correr":
-        st.write("Solo alcanzas a sentir cómo tu compañero felino se altera, lo que te pone aún más nerviosa. Lo tomas entre tus brazos y comienzas a correr sin rumbo, intentando escapar de lo que sea que se encuentre en ese lugar.
-        Pero, en medio de la desesperación, terminas chocando contra una pared…")
+        st.write("Solo alcanzas a sentir cómo tu compañero felino se altera, lo que te pone aún más nerviosa. Lo tomas entre tus brazos y comienzas a correr sin rumbo, intentando escapar de lo que sea que se encuentre en ese lugar. Pero, en medio de la desesperación, terminas chocando contra una pared…")
         st.image(RUTA_GIF / "hadaContraPared.gif")
         if st.button("Continuar"):
             st.session_state.etapa = 9
