@@ -128,13 +128,11 @@ def main():
     if st.session_state.etapa == 0:
         fondo_jpg = cargaPortada("assets/hada/img/portada.png") # <-- Pon aquí el nombre exacto de tu .jpg
 
-        st.markdown(f"""
+     st.markdown(f"""
             <style>
-                /* Ocultar barra superior de Streamlit en la portada */
                 header[data-testid="stHeader"] {{
                     display: none;
                 }}
-                /* Poner tu .jpg ocupando toda la pantalla */
                 .stApp {{
                     background-image: url("{fondo_jpg}") !important;
                     background-size: cover !important;
@@ -142,13 +140,14 @@ def main():
                     background-repeat: no-repeat !important;
                     background-attachment: fixed !important;
                 }}
-                /* Empujar el botón hacia la parte inferior de la pantalla */
-                .block-container {{
-                    min-height: 100vh;
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: flex-end;
-                    padding-bottom: 6vh !important;
+                /* Fija el botón en la parte inferior de la pantalla */
+                .st-key-btn_comenzar {{
+                    position: fixed !important;
+                    bottom: 6vh !important;
+                    left: 50% !important;
+                    transform: translateX(-50%) !important;
+                    width: 320px !important;
+                    z-index: 999 !important;
                 }}
             </style>
         """, unsafe_allow_html=True)
