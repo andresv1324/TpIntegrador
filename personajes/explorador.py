@@ -15,6 +15,7 @@ RUTA_GIF = RUTA_PROYECTO / "assets" / "picaro" / "gif"
 picaroEnTunel = Image.open(RUTA_IMG / "picaroTunel.png")
 tunelCamino = Image.open(RUTA_IMG / "tunelCaminos.png")
 picaCandado = Image.open(RUTA_IMG / "picaCandado.png")
+picaMontaña = Image.open(RUTA_IMG / "picaMontaña.png")
 
 
 def textoCruce():
@@ -55,6 +56,7 @@ def textoCruce():
         if st.session_state.mostrarTextoComo==1:
             st.write("Decides escalar un árbol y saltar de punta en punta, confías en tu agilidad y sigilo aprendido hace años y crees poder cruzar la montaña finalmente, el día transcurre y sin comida ni agua te agotas, tus manos se empiezan a resbalar de los troncos y tu agarre ya no es seguro, pero sigues. La tarde empieza a caer, y con ella el viento aumenta")
             st.write("te sientes en peligro pero sigues por testarudo, te preparas para saltar a un árbol que está a una distancia más larga, pero al momento de brincar un viento fuerte te empuja y te hace caer al suelo, de suerte sigues vivo, pero te sientes débil así que decides descansar y comer encuentres lo que encuentres, te recuestas sobre un árbol y miras a tu alrededor, no escuchas nada y te relajas, pero de pronto…")
+            st.image(RUTA_GIF / "ladronBosquito.gif")
 
             if st.button("Continuar", key="textoPicaroMonTrepar"):
                 st.session_state.mostrarTextoComo =2
@@ -71,12 +73,14 @@ def textoCruce():
         if st.session_state.mostrarTextoComo==1:
             st.write("Decides que tu mejor opción es enfrentarte al riesgo y te metes de lleno al bosque frente a tí, empiezas tu camino pero te das cuenta que no hay más que vueltas y vueltas, ruidos extraños te acechan y voces imaginarias empiezan a estar en tu cabeza, te empiezas a volver loco y la noche cae de repente, te sientes perdido y asustado, crack")
             st.write("Un ruido te saca de tus pensamientos y sientes que algo se aproxima a ti con una velocidad diferente, te empiezas a acelerar pero la curiosidad puede más que tu ingenio, te quedas quieto observando si logras ver algo y lo máximo que llegas a ver son destellos dorados y unas patitas aproximándose, enfocas tu vista y logras ver que.")
+            st.image(RUTA_GIF / "picaLuciernagas.gif")
             if st.button("Continuar", key="textoPicaroMonCruzar"):
                 st.session_state.mostrarTextoComo =2
                 st.rerun()
         elif st.session_state.mostrarTextoComo ==2:
             st.write("¡Es una ardilla! ¿una ardilla? ¿por acá?, se te hace extraño pero ella se acerca y te ve con curiosidad, te indica que la sigas, claramente por el mismo camino que vos estabas ya recorriendo, pero de repente te empiezas a sentir mejor, el ambiente se aligera y tu velocidad se normaliza, ves tu próximo desafío en frente tuyo ")
             st.write("Felicidades! un compañero te eligió para acompañarte en tu aventura")
+            st.image(RUTA_GIF / "ultimo.gif")
             if st.button("Continuar", key="textoPicaroMonCruzar2"):
                 st.session_state.mostrarTextoComo = 0
                 st.rerun()
@@ -134,6 +138,7 @@ def etapa_3_explorador():
             "Inicias tu recorrido por la montaña. La inmensidad del paisaje te abruma por un instante, pero rápidamente recuperas la calma. Recuerdas que eres capaz de superar cualquier desafío y que nada podrá detenerte."
             "¿Cuál eliges?"
         )
+        st.image(picaMontaña)
         cruce = st.radio(
             "",
             ["Trepar montaña", "Cruzar La Montaña"],
