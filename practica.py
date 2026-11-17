@@ -114,12 +114,22 @@ def main():
     cargar_estilos()
     inicializar_variables()
 
-    if st.session_state.etapa == 0:
-        st.title("LO QUE AGUARDA EN LA PROFUNDIDAD")
+   if st.session_state.etapa == 0:
+        st.markdown("""
+            <div class="portada-contenedor">
+                <div class="portada-etiqueta">✦ Aventura Interactiva ✦</div>
+                <h1 class="portada-titulo">LO QUE AGUARDA<br>EN LA PROFUNDIDAD</h1>
+                <p class="portada-subtitulo">
+                    Dos caminos, un compañero inesperado y una mazmorra de la que pocos regresan.
+                </p>
+            </div>
+        """, unsafe_allow_html=True)
 
-        if st.button("Comenzar Aventura"):
-            st.session_state.etapa = 1
-            st.rerun()
+        _, col_centro, _ = st.columns([1.2, 1, 1.2])
+        with col_centro:
+            if st.button("⚔️ COMENZAR AVENTURA", key="btn_comenzar", use_container_width=True):
+                st.session_state.etapa = 1
+                st.rerun()
 
     #Etapa 1
     elif st.session_state.etapa == 1:
