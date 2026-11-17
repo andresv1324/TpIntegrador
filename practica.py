@@ -66,7 +66,7 @@ def cargar_estilos():
     st.markdown(f"<style>{css}</style>", unsafe_allow_html=True)
 
 #agregado
-def cargaPortada(ruta_relativa="assets/portada.jpg"):
+def cargaPortada(ruta_relativa="assets/hada/img/portada.png"):
     ruta_proyecto = Path(__file__).parent
     ruta_img = ruta_proyecto / ruta_relativa
 
@@ -126,7 +126,7 @@ def main():
     inicializar_variables()
 
     if st.session_state.etapa == 0:
-        fondo_jpg = cargaPortada("assets/portada.jpg") # <-- Pon aquí el nombre exacto de tu .jpg
+        fondo_jpg = cargaPortada("assets/hada/img/portada.png") # <-- Pon aquí el nombre exacto de tu .jpg
 
         st.markdown(f"""
             <style>
