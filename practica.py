@@ -125,7 +125,7 @@ def main():
     cargar_estilos()
     inicializar_variables()
 
- if st.session_state.etapa == 0:
+    if st.session_state.etapa == 0:
         fondo_jpg = cargaPortada("assets/portada.jpg") # <-- Pon aquí el nombre exacto de tu .jpg
 
         st.markdown(f"""
@@ -159,7 +159,7 @@ def main():
                 st.session_state.etapa = 1
                 st.rerun()
     #Etapa 1
- elif st.session_state.etapa == 1:
+    elif st.session_state.etapa == 1:
         seleccionar_personaje()
 
     elif st.session_state.etapa == 2:
