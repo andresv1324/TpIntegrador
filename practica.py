@@ -126,9 +126,9 @@ def main():
     inicializar_variables()
 
     if st.session_state.etapa == 0:
-        fondo_jpg = cargaPortada("assets/hada/img/portada.png") # <-- Pon aquí el nombre exacto de tu .jpg
+        fondo_jpg = cargaPortada("assets/hada/img/portada.png")
 
-    st.markdown(f"""
+        st.markdown(f"""
             <style>
                 header[data-testid="stHeader"] {{
                     display: none;
@@ -140,7 +140,6 @@ def main():
                     background-repeat: no-repeat !important;
                     background-attachment: fixed !important;
                 }}
-                /* Fija el botón en la parte inferior de la pantalla */
                 .st-key-btn_comenzar {{
                     position: fixed !important;
                     bottom: 6vh !important;
