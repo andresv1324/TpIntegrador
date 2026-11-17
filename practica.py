@@ -114,7 +114,7 @@ def main():
     cargar_estilos()
     inicializar_variables()
 
-   if st.session_state.etapa == 0:
+    if st.session_state.etapa == 0:
         st.markdown("""
             <div class="portada-contenedor">
                 <div class="portada-etiqueta">✦ Aventura Interactiva ✦</div>
