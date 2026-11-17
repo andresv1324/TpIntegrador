@@ -29,8 +29,9 @@ def textoCruce():
     if st.session_state.destino == "Rio Bravo" and st.session_state.cruce =="Bordear el rio":
         if st.session_state.mostrarTextoComo==1:
             st.write(" Eliges bordear el río. Piensas que es mejor realizar un trabajo duro que arriesgarte a tomar un camino peligroso. El recorrido comienza siendo complicado. Te sientes observada y ansiosa, lo que provoca que tropieces y termines lastimándote. Llegas a mitad de camino y sientes que ya no puedes continuar. De repente, una manada de perros aparece frente a ti, gruñendo y mostrándose amenazantes.")
-            st.write("El miedo te invade y te impide reaccionar con claridad. El cansancio acumulado tampoco ayuda, pero… desde lo más alto de los árboles que te rodean, comienzan a salir disparados unos finos balines que se dirigen hacia los lobos. Estos se asustan, se desorientan y salen corriendo en distintas direcciones, olvidándose por completo de ti. Sin embargo, todo lo ocurrido termina pasándote factura y pierdes el conocimiento. Unos momentos después, despiertas sin entender muy bien qué sucedió. Aún confundida, decides continuar por el camino…")
             st.image(RUTA_GIF / "hadaBordearRio.gif")
+            st.write("El miedo te invade y te impide reaccionar con claridad. El cansancio acumulado tampoco ayuda, pero… desde lo más alto de los árboles que te rodean, comienzan a salir disparados unos finos balines que se dirigen hacia los lobos. Estos se asustan, se desorientan y salen corriendo en distintas direcciones, olvidándose por completo de ti. Sin embargo, todo lo ocurrido termina pasándote factura y pierdes el conocimiento. Unos momentos después, despiertas sin entender muy bien qué sucedió. Aún confundida, decides continuar por el camino…")
+
 
             if st.button("Continuar", key="textHadaBalsBorde"):
                 st.session_state.mostrarTextoComo =2
