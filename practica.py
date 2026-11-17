@@ -158,9 +158,8 @@ if st.session_state.etapa == 0:
             if st.button("⚔️ COMENZAR AVENTURA", key="btn_comenzar", use_container_width=True):
                 st.session_state.etapa = 1
                 st.rerun()
-
     #Etapa 1
-    elif st.session_state.etapa == 1:
+elif st.session_state.etapa == 1:
         seleccionar_personaje()
 
     elif st.session_state.etapa == 2:
