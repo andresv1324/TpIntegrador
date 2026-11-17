@@ -319,7 +319,7 @@ def etapa_7_hada():
             st.rerun()
     elif st.session_state.salaInicial =="Pasillo Familiar" and st.session_state.opcionBatalla=="¡snif snif!":
         st.write("En medio de la desesperación, tu pequeño amigo roedor llama tu atención. Al mirarlo, notas que su pelaje comienza a brillar. ¡Lo que viste en el bosque no era mentira! ¡Él también tiene poderes!")
-        st.write(hadaFloresMag)
+        st.image(hadaFloresMag)
         if st.button("Continuar"):
             st.session_state.condicionSalida = 1
             st.session_state.etapa = 8
