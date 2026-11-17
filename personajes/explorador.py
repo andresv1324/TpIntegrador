@@ -228,8 +228,8 @@ def etapa_6_explorador():
 
     elif sala == "Pasillo Abajo":
         st.write("Entras con total confianza por el pasillo inferior, convencido de que, a veces, el camino que parece peor esconde la mejor oportunidad. Tras avanzar un poco, descubres que el túnel se divide en dos direcciones y decides tomar el camino de la izquierda. Sin embargo, tu recorrido termina frente a una antigua reja de hierro oxidado, cerrada con un candado tan viejo como el lugar mismo…")
+        st.image(RUTA_GIF / "ruinas.gif")       
         st.write("A tus pies, el agua estancada comienza a burbujear, liberando un gas verdoso e inflamable que irrita tus ojos. De repente, el gato tricolor comienza a bufar en dirección al techo, erizando su pelaje mientras un tenue resplandor protector los envuelve a ambos. Su misterioso brillo parece neutralizar parte de la toxicidad del ambiente, permitiéndote respirar con algo más de tranquilidad…")
-        st.image(RUTA_GIF / "ruinas.gif")
         opcion = st.radio(
             "",
             ["Forzar Cerrojo", "Explotar Bisagra"]
