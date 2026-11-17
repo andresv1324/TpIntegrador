@@ -152,3 +152,84 @@ h1, h2, h3 {
     outline: 3px solid #FFFFFF;
     outline-offset: 3px;
 }
+
+/*portada*/
+/* =========================
+   PORTADA DEL JUEGO (ETAPA 0)
+========================= */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Lora:ital@1&display=swap');
+
+.portada-contenedor {
+    position: relative;
+    width: 100%;
+    min-height: 75vh;
+    border-radius: 20px;
+    border: 2px solid rgba(185, 156, 244, 0.4);
+    background-image:
+        radial-gradient(circle at center, rgba(15, 12, 28, 0.35) 0%, rgba(8, 7, 15, 0.92) 100%),
+        url("__FONDO_PORTADA__");
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px 20px;
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.75);
+    margin-bottom: 20px;
+}
+
+.portada-etiqueta {
+    font-family: 'Cinzel', serif;
+    font-size: 0.95rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #65C9BA;
+    margin-bottom: 12px;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.9);
+}
+
+.portada-titulo {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(2.2rem, 5vw, 4rem);
+    font-weight: 900;
+    line-height: 1.15;
+    color: #F8FAFC;
+    text-shadow:
+        0 0 20px rgba(185, 156, 244, 0.65),
+        0 4px 12px rgba(0, 0, 0, 0.95);
+    margin: 0 0 18px 0;
+}
+
+.portada-subtitulo {
+    font-family: 'Lora', serif;
+    font-style: italic;
+    font-size: 1.2rem;
+    max-width: 600px;
+    color: #CBD5E1;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.95);
+    margin: 0;
+}
+
+/* Botón gigante de Comenzar Aventura */
+.st-key-btn_comenzar button {
+    background: linear-gradient(135deg, #6b46c1 0%, #3b2d59 100%);
+    color: #FFFFFF;
+    font-family: 'Cinzel', serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    padding: 16px 36px;
+    border-radius: 50px;
+    border: 2px solid #D9C4FF;
+    box-shadow: 0 0 25px rgba(185, 156, 244, 0.5);
+    transition: all 0.3s ease;
+}
+
+.st-key-btn_comenzar button:hover {
+    transform: scale(1.05);
+    background: linear-gradient(135deg, #805ad5 0%, #4c3875 100%);
+    box-shadow: 0 0 35px rgba(217, 196, 255, 0.85);
+    border-color: #FFFFFF;
+} 
