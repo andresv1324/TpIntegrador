@@ -231,7 +231,7 @@ def etapa_5_hada():
                 "¿Qué camino tomas?"
             ],
             media=RUTA_IMG / "hadaArdiAnteCamino.png",
-            botones=["Pasillo Tranquilo", "Pasillo Familiar"],
+            botones=["Pasillo Oscuro", "Pasillo Flores"],
             clave_prefix="sala_hada_ardilla"
         )
     elif st.session_state.mascota == "Gato Tricolor":
@@ -256,7 +256,7 @@ def etapa_5_hada():
 def etapa_6_hada():
     sala = st.session_state.salaInicial
 
-    if sala == "Pasillo Tranquilo":
+    if sala == "Pasillo Oscuro":
         eleccion = mostrar_escena(
             parrafos=[
                 "Entras a una habitación en penumbras. Apenas cruzas la entrada, tus ojos no pueden creer lo que ven: entidades, personas, espíritus y toda clase de fantasmas que puedas imaginar deambulando por el lugar…",
@@ -266,7 +266,7 @@ def etapa_6_hada():
             botones=["Polvo De Hadas", "¡snif snif!"],
             clave_prefix="opcionPasilloTranquilo"
         )
-    elif sala == "Pasillo Familiar":
+    elif sala == "Pasillo Flores":
         eleccion = mostrar_escena(
             parrafos=[
                 "Entras por la puerta que elegiste y te encuentras con un hermoso campo de flores. Son las flores más bellas que jamás hayas visto. Tu pequeño amigo roedor está emocionado, pues nunca creyó que pudiera existir un lugar así.",
@@ -362,7 +362,7 @@ def etapa_7_hada():
             st.session_state.etapa = 8
             st.rerun()
 
-    elif sala == "Pasillo Tranquilo" and opcion == "Polvo De Hadas":
+    elif sala == "Pasillo Oscuro" and opcion == "Polvo De Hadas":
         if mostrar_escena(
             parrafos=[
                 "Eliges el polvo de hada y lo lanzas al aire como si fuera una lluvia. Al entrar en contacto con el ambiente, este crea una nube de humo acompañada de pequeñas explosiones que ciegan a los fantasmas. Aprovechas la confusión para escabullirte entre los rincones del lugar y desaparecer de su vista.",
@@ -376,7 +376,7 @@ def etapa_7_hada():
             st.session_state.etapa = 8
             st.rerun()
 
-    elif sala == "Pasillo Tranquilo" and opcion == "¡snif snif!":
+    elif sala == "Pasillo Oscuro" and opcion == "¡snif snif!":
         if mostrar_escena(
             parrafos=[
                 "Eliges a tu ardilla. ¿Recuerdas los destellos dorados que salían de ella? Pues… ¡resulta que tiene poderes! Si permites que se suba a tu cabeza, podrá volverte invisible y ayudarte a pasar desapercibida entre los fantasmas."
@@ -389,7 +389,7 @@ def etapa_7_hada():
             st.session_state.etapa = 8
             st.rerun()
 
-    elif sala == "Pasillo Familiar" and opcion == "Polvo De Hadas":
+    elif sala == "Pasillo Flores" and opcion == "Polvo De Hadas":
         if mostrar_escena(
             parrafos=[
                 "Comienzas a buscar una solución y recuerdas tus clases de magia, aquellas que recibías antes de ser exiliada. De pronto, un hechizo viene a tu memoria. Lo combinas con tu polvo de hada y logras neutralizar el veneno que desprenden las flores."
@@ -402,7 +402,7 @@ def etapa_7_hada():
             st.session_state.etapa = 8
             st.rerun()
 
-    elif sala == "Pasillo Familiar" and opcion == "¡snif snif!":
+    elif sala == "Pasillo Flores" and opcion == "¡snif snif!":
         if mostrar_escena(
             parrafos=[
                 "En medio de la desesperación, tu pequeño amigo roedor llama tu atención. Al mirarlo, notas que su pelaje comienza a brillar. ¡Lo que viste en el bosque no era mentira! ¡Él también tiene poderes!"
@@ -482,11 +482,11 @@ def finalAventura():
             st.session_state.etapa = 9
             st.rerun()
 
-    elif sala == "Pasillo Tranquilo" and opcion == "Polvo De Hadas":
+    elif sala == "Pasillo Oscuro" and opcion == "Polvo De Hadas":
         st.session_state.etapa = 9
         st.rerun()
 
-    elif sala == "Pasillo Tranquilo" and opcion == "¡snif snif!":
+    elif sala == "Pasillo Oscuro" and opcion == "¡snif snif!":
         if mostrar_escena(
             parrafos=[
                 "¡Muy bien! Ahora debes ser cuidadosa: no hagas ruido y continúa avanzando. Como eres un hada, puedes volar lentamente para hacer el menor ruido posible y evitar tocar a cualquiera de los fantasmas."
@@ -498,7 +498,7 @@ def finalAventura():
             st.session_state.etapa = 9
             st.rerun()
 
-    elif sala == "Pasillo Familiar" and opcion == "Polvo De Hadas":
+    elif sala == "Pasillo Flores" and opcion == "Polvo De Hadas":
         if mostrar_escena(
             parrafos=[
                 "Continúas avanzando lo más rápido posible para conseguir salir del campo, pero hay un pequeño detalle que no habías tenido en cuenta: sin el veneno que liberan, las plantas se vuelven agresivas. Logras protegerte de sus toxinas, ¡pero no consigues escapar de sus rasguños!",
@@ -511,7 +511,7 @@ def finalAventura():
             st.session_state.etapa = 9
             st.rerun()
 
-    elif sala == "Pasillo Familiar" and opcion == "¡snif snif!":
+    elif sala == "Pasillo Flores" and opcion == "¡snif snif!":
         if mostrar_escena(
             parrafos=[
                 "Tu ardilla comienza a trepar por tu cuerpo hasta llegar a tu cabeza. Allí, su brillo se intensifica cada vez más hasta generar una burbuja protectora que te mantiene a salvo de todos los gases venenosos.",
