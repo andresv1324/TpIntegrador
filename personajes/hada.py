@@ -133,7 +133,7 @@ def elegir_camino_hada():
 #OPCION CRUZAR CAMINO
 def etapa_3_hada():
     if st.session_state.destino == "Rio Bravo":
-        st.header(
+        st.subheader(
             "Comienzas tu recorrido junto a un río turbulento e intimidante. Las olas rompen violentamente contra las piedras afiladas de la orilla, mientras fuertes ráfagas de viento azotan todo a tu alrededor."
             "El camino no parece nada sencillo…"
             "¿Por dónde eliges ir?"
