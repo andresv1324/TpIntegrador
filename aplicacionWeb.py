@@ -5,6 +5,12 @@ import base64
 from personajes.hada import main_hada
 from personajes.explorador import main_explorador
 
+# TRABAJO PRACTICO INTEGRADOR 2- Laboratorio de Computacion II
+# AUTORES: MICAELA LANCIERI Y ANDRES VERGARA
+# PROFESORA: MONICA HENCEK
+# FECHA DE ENTREGA 17/11/2026
+
+
 st.set_page_config(page_title="Lo que aguarda en la profundidad", layout="wide")
 
 @st.cache_data
