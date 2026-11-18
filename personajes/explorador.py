@@ -450,7 +450,7 @@ def finalAventura():
     elif sala == "Entrada Inferior" and opcion == "¡Snif Snif!":
         if mostrar_escena(
             parrafos=[
-                "Entre los montones de tierra comienzas a distinguir pequeños haces de luz que se filtran desde el exterior. ¡La salida está cerca! Gracias a la ayuda de tu pequeño amigo roedor, consigues abrirte paso entre la tierra acumulada y finalmente logras escapar de la mazmorra…"
+                "Entre los montones de tierra comienzas a distinguir pequeños rayos de luz que se filtran desde el exterior. ¡La salida está cerca! Gracias a la ayuda de tu pequeño amigo roedor, consigues abrirte paso entre la tierra acumulada y finalmente logras escapar de la mazmorra…"
             ],
             media=RUTA_GIF / "salidaTunel.gif",
             botones=["Continuar ➡️"],
