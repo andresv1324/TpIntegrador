@@ -40,7 +40,7 @@ def textoCruce():
                     "Escuchas ruidos a tu alrededor, pero no logras distinguir de dónde provienen. De repente, algo aparece frente a ti. A primera vista, crees que se trata de una rata asquerosa, pero, a medida que se acerca, comienzas a distinguir mejor su silueta. Hay algo extraño en esa criatura: su cuerpo emite un tenue brillo que apenas ilumina la oscuridad del túnel…"
                 ],
                 media=RUTA_GIF / "tunelArriba.gif",
-                botones=["Continuar ➡️"],
+                botones=["Continuar"],
                 clave_prefix="textoPicaroTunTrepar"
             ):
                 st.session_state.mostrarTextoComo = 2
@@ -53,7 +53,7 @@ def textoCruce():
                     "✨ ¡Felicidades! Un compañero te eligió para acompañarte en tu aventura."
                 ],
                 media=RUTA_GIF / "tunelArdilla.gif",
-                botones=["Continuar ➡️"],
+                botones=["Continuar"],
                 clave_prefix="textoPicaroTunTrepar2"
             ):
                 st.session_state.mostrarTextoComo = 0
@@ -67,7 +67,7 @@ def textoCruce():
                     "Has visto este tipo de trampas millones de veces, así que sabes perfectamente cómo actuar. Confiado en tu experiencia, decides avanzar con cautela: esquivas una, luego otra y continúas sorteando cada obstáculo que encuentras en el camino. Así, poco a poco, consigues llegar hasta la mitad del recorrido. Desde allí ya logras visualizar la salida, aunque la escasa visibilidad te impide distinguir con claridad qué te espera más adelante…"
                 ],
                 media=RUTA_GIF / "trampasCueva.gif",
-                botones=["Continuar ➡️"],
+                botones=["Continuar"],
                 clave_prefix="textoPicaroTunCruzar"
             ):
                 st.session_state.mostrarTextoComo = 2
@@ -80,7 +80,7 @@ def textoCruce():
                     "✨ ¡Felicidades! Tienes un nuevo amigo de aventuras."
                 ],
                 media=RUTA_GIF / "gato.gif",
-                botones=["Continuar ➡️"],
+                botones=["Continuar"],
                 clave_prefix="textoPicaroTunCruzar2"
             ):
                 st.session_state.mostrarTextoComo = 0
@@ -95,7 +95,7 @@ def textoCruce():
                     "Comienzas a sentirte en peligro, pero tu terquedad puede más y decides continuar. Te preparas para saltar hacia un árbol lejano, pero una fuerte ráfaga de viento te empuja y terminas cayendo al suelo. Por suerte, sigues con vida, aunque el golpe y el agotamiento te dejan bastante debilitado. Te recuestas contra el tronco de un árbol y observas tu alrededor. Todo parece tranquilo… Pero, de repente…"
                 ],
                 media=RUTA_GIF / "ladronBosquito.gif",
-                botones=["Continuar ➡️"],
+                botones=["Continuar"],
                 clave_prefix="textoPicaroMonTrepar"
             ):
                 st.session_state.mostrarTextoComo = 2
@@ -108,7 +108,7 @@ def textoCruce():
                     "✨ ¡Felicidades! Tienes un nuevo amigo de aventuras."
                 ],
                 media=RUTA_GIF / "gato.gif",
-                botones=["Continuar ➡️"],
+                botones=["Continuar"],
                 clave_prefix="textoPicaroMonTrepar2"
             ):
                 st.session_state.mostrarTextoComo = 0
@@ -122,7 +122,7 @@ def textoCruce():
                     "Un ruido repentino te saca de tus pensamientos. Sientes que algo se aproxima a gran velocidad entre la oscuridad. Decides quedarte quieto y observar. A lo lejos, apenas alcanzas a ver unos destellos dorados y pequeñas patitas que avanzan en tu dirección. Concentras la mirada hasta que logras distinguir de qué se trata…"
                 ],
                 media=RUTA_GIF / "picaLuciernagas.gif",
-                botones=["Continuar ➡️"],
+                botones=["Continuar"],
                 clave_prefix="textoPicaroMonCruzar"
             ):
                 st.session_state.mostrarTextoComo = 2
@@ -135,7 +135,7 @@ def textoCruce():
                     "✨ ¡Felicidades! Un compañero te eligió para acompañarte en tu aventura."
                 ],
                 media=RUTA_GIF / "ultimo.gif",
-                botones=["Continuar ➡️"],
+                botones=["Continuar"],
                 clave_prefix="textoPicaroMonCruzar2"
             ):
                 st.session_state.mostrarTextoComo = 0
@@ -150,7 +150,7 @@ def informacion_explorador():
             "Un día, mientras recorrías tu camino, encontraste un cartel que anunciaba tu próximo desafío: escapar de una mazmorra. Lo observaste por un momento y pensaste… ¿Por qué no?"
         ],
         media=RUTA_GIF / "elPicaPica.gif",
-        botones=["Comenzar mi travesía ➡️"],
+        botones=["Comenzar mi travesía"],
         clave_prefix="continuar_historia_explorador"
     ):
         st.session_state.informacion = 0
@@ -311,7 +311,7 @@ def etapa_7_explorador():
                 "Tu pequeño amigo roedor llama tu atención y te hace una seña para que toques su nariz, que comienza a emitir un tenue resplandor. Con curiosidad, acercas tu mano y rozas su pequeña naricita. En ese instante, una luz ilumina el camino frente a ti, revelando una posible ruta hacia la salida. Aprovechas el impulso de energía y te apresuras a seguir el sendero iluminado…"
             ],
             media=RUTA_GIF / "salidaRuina.gif",
-            botones=["Continuar ➡️"],
+            botones=["Continuar"],
             clave_prefix="et7_exp_1"
         ):
             st.session_state.condicionSalida = 1
@@ -325,7 +325,7 @@ def etapa_7_explorador():
                 "Lo recoges rápidamente y lo proteges entre tus brazos mientras intentas abrirte paso a empujones. Sin embargo, pronto recuerdas que la fuerza bruta nunca ha sido tu especialidad… y cada vez te resulta más difícil avanzar."
             ],
             media=RUTA_GIF / "excapeRuinasFallado.gif",
-            botones=["Continuar ➡️"],
+            botones=["Continuar"],
             clave_prefix="et7_exp_2"
         ):
             st.session_state.condicionSalida = 2
@@ -338,7 +338,7 @@ def etapa_7_explorador():
                 "Tu pequeño amigo roedor se acerca a ti con sus patitas envueltas en un brillo intenso, invitándote a tocarlas. Al hacerlo, una luz lo envuelve por completo y su cuerpo comienza a crecer hasta alcanzar cinco veces su tamaño original. ¡Su transformación es increíble! Ahora, convertido en un roedor gigantesco, comienza a cavar a una velocidad extraordinaria, abriéndoles paso hacia un lugar seguro…"
             ],
             media=RUTA_GIF / "excapeCalabaza.gif",
-            botones=["Continuar ➡️"],
+            botones=["Continuar"],
             clave_prefix="et7_exp_3"
         ):
             st.session_state.condicionSalida = 1
@@ -352,7 +352,7 @@ def etapa_7_explorador():
                 "El dolor disminuye y recuperas parte de tus fuerzas, como si aquel misterioso brillo te hubiera devuelto la vitalidad. Sin perder ni un segundo, comienzas a cavar con renovado entusiasmo y avanzas todo lo rápido que puedes…"
             ],
             media=RUTA_GIF / "excapeALuz.gif",
-            botones=["Continuar ➡️"],
+            botones=["Continuar"],
             clave_prefix="et7_exp_4"
         ):
             st.session_state.condicionSalida = 2
@@ -365,7 +365,7 @@ def etapa_7_explorador():
                 "Decides utilizar tus ganzúas para forzar el cerrojo lo más rápido posible. Cada segundo cuenta y la presión aumenta: el poder protector de tu amigo felino todavía no está lo suficientemente desarrollado como para mantenerte a salvo de aquel gas tóxico. Te ves obligado a soportar sus efectos mientras concentras toda tu atención en la cerradura…"
             ],
             media=RUTA_IMG / "picaCandado.png",
-            botones=["Continuar ➡️"],
+            botones=["Continuar"],
             clave_prefix="et7_exp_5"
         ):
             st.session_state.condicionSalida = 2
@@ -379,7 +379,7 @@ def etapa_7_explorador():
                 "Tu amigo tricolor parece darse cuenta de lo que intentas conseguir. De repente, su pelaje comienza a erizarse, desprendiendo pequeñas chispas. ¡BOOM! Una fuerte explosión hace saltar la reja de golpe. ¡Las chispas de tu compañero felino fueron la clave para abrirte paso!"
             ],
             media=RUTA_GIF / "boom.gif",
-            botones=["Continuar ➡️"],
+            botones=["Continuar"],
             clave_prefix="et7_exp_6"
         ):
             st.session_state.condicionSalida = 1
@@ -392,7 +392,7 @@ def etapa_7_explorador():
                 "Justo antes de caer, tu instinto de supervivencia se activa y reaccionas rápidamente: saltas hacia una de las paredes y clavas tu daga para conseguir sujetarte. Apenas un instante después, tu amigo felino también salta en tu dirección, aferrándose a ti antes de trepar hasta una viga cercana. Ambos consiguen mantenerse a salvo…"
             ],
             media=RUTA_GIF / "rescateGato.gif",
-            botones=["Continuar ➡️"],
+            botones=["Continuar"],
             clave_prefix="et7_exp_7"
         ):
             st.session_state.condicionSalida = 2
@@ -406,7 +406,7 @@ def etapa_7_explorador():
                 "¡Sorpresa! ¡Tu amigo felino también tiene poderes! Con tan solo hacer sonar su pequeña campanita dos veces, consigue que ambos comiencen a levitar, elevándolos suavemente por encima del suelo y alejándolos del peligro…"
             ],
             media=RUTA_GIF / "elGatoVolador.gif",
-            botones=["Continuar ➡️"],
+            botones=["Continuar"],
             clave_prefix="et7_exp_8"
         ):
             st.session_state.condicionSalida = 1
@@ -417,12 +417,12 @@ def etapa_7_explorador():
 def infoSalia():
     if st.session_state.condicionSalida == 2:
         st.error("💀 No lograste escapar de la mazmorra")
-        if st.button("Continuar ➡️", key="fin_malo_exp"):
+        if st.button("Continuar", key="fin_malo_exp"):
             st.session_state.etapa = 10
             st.rerun()
     elif st.session_state.condicionSalida == 1:
         st.success("🏆 ¡Felicidades! Lograste escapar de la mazmorra")
-        if st.button("Continuar ➡️", key="fin_bueno_exp"):
+        if st.button("Continuar", key="fin_bueno_exp"):
             st.session_state.etapa = 10
             st.rerun()
 
@@ -441,7 +441,7 @@ def finalAventura():
                 "Tu cuerpo comienza a resentirse ante la cantidad de golpes y rasguños recibidos. Son demasiadas criaturas atacando al mismo tiempo y, por más que intentes resistir, tu resistencia tiene un límite. Poco a poco, te resulta cada vez más difícil soportar el embate de aquella plaga…"
             ],
             media=RUTA_GIF / "ruinaSinExcape.gif",
-            botones=["Continuar ➡️"],
+            botones=["Continuar"],
             clave_prefix="fin_exp_1"
         ):
             st.session_state.etapa = 9
@@ -453,7 +453,7 @@ def finalAventura():
                 "Entre los montones de tierra comienzas a distinguir pequeños rayos de luz que se filtran desde el exterior. ¡La salida está cerca! Gracias a la ayuda de tu pequeño amigo roedor, consigues abrirte paso entre la tierra acumulada y finalmente logras escapar de la mazmorra…"
             ],
             media=RUTA_GIF / "salidaTunel.gif",
-            botones=["Continuar ➡️"],
+            botones=["Continuar"],
             clave_prefix="fin_exp_2"
         ):
             st.session_state.etapa = 9
@@ -465,7 +465,7 @@ def finalAventura():
                 "Parece que tu plan está funcionando y consigues acercarte cada vez más a la salida. Sin embargo, el viento sopla con tanta fuerza que avanzar se vuelve cada vez más complicado. Por más que intentas continuar, cada paso requiere un esfuerzo enorme…"
             ],
             media=RUTA_GIF / "sinEscape.gif",
-            botones=["Continuar ➡️"],
+            botones=["Continuar"],
             clave_prefix="fin_exp_3"
         ):
             st.session_state.etapa = 9
@@ -477,7 +477,7 @@ def finalAventura():
                 "Finalmente consigues abrir el cerrojo. Con las pocas fuerzas que te quedan, atraviesas la reja y alcanzas el otro lado. Por fin puedes respirar aire fresco, pero el alivio dura poco: el agotamiento y los efectos del gas terminan pasándote factura y, apenas das unos pasos, pierdes el conocimiento…"
             ],
             media=RUTA_GIF / "gasVeneno.gif",
-            botones=["Continuar ➡️"],
+            botones=["Continuar"],
             clave_prefix="fin_exp_4"
         ):
             st.session_state.etapa = 9
@@ -489,7 +489,7 @@ def finalAventura():
                 "Tú y tu amigo felino se apresuran a atravesar el hueco que ha quedado en la reja, logrando escapar hacia un pasadizo oculto que conduce a una salida secreta de la mazmorra…"
             ],
             media=RUTA_GIF / "escapeluz.gif",
-            botones=["Continuar ➡️"],
+            botones=["Continuar"],
             clave_prefix="fin_exp_5"
         ):
             st.session_state.condicionSalida = 1
@@ -502,7 +502,7 @@ def finalAventura():
                 "Deciden saltar juntos hacia el siguiente nivel y, tras un arriesgado impulso, consiguen llegar al otro lado. Sin embargo, en medio de la emoción por haber superado el obstáculo, olvidaron considerar una posibilidad: ¡todavía podrían aparecer más roedores subterráneos!…"
             ],
             media=RUTA_GIF / "spiderman.gif",
-            botones=["Continuar ➡️"],
+            botones=["Continuar"],
             clave_prefix="fin_exp_6"
         ):
             st.session_state.condicionSalida = 2
@@ -515,7 +515,7 @@ def finalAventura():
                 "…hasta conseguir llevarlos a un lugar seguro, donde ambos puedan recuperarse y continuar su camino."
             ],
             media=RUTA_GIF / "escapeTunelVuela.gif",
-            botones=["Continuar ➡️"],
+            botones=["Continuar"],
             clave_prefix="fin_exp_7"
         ):
             st.session_state.condicionSalida = 1
