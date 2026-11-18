@@ -64,7 +64,7 @@ def textoCruce():
             if mostrar_escena(
                 parrafos=[
                     "Eres un pícaro, maestro del engaño y las trampas. Antes de continuar, decides analizar cuidadosamente el camino, prestando atención a cada detalle que logras distinguir en la penumbra. Nunca está de más ser precavido. Al examinar tu entorno, comienzas a notar ciertas irregularidades: piedras que sobresalen más de lo habitual, pequeños huecos sospechosamente bien distribuidos en las paredes y otras peculiaridades que difícilmente parecen producto de la casualidad…",
-                    "Has visto este tipo de trampas millones de veces, así que sabes perfectamente cómo actuar. Confiado en tu experiencia, decides avanzar con cautela: esquivas una, luego otra y continúas sorteando cada obstáculo que encuentras en el camino. Así, poco a poco, consigues llegar hasta la mitad del recorrido. Desde allí ya logras divisar la salida, aunque la escasa visibilidad te impide distinguir con claridad qué te espera más adelante…"
+                    "Has visto este tipo de trampas millones de veces, así que sabes perfectamente cómo actuar. Confiado en tu experiencia, decides avanzar con cautela: esquivas una, luego otra y continúas sorteando cada obstáculo que encuentras en el camino. Así, poco a poco, consigues llegar hasta la mitad del recorrido. Desde allí ya logras visualizar la salida, aunque la escasa visibilidad te impide distinguir con claridad qué te espera más adelante…"
                 ],
                 media=RUTA_GIF / "trampasCueva.gif",
                 botones=["Continuar ➡️"],
