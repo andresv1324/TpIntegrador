@@ -40,7 +40,7 @@ def textoCruce():
                     "El miedo te invade y te impide reaccionar con claridad. El cansancio acumulado tampoco ayuda, pero… desde lo más alto de los árboles que te rodean, comienzan a salir disparados unos finos balines que se dirigen hacia los lobos. Estos se asustan, se desorientan y salen corriendo en distintas direcciones, olvidándose por completo de ti. Sin embargo, todo lo ocurrido termina pasándote factura y pierdes el conocimiento. Unos momentos después, despiertas sin entender muy bien qué sucedió. Aún confundida, decides continuar por el camino…"
                 ],
                 media=RUTA_GIF / "hadaBordearRio.gif",
-                botones=["Continuar ➡️"],
+                botones=["Continuar"],
                 clave_prefix="textHadaBalsBorde"
             ):
                 st.session_state.mostrarTextoComo = 2
@@ -54,7 +54,7 @@ def textoCruce():
                     "✨ ¡Felicidades! Un compañero te eligió para acompañarte en tu aventura."
                 ],
                 media=RUTA_GIF / "hadaArdilla.gif",
-                botones=["Continuar ➡️"],
+                botones=["Continuar"],
                 clave_prefix="textHadaBalsBorde2"
             ):
                 st.session_state.mostrarTextoComo = 0
@@ -69,7 +69,7 @@ def textoCruce():
                     "Sin embargo, cuando estás a punto de llegar al final, el río vuelve a alborotarse y se vuelve completamente incontrolable. Intentas mantenerte a flote hasta alcanzar la orilla, pero, de repente, ¡tu balsa se vuelca…!"
                 ],
                 media=RUTA_GIF / "hadaPelirrojaEnLosRapidos.gif",
-                botones=["Continuar ➡️"],
+                botones=["Continuar"],
                 clave_prefix="textHadaBalsDentr3"
             ):
                 st.session_state.mostrarTextoComo = 2
@@ -82,7 +82,7 @@ def textoCruce():
                     "✨ ¡Felicidades! Un compañero te eligió para acompañarte en tu aventura."
                 ],
                 media=RUTA_GIF / "encuentroGatito.gif",
-                botones=["Continuar ➡️"],
+                botones=["Continuar"],
                 clave_prefix="textHadaBalsDentr4"
             ):
                 st.session_state.mostrarTextoComo = 0
@@ -97,7 +97,7 @@ def textoCruce():
                     "Al verte, creyeron que eras un hada exploradora que estaba investigando el terreno para detectar posibles amenazas o complicaciones futuras (al menos, desde su perspectiva). Decidieron atacarte y lograron hacerte caer. Sin embargo, fuiste tan rápida que conseguiste llegar bastante cerca del final del recorrido antes de perder el conocimiento por la caída."
                 ],
                 media=RUTA_GIF / "hadaCaidaBosque.gif",
-                botones=["Continuar ➡️"],
+                botones=["Continuar"],
                 clave_prefix="textHadaBosqueVolar1"
             ):
                 st.session_state.mostrarTextoComo = 2
@@ -110,7 +110,7 @@ def textoCruce():
                     "✨ ¡Felicidades! Tienes un nuevo amigo que te acompañará en esta travesía."
                 ],
                 media=RUTA_GIF / "hadaRescateBosque.gif",
-                botones=["Continuar ➡️"],
+                botones=["Continuar"],
                 clave_prefix="textHadaBosqueVolar2"
             ):
                 st.session_state.mostrarTextoComo = 0
@@ -124,7 +124,7 @@ def textoCruce():
                     "Consejo: evita mirar hacia arriba."
                 ],
                 media=RUTA_IMG / "hadaDentroBosque.png",
-                botones=["Continuar ➡️"],
+                botones=["Continuar"],
                 clave_prefix="textHadaBosqueDentro1"
             ):
                 st.session_state.mostrarTextoComo = 2
@@ -138,7 +138,7 @@ def textoCruce():
                     "✨ ¡Felicidades! Un compañero te eligió para acompañarte en tu aventura."
                 ],
                 media=RUTA_GIF / "hadaArdilla.gif",
-                botones=["Continuar ➡️"],
+                botones=["Continuar"],
                 clave_prefix="textHadaBosqueDentro2"
             ):
                 st.session_state.mostrarTextoComo = 0
@@ -153,7 +153,7 @@ def informacion_hada():
             "Te deseamos suerte."
         ],
         media=RUTA_GIF / "hadaDesterrada.gif",
-        botones=["Comenzar mi travesía ➡️"],
+        botones=["Comenzar mi travesía"],
         clave_prefix="continuar_historia_hada"
     ):
         st.session_state.informacion = 0
@@ -315,7 +315,7 @@ def etapa_7_hada():
                 "De repente, escuchas un tintineo familiar: ¡es el mismo sonido que habías oído antes! Tu amigo felino está a tu lado, intentando llamar tu atención mientras mueve la pequeña campana de su collar. La campana comienza a brillar y te inclinas para tocarla."
             ],
             media=RUTA_IMG / "hadaCampanaGato.png",
-            botones=["Continuar ➡️"],
+            botones=["Continuar"],
             clave_prefix="et7_hada_1"
         ):
             st.session_state.condicionSalida = 1
@@ -328,7 +328,7 @@ def etapa_7_hada():
                 "Los ruidos no te permiten escuchar nada y la oscuridad te impide ver lo que tienes delante. Dos de tus sentidos están completamente bloqueados. Tu corazón comienza a acelerarse y tu mente se nubla por el miedo."
             ],
             media=RUTA_GIF / "hadaGatitoLocos.gif",
-            botones=["Continuar ➡️"],
+            botones=["Continuar"],
             clave_prefix="et7_hada_2"
         ):
             st.session_state.condicionSalida = 2
@@ -341,7 +341,7 @@ def etapa_7_hada():
                 "Tu compañero intenta llamar tu atención y comienza a moverse inquieto. De pronto, ves una pequeña luz tenue. Recuerdas la caída en el bosque y aquellos destellos dorados. Intentas enfocar la vista y descubres que la luz proviene del collar de tu compañero."
             ],
             media=RUTA_IMG / "gataBajoLaLluvia.png",
-            botones=["Continuar ➡️"],
+            botones=["Continuar"],
             clave_prefix="et7_hada_3"
         ):
             st.session_state.condicionSalida = 1
@@ -355,7 +355,7 @@ def etapa_7_hada():
                 "Recuerdas uno de esos hechizos y decides ponerlo en práctica. Tomas un mechón de tu largo cabello y lo cortas. Según las enseñanzas, cuando un hada realiza este ritual, su cabello comienza a brillar y libera la luz mágica que lleva encerrada en su interior."
             ],
             media=RUTA_IMG / "hadaCorte.png",
-            botones=["Continuar ➡️"],
+            botones=["Continuar"],
             clave_prefix="et7_hada_4"
         ):
             st.session_state.condicionSalida = 2
@@ -369,7 +369,7 @@ def etapa_7_hada():
                 "Lamentablemente, tu hechizo no estaba lo suficientemente estudiado ni practicado. El polvo de hada funciona durante la primera mitad del recorrido, pero luego sus efectos comienzan a disiparse. Logras llegar hasta la puerta, pero, justo antes de cruzarla, un fantasma te agarra de los pies y comienza a arrastrarte hacia el interior."
             ],
             media=RUTA_GIF / "hadaFantasmaMal.gif",
-            botones=["Continuar ➡️"],
+            botones=["Continuar"],
             clave_prefix="et7_hada_5"
         ):
             st.session_state.condicionSalida = 2
@@ -382,7 +382,7 @@ def etapa_7_hada():
                 "Eliges a tu ardilla. ¿Recuerdas los destellos dorados que salían de ella? Pues… ¡resulta que tiene poderes! Si permites que se suba a tu cabeza, podrá volverte invisible y ayudarte a pasar desapercibida entre los fantasmas."
             ],
             media=RUTA_GIF / "hadaInvisible.gif",
-            botones=["Continuar ➡️"],
+            botones=["Continuar"],
             clave_prefix="et7_hada_6"
         ):
             st.session_state.condicionSalida = 1
@@ -395,7 +395,7 @@ def etapa_7_hada():
                 "Comienzas a buscar una solución y recuerdas tus clases de magia, aquellas que recibías antes de ser exiliada. De pronto, un hechizo viene a tu memoria. Lo combinas con tu polvo de hada y logras neutralizar el veneno que desprenden las flores."
             ],
             media=RUTA_GIF / "hadaSinNiebla.gif",
-            botones=["Continuar ➡️"],
+            botones=["Continuar"],
             clave_prefix="et7_hada_7"
         ):
             st.session_state.condicionSalida = 2
@@ -408,7 +408,7 @@ def etapa_7_hada():
                 "En medio de la desesperación, tu pequeño amigo roedor llama tu atención. Al mirarlo, notas que su pelaje comienza a brillar. ¡Lo que viste en el bosque no era mentira! ¡Él también tiene poderes!"
             ],
             media=RUTA_IMG / "hadaEncuentroFlores.png",
-            botones=["Continuar ➡️"],
+            botones=["Continuar"],
             clave_prefix="et7_hada_8"
         ):
             st.session_state.condicionSalida = 1
@@ -419,12 +419,12 @@ def etapa_7_hada():
 def infoSalia():
     if st.session_state.condicionSalida == 2:
         st.error("💀 No lograste escapar de la mazmorra")
-        if st.button("Continuar ➡️", key="fin_malo_hada"):
+        if st.button("Continuar", key="fin_malo_hada"):
             st.session_state.etapa = 10
             st.rerun()
     elif st.session_state.condicionSalida == 1:
         st.success("🏆 ¡Felicidades! Lograste escapar de la mazmorra")
-        if st.button("Continuar ➡️", key="fin_bueno_hada"):
+        if st.button("Continuar", key="fin_bueno_hada"):
             st.session_state.etapa = 10
             st.rerun()
 
@@ -439,7 +439,7 @@ def finalAventura():
                 "En ese instante, su brillo se fusiona con el tuyo y ambos generan una luz tan intensa que encandila al espíritu y lo seca en cuestión de segundos, dejando todo el barro completamente seco y al espíritu atrapado en su interior."
             ],
             media=RUTA_GIF / "hadaEscapaBarro.gif",
-            botones=["Continuar ➡️"],
+            botones=["Continuar"],
             clave_prefix="fin_hada_1"
         ):
             st.session_state.etapa = 9
@@ -451,7 +451,7 @@ def finalAventura():
                 "Lamentablemente, el brillo no es lo suficientemente intenso como para secar al espíritu ni todo el barro que lo rodea. El poder se consume rápidamente y el espíritu recupera sus fuerzas."
             ],
             media=RUTA_GIF / "hadaMostroFallo.gif",
-            botones=["Continuar ➡️"],
+            botones=["Continuar"],
             clave_prefix="fin_hada_2"
         ):
             st.session_state.etapa = 9
@@ -464,7 +464,7 @@ def finalAventura():
                 "Tu amigo felino y tú deciden avanzar apartándolos del camino. No representan ningún peligro para ustedes y, al quedar iluminados por la campana, los insectos comienzan a tranquilizarse."
             ],
             media=RUTA_GIF / "hadaGatitoLuz.gif",
-            botones=["Continuar ➡️"],
+            botones=["Continuar"],
             clave_prefix="fin_hada_3"
         ):
             st.session_state.etapa = 9
@@ -476,7 +476,7 @@ def finalAventura():
                 "Solo alcanzas a sentir cómo tu compañero felino se altera, lo que te pone aún más nerviosa. Lo tomas entre tus brazos y comienzas a correr sin rumbo, intentando escapar de lo que sea que se encuentre en ese lugar. Pero, en medio de la desesperación, terminas chocando contra una pared…"
             ],
             media=RUTA_GIF / "hadaContraPared.gif",
-            botones=["Continuar ➡️"],
+            botones=["Continuar"],
             clave_prefix="fin_hada_4"
         ):
             st.session_state.etapa = 9
@@ -492,7 +492,7 @@ def finalAventura():
                 "¡Muy bien! Ahora debes ser cuidadosa: no hagas ruido y continúa avanzando. Como eres un hada, puedes volar lentamente para hacer el menor ruido posible y evitar tocar a cualquiera de los fantasmas."
             ],
             media=RUTA_GIF / "hadaArdillaEscape.gif",
-            botones=["Continuar ➡️"],
+            botones=["Continuar"],
             clave_prefix="fin_hada_5"
         ):
             st.session_state.etapa = 9
@@ -505,7 +505,7 @@ def finalAventura():
                 "Los rasguños de las plantas comienzan a lastimarte y debilitarte cada vez más a medida que intentas encontrar la salida. A pesar de tus esfuerzos, no consigues atravesar el campo de flores."
             ],
             media=RUTA_GIF / "hadaEspinas.gif",
-            botones=["Continuar ➡️"],
+            botones=["Continuar"],
             clave_prefix="fin_hada_6"
         ):
             st.session_state.etapa = 9
@@ -518,7 +518,7 @@ def finalAventura():
                 "Como no necesitas combatir ni neutralizar los gases, las flores permanecen dormidas. Aprovechas la oportunidad para avanzar de manera sigilosa y tranquila, sin despertarlas. Las flores no llegaron a despertarse y conseguiste llegar hasta el final."
             ],
             media=RUTA_GIF / "hadaEscudo.gif",
-            botones=["Continuar ➡️"],
+            botones=["Continuar"],
             clave_prefix="fin_hada_7"
         ):
             st.session_state.etapa = 9
